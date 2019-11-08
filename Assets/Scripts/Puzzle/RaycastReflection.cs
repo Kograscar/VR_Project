@@ -58,8 +58,8 @@ public class RaycastReflection : MonoBehaviour {
             positions2[j] = _vertexPositions[j];
         }
         _lineRenderer.SetPositions(positions2);
-        /*if(_lineRenderer.positionCount >= 2)
-            _lineRenderer.Simplify(tolerance);*/
+        if(_lineRenderer.positionCount >= 2)
+            _lineRenderer.Simplify(tolerance);
        // Debug.Log(_lineRenderer.positionCount);
 
     }
