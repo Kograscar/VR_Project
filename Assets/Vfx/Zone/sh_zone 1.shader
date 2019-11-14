@@ -6,6 +6,7 @@ Shader "New Amplify Shader"
 	{
 		_Color1("Color 1", Color) = (0.9622642,0.9332545,0.75801,0)
 		_Color0("Color 0", Color) = (0.08561765,0.07342471,0.2075472,0)
+		_Vector0("Vector 0", Vector) = (0,0,0,0)
 		[HideInInspector] __dirty( "", Int ) = 1
 	}
 
@@ -28,6 +29,7 @@ Shader "New Amplify Shader"
 		uniform float4 _Color0;
 		uniform float4 _Color1;
 		uniform sampler2D _GrabTexture;
+		uniform float4 _Vector0;
 
 
 		inline float Dither4x4Bayer( int x, int y )
@@ -77,9 +79,11 @@ Shader "New Amplify Shader"
 			float dither23 = Dither4x4Bayer( fmod(clipScreen23.x, 4), fmod(clipScreen23.y, 4) );
 			float4 ase_grabScreenPos = ASE_ComputeGrabScreenPos( ase_screenPos );
 			float4 screenColor24 = tex2Dproj( _GrabTexture, UNITY_PROJ_COORD( ase_grabScreenPos ) );
-			dither23 = step( dither23, screenColor24.r );
-			float clampResult39 = clamp( dither23 , 0.0 , 1.0 );
-			float4 lerpResult40 = lerp( _Color0 , _Color1 , clampResult39);
+			float4 clampResult39 = clamp( screenColor24 , float4( 0,0,0,0 ) , float4( 1,0,0,0 ) );
+			float4 clampResult49 = clamp( ( clampResult39 * _Vector0 ) , float4( 0,0,0,0 ) , float4( 1,0,0,0 ) );
+			float4 clampResult50 = clamp( (float4( 0.764151,0,0,0 ) + (clampResult49 - float4( 0,0,0,0 )) * (float4( 0,0,0,0 ) - float4( 0.764151,0,0,0 )) / (float4( 1,0,0,0 ) - float4( 0,0,0,0 ))) , float4( 0,0,0,0 ) , float4( 1,0,0,0 ) );
+			dither23 = step( dither23, clampResult50.r );
+			float4 lerpResult40 = lerp( _Color0 , _Color1 , dither23);
 			o.Emission = lerpResult40.rgb;
 			o.Alpha = 1;
 		}
@@ -91,19 +95,31 @@ Shader "New Amplify Shader"
 }
 /*ASEBEGIN
 Version=16400
-25;588;1906;662;2132.078;455.3538;1.875916;True;True
-Node;AmplifyShaderEditor.ScreenColorNode;24;-1321.348,144.9479;Float;False;Global;_GrabScreen0;Grab Screen 0;1;0;Create;True;0;0;False;0;Object;-1;False;False;1;0;FLOAT2;0,0;False;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.DitheringNode;23;-1010.499,45.54861;Float;False;0;True;3;0;FLOAT;0;False;1;SAMPLER2D;;False;2;FLOAT4;0,0,0,0;False;1;FLOAT;0
-Node;AmplifyShaderEditor.ClampOpNode;39;-699.658,46.62603;Float;False;3;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;1;False;1;FLOAT;0
-Node;AmplifyShaderEditor.ColorNode;42;-655.4169,-161.9615;Float;False;Property;_Color1;Color 1;1;0;Create;True;0;0;False;0;0.9622642,0.9332545,0.75801,0;0.9292453,1,0.4103774,0;True;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.ColorNode;41;-413.4689,-322.7741;Float;False;Property;_Color0;Color 0;2;0;Create;True;0;0;False;0;0.08561765,0.07342471,0.2075472,0;0.2358491,0.03003738,0.06034444,0;True;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+7;373;1906;660;2096.487;144.8871;1.419894;True;True
+Node;AmplifyShaderEditor.ScreenColorNode;24;-1708.982,46.79234;Float;False;Global;_GrabScreen0;Grab Screen 0;1;0;Create;True;0;0;True;0;Object;-1;False;True;1;0;FLOAT4;0,0,0,0;False;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.ClampOpNode;39;-1188.761,104.3185;Float;False;3;0;COLOR;0,0,0,0;False;1;COLOR;0,0,0,0;False;2;COLOR;1,0,0,0;False;1;COLOR;0
+Node;AmplifyShaderEditor.Vector4Node;45;-1430.718,287.999;Float;False;Property;_Vector0;Vector 0;3;0;Create;True;0;0;False;0;0,0,0,0;1,0,0,0;0;5;FLOAT4;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.SimpleMultiplyOpNode;44;-1052.705,234.4618;Float;False;2;2;0;COLOR;0,0,0,0;False;1;FLOAT4;0,0,0,0;False;1;COLOR;0
+Node;AmplifyShaderEditor.ClampOpNode;49;-834.2025,272.5617;Float;False;3;0;COLOR;0,0,0,0;False;1;COLOR;0,0,0,0;False;2;COLOR;1,0,0,0;False;1;COLOR;0
+Node;AmplifyShaderEditor.TFHCRemapNode;48;-676.5919,99.33453;Float;False;5;0;COLOR;0,0,0,0;False;1;COLOR;0,0,0,0;False;2;COLOR;1,0,0,0;False;3;COLOR;0.764151,0,0,0;False;4;COLOR;0,0,0,0;False;1;COLOR;0
+Node;AmplifyShaderEditor.ClampOpNode;50;-426.6912,214.3461;Float;False;3;0;COLOR;0,0,0,0;False;1;COLOR;0,0,0,0;False;2;COLOR;1,0,0,0;False;1;COLOR;0
+Node;AmplifyShaderEditor.ColorNode;42;-655.4169,-161.9615;Float;False;Property;_Color1;Color 1;1;0;Create;True;0;0;False;0;0.9622642,0.9332545,0.75801,0;1,1,1,0;True;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.ColorNode;41;-413.4689,-322.7741;Float;False;Property;_Color0;Color 0;2;0;Create;True;0;0;False;0;0.08561765,0.07342471,0.2075472,0;0,0,0,0;True;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.DitheringNode;23;-228.7195,161.3026;Float;False;0;True;3;0;FLOAT;0;False;1;SAMPLER2D;;False;2;FLOAT4;0,0,0,0;False;1;FLOAT;0
+Node;AmplifyShaderEditor.SmoothstepOpNode;46;-1455.407,54.52609;Float;False;3;0;COLOR;0,0,0,0;False;1;COLOR;0,0,0,0;False;2;COLOR;0.5236316,0,1,0;False;1;COLOR;0
 Node;AmplifyShaderEditor.LerpOp;40;80.37878,-74.04173;Float;False;3;0;COLOR;0,0,0,0;False;1;COLOR;0,0,0,0;False;2;FLOAT;0;False;1;COLOR;0
 Node;AmplifyShaderEditor.StandardSurfaceOutputNode;0;298.2988,-89.13967;Float;False;True;2;Float;ASEMaterialInspector;0;0;Unlit;New Amplify Shader;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;Back;0;False;-1;0;False;-1;False;0;False;-1;0;False;-1;False;0;Custom;0.5;True;True;0;True;Transparent;;Transparent;All;True;True;True;True;True;True;True;True;True;True;True;True;True;True;True;True;True;0;False;-1;False;0;False;-1;255;False;-1;255;False;-1;0;False;-1;0;False;-1;0;False;-1;0;False;-1;0;False;-1;0;False;-1;0;False;-1;0;False;-1;False;2;15;10;25;False;0.5;True;2;5;False;-1;10;False;-1;2;5;False;-1;10;False;-1;0;False;-1;0;False;-1;0;False;0;0,0,0,0;VertexOffset;True;False;Cylindrical;False;Relative;0;;0;-1;-1;-1;0;False;0;0;False;-1;-1;0;False;-1;0;0;0;False;0.1;False;-1;0;False;-1;15;0;FLOAT3;0,0,0;False;1;FLOAT3;0,0,0;False;2;FLOAT3;0,0,0;False;3;FLOAT;0;False;4;FLOAT;0;False;6;FLOAT3;0,0,0;False;7;FLOAT3;0,0,0;False;8;FLOAT;0;False;9;FLOAT;0;False;10;FLOAT;0;False;13;FLOAT3;0,0,0;False;11;FLOAT3;0,0,0;False;12;FLOAT3;0,0,0;False;14;FLOAT4;0,0,0,0;False;15;FLOAT3;0,0,0;False;0
-WireConnection;23;0;24;0
-WireConnection;39;0;23;0
+WireConnection;39;0;24;0
+WireConnection;44;0;39;0
+WireConnection;44;1;45;0
+WireConnection;49;0;44;0
+WireConnection;48;0;49;0
+WireConnection;50;0;48;0
+WireConnection;23;0;50;0
+WireConnection;46;0;24;0
 WireConnection;40;0;41;0
 WireConnection;40;1;42;0
-WireConnection;40;2;39;0
+WireConnection;40;2;23;0
 WireConnection;0;2;40;0
 ASEEND*/
-//CHKSM=0E5113A49BE35CD839FEEEF44BDD6A4880A813FB
+//CHKSM=F02E900FC8EB11EE077BA687B833C6D31C9C6123
