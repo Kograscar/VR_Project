@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using VRTK;
@@ -13,59 +14,46 @@ public class PlaceCube : MonoBehaviour {
     [SerializeField] LineRenderer _leftLR;
     [SerializeField] LineRenderer _rightLR;
 
-    GameObject _previewCube;
+    [SerializeField] GameObject _previewCube;
 
-    //Grid _grid;
+    Grid _grid;
+    private object sender;
 
     private void OnEnable()
     {
-        //StartCoroutine(GetActualController());
-
-        FindObjectOfType<Grid>();
+        _canBuild = true;
+        StartCoroutine(GetActualController());
     }
 
     private void Update()
     {
-            _leftCE = VRTK_DeviceFinder.DeviceTransform(VRTK_DeviceFinder.Devices.LeftController).GetComponent<VRTK_ControllerEvents>();
-        
-            _rightCE = VRTK_DeviceFinder.DeviceTransform(VRTK_DeviceFinder.Devices.RightController).GetComponent<VRTK_ControllerEvents>();
-
-        if (_rightCE != null)
+        if (_leftCE == null || _rightCE == null)
         {
-            Debug.Log("Right : " + _rightCE.gameObject.name);
-        }
-        else
-        {
-            Debug.Log("Right : null");
-        }
-
-        if (_leftCE != null)
-        {
-            Debug.Log("Left : " + _leftCE.gameObject.name);
-        }
-        else
-        {
-            Debug.Log("Left : null");
+            StartCoroutine(GetActualController());
         }
 
         if (_canBuild)
         {
             Debug.Log("Yes We Can");
-            if (_leftCE.gripClicked)
+            if (_leftCE.gripPressed)
             {
-                LaserPointer(_leftCE);
                 Debug.Log("Left Laser");
+                LaserPointer(_leftCE);
             }
             else
-                _leftLR.enabled = false;
-
-            if (_rightCE.gripClicked)
             {
-                LaserPointer(_rightCE);
+                _leftLR.enabled = false;
+            }
+
+            if (_rightCE.gripPressed)
+            {
                 Debug.Log("Right Laser");
+                LaserPointer(_rightCE);
             }
             else
+            {
                 _rightLR.enabled = false;
+            }
         }
         else
         {
@@ -73,8 +61,11 @@ public class PlaceCube : MonoBehaviour {
             _rightLR.enabled = false;
         }
     }
+
     private void LaserPointer(VRTK_ControllerEvents vRTK_CE)
     {
+        Debug.Log("Bujour");
+
         RaycastHit hit;
 
         if(Physics.Raycast(vRTK_CE.transform.position, vRTK_CE.transform.forward, out hit, Mathf.Infinity))
@@ -94,19 +85,31 @@ public class PlaceCube : MonoBehaviour {
             }
         }
 
-        Vector3 nearPoint = FindObjectOfType<Grid>().GetNearestPointOnGrid(hit.point);
+        if(_grid == null)
+        {
+            _grid = FindObjectOfType<Grid>();
+        }
+        Vector3 nearPoint = _grid.GetNearestPointOnGrid(hit.point);
 
         _previewCube.SetActive(true);
         _previewCube.transform.position = nearPoint;
     }
 
     IEnumerator GetActualController() {
-        yield return new WaitForFixedUpdate();
+        yield return new WaitForEndOfFrame();
 
         _rightCE = VRTK_DeviceFinder.DeviceTransform(VRTK_DeviceFinder.Devices.RightController).GetComponent<VRTK_ControllerEvents>();
         _leftCE = VRTK_DeviceFinder.DeviceTransform(VRTK_DeviceFinder.Devices.LeftController).GetComponent<VRTK_ControllerEvents>();
 
-        if(_rightCE != null)
+        /*if(_rightCE != null && _leftCE != null)
+        {
+            _rightCE.GripClicked += (object sender, ControllerInteractionEventArgs e) =>
+            {
+                LaserPointer(_rightCE);
+            };
+        }*/
+
+        /*if(_rightCE != null)
         {
             Debug.Log("Right : " + _rightCE.gameObject.name);
         }
@@ -122,6 +125,6 @@ public class PlaceCube : MonoBehaviour {
         else
         {
             Debug.Log("Left : null");
-        }
+        }*/
     }
 }
