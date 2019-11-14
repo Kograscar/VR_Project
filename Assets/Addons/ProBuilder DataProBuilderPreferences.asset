@@ -28,7 +28,7 @@ MonoBehaviour:
   m_Int_values: 00000000000000000100000001000000
   m_Float_values:
   - 0
-  - 114
+  - 0
   m_String_values:
   - Assets/Addons/ProBuilder Data/Default Material Palette.asset
   m_Color_values: []
