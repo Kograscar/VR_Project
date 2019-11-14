@@ -6,8 +6,8 @@ Material:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: m_cube
-  m_Shader: {fileID: 4800000, guid: eba46567890c1f44d95012b731f3f54a, type: 3}
+  m_Name: m_zone4
+  m_Shader: {fileID: 4800000, guid: 0bd3a1a8a599fc0489c6bb10b7e5b882, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
@@ -54,33 +54,9 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _Texture0:
-        m_Texture: {fileID: 2800000, guid: 9c8d85f7cbc2da547877bc9c91c63490, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _TextureSample6:
-        m_Texture: {fileID: 2800000, guid: 8316c649b12f4485c811d707f6316577, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _TextureSample7:
-        m_Texture: {fileID: 2800000, guid: 8316c649b12f4485c811d707f6316577, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _t_cube_colors:
-        m_Texture: {fileID: 2800000, guid: 9c8d85f7cbc2da547877bc9c91c63490, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _t_cube_edge2:
-        m_Texture: {fileID: 2800000, guid: 743c08975f0141b44b25ae4151e27dcd, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _t_cube_faceA:
-        m_Texture: {fileID: 2800000, guid: 783550d47a8f1c5439aee0eb2ac1b91e, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _t_cube_isol:
-        m_Texture: {fileID: 2800000, guid: e303cc0f492ae3f428fb50934f93110e, type: 3}
-        m_Scale: {x: 1, y: 1}
+    - _TextureSample0:
+        m_Texture: {fileID: 2800000, guid: c0ddf92cba1016c46a9516e883cd6843, type: 3}
+        m_Scale: {x: 0, y: 0}
         m_Offset: {x: 0, y: 0}
     - _texcoord:
         m_Texture: {fileID: 0}
@@ -88,21 +64,9 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _BumpScale: 1
-    - _Contours: -0.4
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _Face1: 0.67
-    - _Face2: -0
-    - _Face3: 0.1
-    - _Face4: 0.6
-    - _Face5: 0
-    - _Float0: 0.6
-    - _Float1: 0
-    - _Float2: 0.1
-    - _Float3: 0
-    - _Float4: 0
-    - _Float6: 2
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
@@ -116,19 +80,18 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     - __dirty: 0
-    - _face6: -0.4
-    - _powemiss: 1.7
-    - _powerblanc: 10
-    - _powerfresn: 1.5
-    - _time: 1
+    - _maxnew: 1
+    - _maxold: 1
+    - _minnew: 0
+    - _minold: 0
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Color0: {r: 0.06327874, g: 0.0832536, b: 0.16981131, a: 0}
+    - _Color1: {r: 1, g: 0.9980927, b: 0.94811314, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Vector0: {r: 0, g: -0.5, b: 0, a: 0}
-    - _Vector1: {r: 0, g: 0.7, b: 0, a: 0}
-    - _Vector2: {r: 0, g: -0.2, b: 0, a: 0}
-    - _Vector3: {r: 0, g: -0.1, b: 0, a: 0}
-    - _Vector4: {r: 0, g: 0.6, b: 0, a: 0}
-    - _Vector5: {r: 0, g: 1, b: 0, a: 0}
-    - _Vector6: {r: 6, g: 6, b: 0, a: 0}
-    - _noisetile: {r: 20, g: 20, b: 0, a: 0}
+    - _Vector0: {r: 40, g: 40, b: 0, a: 0}
+    - _Vector1: {r: 40, g: 40, b: 0, a: 0}
+    - _Vector2: {r: -40, g: -40, b: 0, a: 0}
+    - _Vector3: {r: -40, g: -40, b: 0, a: 0}
+    - _Vector4: {r: 40, g: 40, b: 0, a: 0}
+    - _Vector5: {r: 40, g: 40, b: 0, a: 0}
