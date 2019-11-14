@@ -84,7 +84,7 @@ Material:
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _Face1: 0
+    - _Face1: 0.67
     - _Face2: -0
     - _Face3: 0.1
     - _Face4: 0
