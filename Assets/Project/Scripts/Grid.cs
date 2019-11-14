@@ -9,7 +9,7 @@ public class Grid : MonoBehaviour {
 
     public Vector3 GetNearestPointOnGrid(Vector3 position)
     {
-        position -= transform.position;
+        //position -= transform.position;
 
         int xCount = Mathf.RoundToInt(position.x / gap);
         int yCount = Mathf.RoundToInt(position.y / gap);
@@ -20,7 +20,7 @@ public class Grid : MonoBehaviour {
             yCount * gap,
             zCount * gap);
 
-        result += transform.position;
+        //result += transform.position;
 
         return result;
     }
