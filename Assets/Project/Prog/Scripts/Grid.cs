@@ -4,23 +4,22 @@ using UnityEngine;
 
 public class Grid : MonoBehaviour {
 
-	[SerializeField] private float gap = 1f;
-    [SerializeField] private int size = 40;
+	[SerializeField] private float size = 1f;
 
     public Vector3 GetNearestPointOnGrid(Vector3 position)
     {
-        //position -= transform.position;
+        position -= transform.position;
 
-        int xCount = Mathf.RoundToInt(position.x / gap);
-        int yCount = Mathf.RoundToInt(position.y / gap);
-        int zCount = Mathf.RoundToInt(position.z / gap);
+        int xCount = Mathf.RoundToInt(position.x / size);
+        int yCount = Mathf.RoundToInt(position.y / size);
+        int zCount = Mathf.RoundToInt(position.z / size);
 
         Vector3 result = new Vector3(
-            xCount * gap,
-            yCount * gap,
-            zCount * gap);
+            xCount * size,
+            yCount * size,
+            zCount * size);
 
-        //result += transform.position;
+        result += transform.position;
 
         return result;
     }
