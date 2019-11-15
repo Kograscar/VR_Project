@@ -33,7 +33,10 @@ public class ChuiLeCube : MonoBehaviour {
                 if (Physics.Raycast(item.transform.position + item.transform.InverseTransformDirection(new Vector3(item.transform.lossyScale.x / 2 - 0.05f, item.transform.lossyScale.x / 2 - 0.05f, 0)),
                     item.transform.forward, out hit, _rayLenght))
                 {
-                    touchedItem.Add(hit.collider.GetComponentInParent<AssignFaceColorByTag>().gameObject);
+                    if(hit.collider.GetComponentInParent<AssignFaceColorByTag>() != null)
+                    {
+                        touchedItem.Add(hit.collider.GetComponentInParent<AssignFaceColorByTag>().gameObject);
+                    }
                 }
                 Debug.DrawRay(item.transform.position + item.transform.InverseTransformDirection(new Vector3(item.transform.lossyScale.x / 2 - 0.05f, item.transform.lossyScale.x / 2 - 0.05f, 0)),
                     item.transform.forward * _rayLenght, Color.red, _rayDuration);
@@ -41,7 +44,10 @@ public class ChuiLeCube : MonoBehaviour {
                 if (Physics.Raycast(item.transform.position + item.transform.InverseTransformDirection(new Vector3(-item.transform.lossyScale.x / 2 + 0.05f, item.transform.lossyScale.x / 2 - 0.05f, 0)),
                     item.transform.forward, out hit, _rayLenght))
                 {
-                    touchedItem.Add(hit.collider.GetComponentInParent<AssignFaceColorByTag>().gameObject);
+                    if (hit.collider.GetComponentInParent<AssignFaceColorByTag>() != null)
+                    {
+                        touchedItem.Add(hit.collider.GetComponentInParent<AssignFaceColorByTag>().gameObject);
+                    }
                 }
                 Debug.DrawRay(item.transform.position + item.transform.InverseTransformDirection(new Vector3(-item.transform.lossyScale.x / 2 + 0.05f, item.transform.lossyScale.x / 2 - 0.05f, 0)),
                     item.transform.forward * _rayLenght, Color.red, _rayDuration);
@@ -49,7 +55,10 @@ public class ChuiLeCube : MonoBehaviour {
                 if (Physics.Raycast(item.transform.position + item.transform.InverseTransformDirection(new Vector3(item.transform.lossyScale.x / 2 - 0.05f, -item.transform.lossyScale.x / 2 + 0.05f, 0)),
                     item.transform.forward, out hit, _rayLenght))
                 {
-                    touchedItem.Add(hit.collider.GetComponentInParent<AssignFaceColorByTag>().gameObject);
+                    if (hit.collider.GetComponentInParent<AssignFaceColorByTag>() != null)
+                    {
+                        touchedItem.Add(hit.collider.GetComponentInParent<AssignFaceColorByTag>().gameObject);
+                    }
                 }
                 Debug.DrawRay(item.transform.position + item.transform.InverseTransformDirection(new Vector3(item.transform.lossyScale.x / 2 - 0.05f, -item.transform.lossyScale.x / 2 + 0.05f, 0)),
                     item.transform.forward * _rayLenght, Color.red, _rayDuration);
@@ -57,7 +66,10 @@ public class ChuiLeCube : MonoBehaviour {
                 if (Physics.Raycast(item.transform.position + item.transform.InverseTransformDirection(new Vector3(-item.transform.lossyScale.x / 2 + 0.05f, -item.transform.lossyScale.x / 2 + 0.05f, 0)),
                     item.transform.forward, out hit, _rayLenght))
                 {
-                    touchedItem.Add(hit.collider.GetComponentInParent<AssignFaceColorByTag>().gameObject);
+                    if (hit.collider.GetComponentInParent<AssignFaceColorByTag>() != null)
+                    {
+                        touchedItem.Add(hit.collider.GetComponentInParent<AssignFaceColorByTag>().gameObject);
+                    }
                 }
                 Debug.DrawRay(item.transform.position + item.transform.InverseTransformDirection(new Vector3(-item.transform.lossyScale.x / 2 + 0.05f, -item.transform.lossyScale.x / 2 + 0.05f, 0)),
                     item.transform.forward * _rayLenght, Color.red, _rayDuration);

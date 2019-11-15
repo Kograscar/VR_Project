@@ -9,9 +9,9 @@ public class PlaceCube : MonoBehaviour {
     public bool _canBuild = true;
 
     VRTK_ControllerEvents _rightCE;
-    VRTK_ControllerEvents _leftCE;
+    //VRTK_ControllerEvents _leftCE;
 
-    [SerializeField] LineRenderer _leftLR;
+    //[SerializeField] LineRenderer _leftLR;
     [SerializeField] LineRenderer _rightLR;
 
     [SerializeField] GameObject _previewCube;
@@ -27,21 +27,21 @@ public class PlaceCube : MonoBehaviour {
 
     private void Update()
     {
-        if (_leftCE == null || _rightCE == null)
+        if (/*_leftCE == null ||*/ _rightCE == null)
         {
             StartCoroutine(GetActualController());
         }
 
         if (_canBuild)
         {
-            if (_leftCE.gripPressed)
+            /*if (_leftCE.gripPressed)
             {
                 LaserPointer(_leftCE);
             }
             else
             {
                 _leftLR.enabled = false;
-            }
+            }*/
 
             if (_rightCE.gripPressed)
             {
@@ -49,52 +49,65 @@ public class PlaceCube : MonoBehaviour {
             }
             else
             {
-                _rightLR.enabled = false;
+                ChangeActive(false);
             }
         }
         else
         {
-            _leftLR.enabled = false;
-            _rightLR.enabled = false;
+            ChangeActive(false);
         }
     }
 
     private void LaserPointer(VRTK_ControllerEvents vRTK_CE)
     {
+        ChangeActive(true);
 
         RaycastHit hit;
 
         if(Physics.Raycast(vRTK_CE.transform.position, vRTK_CE.transform.forward, out hit, Mathf.Infinity))
         {
-            if (vRTK_CE == _leftCE)
+            /*if (vRTK_CE == _leftCE)
             {
                 _leftLR.enabled = true;
                 _leftLR.SetPosition(0, vRTK_CE.transform.position);
                 _leftLR.SetPosition(1, hit.point);
             }
             else
-            {
+            {*/
                 _rightLR.enabled = true;
-                _rightLR.SetPosition(0, vRTK_CE.transform.position);
                 _rightLR.SetPosition(1, hit.point);
+            //}
+            
+            if (_grid == null)
+            {
+                _grid = FindObjectOfType<Grid>();
             }
-        }
 
-        if(_grid == null)
+            Vector3 nearPoint = _grid.GetNearestPointOnGrid(hit.point);
+            _previewCube.transform.position = nearPoint;
+        }
+        else
         {
-            _grid = FindObjectOfType<Grid>();
+            _previewCube.SetActive(false);
+            _rightLR.SetPosition(1, vRTK_CE.transform.position + vRTK_CE.transform.forward * 1000);
         }
-        Vector3 nearPoint = _grid.GetNearestPointOnGrid(hit.point);
 
-        _previewCube.SetActive(true);
-        _previewCube.transform.position = nearPoint;
+        _rightLR.SetPosition(0, _rightCE.transform.position);
+
+    }
+
+    void ChangeActive(bool state)
+    {
+        //_leftLR.enabled = state;
+        _rightLR.enabled = state;
+        _previewCube.SetActive(state);
     }
 
     IEnumerator GetActualController() {
         yield return new WaitForEndOfFrame();
 
         _rightCE = VRTK_DeviceFinder.DeviceTransform(VRTK_DeviceFinder.Devices.RightController).GetComponent<VRTK_ControllerEvents>();
-        _leftCE = VRTK_DeviceFinder.DeviceTransform(VRTK_DeviceFinder.Devices.LeftController).GetComponent<VRTK_ControllerEvents>();
+        //_leftCE = VRTK_DeviceFinder.DeviceTransform(VRTK_DeviceFinder.Devices.LeftController).GetComponent<VRTK_ControllerEvents>();
 
         /*if(_rightCE != null && _leftCE != null)
         {
