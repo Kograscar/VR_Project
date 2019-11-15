@@ -595,7 +595,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: b8d2e1d0ba74aad4c9f121f0e373c08d, type: 2}
+  - {fileID: 2100000, guid: 1633af43431cb3f47ab5d1dbdb5e4fbc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -762,6 +762,11 @@ Prefab:
     - target: {fileID: 4682785719953254, guid: cb41aa9fe1b7a164d9e7c05c139f45a7, type: 2}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114722786080312830, guid: cb41aa9fe1b7a164d9e7c05c139f45a7,
+        type: 2}
+      propertyPath: _force
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb41aa9fe1b7a164d9e7c05c139f45a7, type: 2}
@@ -1825,7 +1830,7 @@ LineRenderer:
   m_ReflectionProbeUsage: 0
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 1633af43431cb3f47ab5d1dbdb5e4fbc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -129,7 +129,7 @@ public class ChuiLeCube : MonoBehaviour {
             }
         }
 
-        Debug.Log(_rig.velocity);
+        //Debug.Log(_rig.velocity);
     }
 
     IEnumerator DetectionDelay()

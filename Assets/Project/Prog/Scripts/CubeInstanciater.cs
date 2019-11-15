@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using VRTK;
 
-public class PlaceCube : MonoBehaviour {
+public class CubeInstanciater : MonoBehaviour {
 
     public bool _canBuild = true;
 
@@ -16,12 +16,18 @@ public class PlaceCube : MonoBehaviour {
 
     [SerializeField] GameObject _previewCube;
 
+    [SerializeField] GameObject _redCubePrefab;
+    [SerializeField] GameObject _greenCubePrefab;
+    [SerializeField] GameObject _blueCubePrefab;
+
     Grid _grid;
     private object sender;
 
-    int _redCube;
-    int _greenCube;
-    int _blueCube;
+    int _redCubeCount;
+    int _greenCubeCount;
+    int _blueCubeCount;
+
+    public int _selectedColor;
 
     private void OnEnable()
     {
@@ -60,6 +66,14 @@ public class PlaceCube : MonoBehaviour {
         {
             ChangeActive(false);
         }
+
+        if (_previewCube.activeInHierarchy)
+        {
+            if (_rightCE.triggerPressed)
+            {
+
+            }
+        }
     }
 
     private void LaserPointer(VRTK_ControllerEvents vRTK_CE)
@@ -88,7 +102,7 @@ public class PlaceCube : MonoBehaviour {
             }
 
             Vector3 nearPoint = _grid.GetNearestPointOnGrid(hit.point);
-            _previewCube.transform.position = nearPoint;
+            _previewCube.transform.position = nearPoint + new Vector3(0, _previewCube.transform.lossyScale.y / 2, 0);
         }
         else
         {
@@ -100,11 +114,70 @@ public class PlaceCube : MonoBehaviour {
 
     }
 
+    void PlaceCube()
+    {
+
+        GameObject newCube = new GameObject();
+
+        switch (_selectedColor)
+        {
+            case 1:
+
+                if(_greenCubeCount > 0)
+                {
+                    newCube = _greenCubePrefab;
+                }
+
+                break;
+        
+            case 2:
+
+                if (_redCubeCount > 0)
+                {
+                    newCube = _redCubePrefab;
+                }
+
+                break;
+        
+            case 4:
+
+
+
+                break;
+        
+            case 6:
+
+                if (_blueCubeCount > 0)
+                {
+                    newCube = _blueCubePrefab;
+                }
+
+                break;
+        
+            case 8:
+
+
+
+                break;
+        
+            case 9:
+
+
+
+                break;
+        }
+
+        if(newCube != new GameObject())
+        {
+            Instantiate(newCube, _previewCube.transform.position, _previewCube.transform.rotation);
+        }
+    }
+
     public void LoadCube(int red, int green, int blue)
     {
-        _redCube = red;
-        _greenCube = green;
-        _blueCube = blue;
+        _redCubeCount = red;
+        _greenCubeCount = green;
+        _blueCubeCount = blue;
     }
 
     void ChangeActive(bool state)
