@@ -23,9 +23,9 @@ public class CubeInstanciater : MonoBehaviour {
     Grid _grid;
     private object sender;
 
-    int _redCubeCount;
-    int _greenCubeCount;
-    int _blueCubeCount;
+    [SerializeField] int _redCubeCount;
+    [SerializeField] int _greenCubeCount;
+    [SerializeField] int _blueCubeCount;
 
     public int _selectedColor;
 
@@ -71,7 +71,7 @@ public class CubeInstanciater : MonoBehaviour {
         {
             if (_rightCE.triggerPressed)
             {
-
+                PlaceCube();
             }
         }
     }
@@ -102,7 +102,14 @@ public class CubeInstanciater : MonoBehaviour {
             }
 
             Vector3 nearPoint = _grid.GetNearestPointOnGrid(hit.point);
-            _previewCube.transform.position = nearPoint + new Vector3(0, _previewCube.transform.lossyScale.y / 2, 0);
+            if(nearPoint.y == 0)
+            {
+                _previewCube.transform.position = nearPoint + new Vector3(0, _previewCube.transform.lossyScale.y / 2, 0);
+            }
+            else
+            {
+
+            }
         }
         else
         {

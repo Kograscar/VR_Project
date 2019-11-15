@@ -630,7 +630,7 @@ Transform:
   m_GameObject: {fileID: 335157914}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
@@ -836,6 +836,16 @@ MonoBehaviour:
   _canBuild: 1
   _rightLR: {fileID: 1968919172}
   _previewCube: {fileID: 335157914}
+  _redCubePrefab: {fileID: 1336511034747760, guid: 349ef27c8a440f047a30421f6b381ec2,
+    type: 2}
+  _greenCubePrefab: {fileID: 1535766949293776, guid: 590ba5e3abe9bdd4eb012b065fbe9b5f,
+    type: 2}
+  _blueCubePrefab: {fileID: 1048532907704846, guid: ae3d436e7c25c894ba099c1e5040e909,
+    type: 2}
+  _redCubeCount: 1
+  _greenCubeCount: 1
+  _blueCubeCount: 1
+  _selectedColor: 1
 --- !u!4 &863241439
 Transform:
   m_ObjectHideFlags: 0
@@ -934,7 +944,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 637b290e0e3a6be44965e750f79378b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  size: 1
+  size: 0.25
 --- !u!4 &1131462634
 Transform:
   m_ObjectHideFlags: 0
