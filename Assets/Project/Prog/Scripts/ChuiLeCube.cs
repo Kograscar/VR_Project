@@ -8,92 +8,122 @@ public class ChuiLeCube : MonoBehaviour {
 
     Rigidbody _rig;
 
+    [SerializeField] float _rayDuration;
+    [SerializeField] float _rayLenght;
+    [SerializeField] float _detectionDelay;
+    [SerializeField] float _force;
+
+    bool _canDetect;
+
     private void OnEnable()
     {
         _rig = GetComponent<Rigidbody>();
+        _canDetect = true;
     }
 
     private void Update()
     {
-        foreach (var item in _faces)
+        if (_canDetect)
         {
-            RaycastHit hit = new RaycastHit();
-            List<GameObject> touchedItem = new List<GameObject>();
-
-            if(Physics.Raycast(item.transform.position + new Vector3(item.transform.lossyScale.x / 2 - 0.05f, item.transform.lossyScale.x / 2 - 0.05f, 0), item.transform.forward, out hit, 0.05f))
+            foreach (var item in _faces)
             {
-                touchedItem.Add(hit.collider.GetComponentInParent<AssignFaceColorByTag>().gameObject);
-            }
-            Debug.DrawRay(item.transform.position + new Vector3(item.transform.lossyScale.x / 2 - 0.05f, item.transform.lossyScale.x / 2 - 0.05f, 0), item.transform.forward, Color.red, 0.1f);
+                RaycastHit hit = new RaycastHit();
+                List<GameObject> touchedItem = new List<GameObject>();
 
-            if (Physics.Raycast(item.transform.position + new Vector3(-item.transform.lossyScale.x / 2 + 0.05f, item.transform.lossyScale.x / 2 - 0.05f, 0), item.transform.forward, out hit, 0.05f))
-            {
-                touchedItem.Add(hit.collider.GetComponentInParent<AssignFaceColorByTag>().gameObject);
-            }
-            Debug.DrawRay(item.transform.position + new Vector3(-item.transform.lossyScale.x / 2 + 0.05f, item.transform.lossyScale.x / 2 - 0.05f, 0), item.transform.forward, Color.red, 0.1f);
-
-            if (Physics.Raycast(item.transform.position + new Vector3(item.transform.lossyScale.x / 2 - 0.05f, -item.transform.lossyScale.x / 2 + 0.05f, 0), item.transform.forward, out hit, 0.05f))
-            {
-                touchedItem.Add(hit.collider.GetComponentInParent<AssignFaceColorByTag>().gameObject);
-            }
-            Debug.DrawRay(item.transform.position + new Vector3(item.transform.lossyScale.x / 2 - 0.05f, -item.transform.lossyScale.x / 2 + 0.05f, 0), item.transform.forward, Color.red, 0.1f);
-
-            if (Physics.Raycast(item.transform.position + new Vector3(-item.transform.lossyScale.x / 2 + 0.05f, -item.transform.lossyScale.x / 2 + 0.05f, 0), item.transform.forward, out hit, 0.05f))
-            {
-                touchedItem.Add(hit.collider.GetComponentInParent<AssignFaceColorByTag>().gameObject);
-            }
-            Debug.DrawRay(item.transform.position + new Vector3(-item.transform.lossyScale.x / 2 + 0.05f, -item.transform.lossyScale.x / 2 + 0.05f, 0), item.transform.forward, Color.red, 0.1f);
-
-            int goodtouch = new int();
-
-            if(touchedItem.Count == 4)
-            {
-                if(touchedItem[0] == touchedItem[1])
+                if (Physics.Raycast(item.transform.position + item.transform.InverseTransformDirection(new Vector3(item.transform.lossyScale.x / 2 - 0.05f, item.transform.lossyScale.x / 2 - 0.05f, 0)),
+                    item.transform.forward, out hit, _rayLenght))
                 {
-                    if(touchedItem[0] == touchedItem[2])
+                    touchedItem.Add(hit.collider.GetComponentInParent<AssignFaceColorByTag>().gameObject);
+                }
+                Debug.DrawRay(item.transform.position + item.transform.InverseTransformDirection(new Vector3(item.transform.lossyScale.x / 2 - 0.05f, item.transform.lossyScale.x / 2 - 0.05f, 0)),
+                    item.transform.forward * _rayLenght, Color.red, _rayDuration);
+
+                if (Physics.Raycast(item.transform.position + item.transform.InverseTransformDirection(new Vector3(-item.transform.lossyScale.x / 2 + 0.05f, item.transform.lossyScale.x / 2 - 0.05f, 0)),
+                    item.transform.forward, out hit, _rayLenght))
+                {
+                    touchedItem.Add(hit.collider.GetComponentInParent<AssignFaceColorByTag>().gameObject);
+                }
+                Debug.DrawRay(item.transform.position + item.transform.InverseTransformDirection(new Vector3(-item.transform.lossyScale.x / 2 + 0.05f, item.transform.lossyScale.x / 2 - 0.05f, 0)),
+                    item.transform.forward * _rayLenght, Color.red, _rayDuration);
+
+                if (Physics.Raycast(item.transform.position + item.transform.InverseTransformDirection(new Vector3(item.transform.lossyScale.x / 2 - 0.05f, -item.transform.lossyScale.x / 2 + 0.05f, 0)),
+                    item.transform.forward, out hit, _rayLenght))
+                {
+                    touchedItem.Add(hit.collider.GetComponentInParent<AssignFaceColorByTag>().gameObject);
+                }
+                Debug.DrawRay(item.transform.position + item.transform.InverseTransformDirection(new Vector3(item.transform.lossyScale.x / 2 - 0.05f, -item.transform.lossyScale.x / 2 + 0.05f, 0)),
+                    item.transform.forward * _rayLenght, Color.red, _rayDuration);
+
+                if (Physics.Raycast(item.transform.position + item.transform.InverseTransformDirection(new Vector3(-item.transform.lossyScale.x / 2 + 0.05f, -item.transform.lossyScale.x / 2 + 0.05f, 0)),
+                    item.transform.forward, out hit, _rayLenght))
+                {
+                    touchedItem.Add(hit.collider.GetComponentInParent<AssignFaceColorByTag>().gameObject);
+                }
+                Debug.DrawRay(item.transform.position + item.transform.InverseTransformDirection(new Vector3(-item.transform.lossyScale.x / 2 + 0.05f, -item.transform.lossyScale.x / 2 + 0.05f, 0)),
+                    item.transform.forward * _rayLenght, Color.red, _rayDuration);
+
+                int goodtouch = new int();
+
+                if (touchedItem.Count == 4)
+                {
+                    if (touchedItem[0] == touchedItem[1])
                     {
-                        if(touchedItem[0] == touchedItem[3])
+                        if (touchedItem[0] == touchedItem[2])
                         {
-                            for (int i = 0; i < 4; i++)
+                            if (touchedItem[0] == touchedItem[3])
                             {
-                                if (touchedItem[i].CompareTag(item.tag))
+                                for (int i = 0; i < 4; i++)
                                 {
-                                    goodtouch++;
+                                    if (touchedItem[i].CompareTag(item.tag))
+                                    {
+                                        goodtouch++;
+                                    }
                                 }
-                            }
 
-                            if(goodtouch == 4)
-                            {
-                                Debug.Log("SameTag time to move by " + touchedItem[0].GetComponentInParent<Transform>().gameObject.GetComponentInParent<Transform>().gameObject.name);
-
-                                _rig.velocity = new Vector3();
-                                _rig.AddForce(-item.transform.forward * 50);
-
-                                /*(item.tag)
+                                if (goodtouch == 4)
                                 {
-                                    case "Red":
+                                    Debug.Log("SameTag time to move by " + touchedItem[0].GetComponentInParent<Transform>().gameObject.GetComponentInParent<Transform>().gameObject.name);
 
-                                        _rig.AddForce(-item.transform.forward * 10);
+                                    _rig.velocity = new Vector3(0, 0, 0);
+                                    _rig.AddForce(-item.transform.forward * _force);
 
-                                        break;
+                                    StartCoroutine(DetectionDelay());
 
-                                    case "Blue":
-                                        
-                                        _rig.AddForce(-item.transform.forward * 10);
+                                    /*(item.tag)
+                                    {
+                                        case "Red":
 
-                                        break;
+                                            _rig.AddForce(-item.transform.forward * 10);
 
-                                    case "White":
-                                        
-                                        _rig.AddForce(-item.transform.forward * 10);
+                                            break;
 
-                                        break;
-                                }*/
+                                        case "Blue":
+
+                                            _rig.AddForce(-item.transform.forward * 10);
+
+                                            break;
+
+                                        case "White":
+
+                                            _rig.AddForce(-item.transform.forward * 10);
+
+                                            break;
+                                    }*/
+                                }
                             }
                         }
                     }
                 }
             }
         }
+    }
+
+    IEnumerator DetectionDelay()
+    {
+        _canDetect = false;
+
+        yield return new WaitForSeconds(_detectionDelay);
+
+        _canDetect = true;
     }
 }
