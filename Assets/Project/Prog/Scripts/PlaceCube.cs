@@ -19,6 +19,10 @@ public class PlaceCube : MonoBehaviour {
     Grid _grid;
     private object sender;
 
+    int _redCube;
+    int _greenCube;
+    int _blueCube;
+
     private void OnEnable()
     {
         _canBuild = true;
@@ -94,6 +98,13 @@ public class PlaceCube : MonoBehaviour {
 
         _rightLR.SetPosition(0, _rightCE.transform.position);
 
+    }
+
+    public void LoadCube(int red, int green, int blue)
+    {
+        _redCube = red;
+        _greenCube = green;
+        _blueCube = blue;
     }
 
     void ChangeActive(bool state)

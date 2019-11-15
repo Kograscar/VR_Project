@@ -94,7 +94,7 @@ public class ChuiLeCube : MonoBehaviour {
 
                                 if (goodtouch == 4)
                                 {
-                                    Debug.Log("SameTag time to move by " + touchedItem[0].GetComponentInParent<Transform>().gameObject.GetComponentInParent<Transform>().gameObject.name);
+                                    //Debug.Log("SameTag time to move by " + touchedItem[0].GetComponentInParent<Transform>().gameObject.GetComponentInParent<Transform>().gameObject.name);
 
                                     _rig.velocity = new Vector3(0, 0, 0);
                                     _rig.AddForce(-item.transform.forward * _force);
@@ -128,6 +128,8 @@ public class ChuiLeCube : MonoBehaviour {
                 }
             }
         }
+
+        Debug.Log(_rig.velocity);
     }
 
     IEnumerator DetectionDelay()
