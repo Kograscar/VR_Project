@@ -34,10 +34,8 @@ public class PlaceCube : MonoBehaviour {
 
         if (_canBuild)
         {
-            Debug.Log("Yes We Can");
             if (_leftCE.gripPressed)
             {
-                Debug.Log("Left Laser");
                 LaserPointer(_leftCE);
             }
             else
@@ -47,7 +45,6 @@ public class PlaceCube : MonoBehaviour {
 
             if (_rightCE.gripPressed)
             {
-                Debug.Log("Right Laser");
                 LaserPointer(_rightCE);
             }
             else
@@ -64,13 +61,11 @@ public class PlaceCube : MonoBehaviour {
 
     private void LaserPointer(VRTK_ControllerEvents vRTK_CE)
     {
-        Debug.Log("Bujour");
 
         RaycastHit hit;
 
         if(Physics.Raycast(vRTK_CE.transform.position, vRTK_CE.transform.forward, out hit, Mathf.Infinity))
         {
-            Debug.Log("Raycast Hit");
             if (vRTK_CE == _leftCE)
             {
                 _leftLR.enabled = true;
