@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/Project/Scenes/SceneGaultier.unity
     guid: 0af179442433ac34397156c4f6db604f
   m_configObjects: {}
