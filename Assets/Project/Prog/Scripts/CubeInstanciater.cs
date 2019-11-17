@@ -6,28 +6,31 @@ using VRTK;
 
 public class CubeInstanciater : MonoBehaviour {
 
-    public bool _canBuild = true;
-
     VRTK_ControllerEvents _rightCE;
-    //VRTK_ControllerEvents _leftCE;
 
-    //[SerializeField] LineRenderer _leftLR;
     [SerializeField] LineRenderer _rightLR;
 
     [SerializeField] GameObject _previewCube;
-
     [SerializeField] GameObject _redCubePrefab;
     [SerializeField] GameObject _greenCubePrefab;
     [SerializeField] GameObject _blueCubePrefab;
-
-    Grid _grid;
-    private object sender;
 
     [SerializeField] int _redCubeCount;
     [SerializeField] int _greenCubeCount;
     [SerializeField] int _blueCubeCount;
 
+    [SerializeField] float _placementDelay;
+
+
+    Grid _grid;
+
+    float _placementTimer;
+
+
     public int _selectedColor;
+
+    public bool _canBuild = true;
+    
 
     private void OnEnable()
     {
@@ -37,6 +40,8 @@ public class CubeInstanciater : MonoBehaviour {
 
     private void Update()
     {
+        _placementTimer += Time.deltaTime;
+
         if (/*_leftCE == null ||*/ _rightCE == null)
         {
             StartCoroutine(GetActualController());
@@ -71,7 +76,10 @@ public class CubeInstanciater : MonoBehaviour {
         {
             if (_rightCE.triggerPressed)
             {
-                PlaceCube();
+                if(_placementTimer >= _placementDelay)
+                {
+                    PlaceCube();
+                }
             }
         }
     }
@@ -102,13 +110,16 @@ public class CubeInstanciater : MonoBehaviour {
             }
 
             Vector3 nearPoint = _grid.GetNearestPointOnGrid(hit.point);
+
             if(nearPoint.y == 0)
             {
-                _previewCube.transform.position = nearPoint + new Vector3(0, _previewCube.transform.lossyScale.y / 2, 0);
+                _previewCube.transform.position = nearPoint
+                    /*+ new Vector3(0, _previewCube.transform.lossyScale.y / 2, 0)*/;
             }
             else
             {
-
+                _previewCube.transform.position = _grid.GetNearestPointOnGrid(hit.point + hit.collider.transform.up * (_grid.size / 2) - new Vector3(0, _previewCube.transform.lossyScale.y / 2, 0))
+                    /*hit.collider.transform.position - hit.collider.transform.forward / (1 / _grid.size)*/;
             }
         }
         else
@@ -120,11 +131,11 @@ public class CubeInstanciater : MonoBehaviour {
         _rightLR.SetPosition(0, _rightCE.transform.position);
 
     }
-
+    
     void PlaceCube()
     {
 
-        GameObject newCube = new GameObject();
+        GameObject newCube = _redCubePrefab;
 
         switch (_selectedColor)
         {
@@ -173,11 +184,9 @@ public class CubeInstanciater : MonoBehaviour {
 
                 break;
         }
-
-        if(newCube != new GameObject())
-        {
-            Instantiate(newCube, _previewCube.transform.position, _previewCube.transform.rotation);
-        }
+        
+        Instantiate(newCube, _previewCube.transform.position, _previewCube.transform.rotation);
+        _placementTimer = 0;
     }
 
     public void LoadCube(int red, int green, int blue)

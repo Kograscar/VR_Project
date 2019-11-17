@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Grid : MonoBehaviour {
 
-	[SerializeField] private float size = 1f;
+	public float size = 1f;
 
     public Vector3 GetNearestPointOnGrid(Vector3 position)
     {
@@ -16,10 +16,12 @@ public class Grid : MonoBehaviour {
 
         Vector3 result = new Vector3(
             xCount * size,
-            yCount * size,
+            yCount * size + .125f,
             zCount * size);
 
         result += transform.position;
+
+        Debug.Log(result);
 
         return result;
     }
