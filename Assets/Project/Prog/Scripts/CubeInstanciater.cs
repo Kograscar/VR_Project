@@ -4,38 +4,44 @@ using System.Collections.Generic;
 using UnityEngine;
 using VRTK;
 
-public class CubeInstanciater : MonoBehaviour {
+public class CubeInstanciater : Singleton<CubeInstanciater> {
 
-    VRTK_ControllerEvents _rightCE;
-
+    #region fields
     [SerializeField] LineRenderer _rightLR;
 
     [SerializeField] GameObject _previewCube;
     [SerializeField] GameObject _redCubePrefab;
     [SerializeField] GameObject _greenCubePrefab;
     [SerializeField] GameObject _blueCubePrefab;
-
-    [SerializeField] int _redCubeCount;
-    [SerializeField] int _greenCubeCount;
-    [SerializeField] int _blueCubeCount;
+    [SerializeField] GameObject _yellowCubePrefab;
+    [SerializeField] GameObject _purpleCubePrefab;
+    [SerializeField] GameObject _whiteCubePrefab;
 
     [SerializeField] float _placementDelay;
 
+
+    VRTK_ControllerEvents _rightCE;
+
+    GameObject _selectedCube;
 
     Grid _grid;
 
     float _placementTimer;
 
+    int[] _colorCount = new int[6];
+    
+    int _selectedColor;
 
-    public int _selectedColor;
 
     public bool _canBuild = true;
-    
+    #endregion fields
 
     private void OnEnable()
     {
         _canBuild = true;
         StartCoroutine(GetActualController());
+        ChangeSelectedCube("Green");
+        _selectedColor = 0;
     }
 
     private void Update()
@@ -101,6 +107,7 @@ public class CubeInstanciater : MonoBehaviour {
             else
             {*/
                 _rightLR.enabled = true;
+                _rightLR.enabled = true;
                 _rightLR.SetPosition(1, hit.point);
             //}
             
@@ -113,13 +120,11 @@ public class CubeInstanciater : MonoBehaviour {
 
             if(nearPoint.y == 0)
             {
-                _previewCube.transform.position = nearPoint
-                    /*+ new Vector3(0, _previewCube.transform.lossyScale.y / 2, 0)*/;
+                _previewCube.transform.position = nearPoint;
             }
             else
             {
-                _previewCube.transform.position = _grid.GetNearestPointOnGrid(hit.point + hit.collider.transform.up * (_grid.size / 2) - new Vector3(0, _previewCube.transform.lossyScale.y / 2, 0))
-                    /*hit.collider.transform.position - hit.collider.transform.forward / (1 / _grid.size)*/;
+                _previewCube.transform.position = _grid.GetNearestPointOnGrid(hit.point + hit.collider.transform.up * (_grid.size / 2) - new Vector3(0, _previewCube.transform.lossyScale.y / 2, 0));
             }
         }
         else
@@ -134,66 +139,12 @@ public class CubeInstanciater : MonoBehaviour {
     
     void PlaceCube()
     {
-
-        GameObject newCube = _redCubePrefab;
-
-        switch (_selectedColor)
+        if(_colorCount[_selectedColor] > 0)
         {
-            case 1:
-
-                if(_greenCubeCount > 0)
-                {
-                    newCube = _greenCubePrefab;
-                }
-
-                break;
-        
-            case 2:
-
-                if (_redCubeCount > 0)
-                {
-                    newCube = _redCubePrefab;
-                }
-
-                break;
-        
-            case 4:
-
-
-
-                break;
-        
-            case 6:
-
-                if (_blueCubeCount > 0)
-                {
-                    newCube = _blueCubePrefab;
-                }
-
-                break;
-        
-            case 8:
-
-
-
-                break;
-        
-            case 9:
-
-
-
-                break;
+            Instantiate(_selectedCube, _previewCube.transform.position, _previewCube.transform.rotation);
+            _placementTimer = 0;
+            _colorCount[_selectedColor]--;
         }
-        
-        Instantiate(newCube, _previewCube.transform.position, _previewCube.transform.rotation);
-        _placementTimer = 0;
-    }
-
-    public void LoadCube(int red, int green, int blue)
-    {
-        _redCubeCount = red;
-        _greenCubeCount = green;
-        _blueCubeCount = blue;
     }
 
     void ChangeActive(bool state)
@@ -201,6 +152,57 @@ public class CubeInstanciater : MonoBehaviour {
         //_leftLR.enabled = state;
         _rightLR.enabled = state;
         _previewCube.SetActive(state);
+    }
+
+    public void LoadCube(int green, int red, int yellow, int blue, int purple, int white)
+    {
+        _colorCount[0] = green;
+        _colorCount[1] = red;
+        _colorCount[2] = yellow;
+        _colorCount[3] = blue;
+        _colorCount[4] = purple;
+        _colorCount[5] = white;
+    }
+
+    public void ChangeSelectedCube(string color)
+    {
+        switch (color)
+        {
+            case "Green":
+                _selectedCube = _greenCubePrefab;
+                _selectedColor = 0;
+
+                break;
+
+            case "Red":
+                _selectedCube = _redCubePrefab;
+                _selectedColor = 1;
+
+                break;
+
+            case "Yellow":
+                _selectedCube = _yellowCubePrefab;
+                _selectedColor = 2;
+
+                break;
+
+            case "Blue":
+                _selectedCube = _blueCubePrefab;
+                _selectedColor = 3;
+                break;
+
+            case "Purple":
+                _selectedCube = _purpleCubePrefab;
+                _selectedColor = 4;
+
+                break;
+
+            case "White":
+                _selectedCube = _whiteCubePrefab;
+                _selectedColor = 5;
+
+                break;
+        }
     }
 
     IEnumerator GetActualController() {

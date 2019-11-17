@@ -21,8 +21,6 @@ public class Grid : MonoBehaviour {
 
         result += transform.position;
 
-        Debug.Log(result);
-
         return result;
     }
 
