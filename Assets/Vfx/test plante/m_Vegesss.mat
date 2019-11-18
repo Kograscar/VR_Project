@@ -81,9 +81,9 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _SSSScale: 0.5
+    - _SSSScale: 19.72
     - _SSSdistord: 1
-    - _SSSpow: 1
+    - _SSSpow: 20
     - _Shininess: 0.1
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -100,9 +100,9 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Color0: {r: 0.23343727, g: 0.29245275, b: 0.18899065, a: 0}
-    - _Color1: {r: 0.106633745, g: 0.11320752, b: 0.047525797, a: 0}
+    - _Color1: {r: 0.106633715, g: 0.1132075, b: 0.04752578, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecularColor: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
     - _diffusespecu: {r: 1, g: 1, b: 1, a: 0}
-    - _emiss: {r: 0.15705654, g: 0.2641501, b: 0.13830465, a: 0}
+    - _emiss: {r: 0.15705651, g: 0.26415008, b: 0.13830462, a: 0}
     - _speedwind: {r: 0.1, g: 0, b: 0, a: 0}
