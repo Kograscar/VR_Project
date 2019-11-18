@@ -194,8 +194,20 @@ public class CubeInstanciater : Singleton<CubeInstanciater> {
         }
     }
 
+    public enum Colore
+    {
+        Green,
+        Blue
+    }
+
     public void ReceiveCube(string tag)
     {
+        /*Colore colore = (Colore)Enum.Parse(typeof(Colore), tag); // string to enum 'Colore'
+
+        int index = (int)colore; // enum 'Colore' to int index
+
+        _colorCount[index]++;*/
+
         switch (tag)
         {
 

@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using VRTK.Controllables;
 using VRTK.Controllables.ArtificialBased;
-using TMPro;
 
-public class ColorButton : MonoBehaviour {
+public class ChangeActiveColorButton : MonoBehaviour {
 
     VRTK_ArtificialPusher _pusher;
     

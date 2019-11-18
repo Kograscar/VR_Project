@@ -1,12 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class CubeSensor : MonoBehaviour {
 
+    public readonly static string[] colors = new string[] { "Red", "Blue", "Green", "White", "Purple", "Yellow" };
+
     private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Red") || other.CompareTag("Blue") || other.CompareTag("Green") || other.CompareTag("White") || other.CompareTag("Purple") || other.CompareTag("Yellow"))
+        bool hasTag = colors.Contains(other.tag);
+
+        if (hasTag)
         {
             if (CubeInstanciater.Instance.enabled)
             {
@@ -20,8 +25,10 @@ public class CubeSensor : MonoBehaviour {
     }
 
     private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Red") || other.CompareTag("Blue") || other.CompareTag("Green") || other.CompareTag("White") || other.CompareTag("Purple") || other.CompareTag("Yellow"))
+    {        
+        bool hasTag = colors.Contains(other.tag);
+
+        if (hasTag)
         {
             if (CubeInstanciater.Instance.enabled)
             {
