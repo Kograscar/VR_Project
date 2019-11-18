@@ -10,6 +10,7 @@ TagManager:
   - White
   - Purple
   - Yellow
+  - MainCube
   layers:
   - Default
   - TransparentFX
