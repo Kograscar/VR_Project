@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 114005280750222342}
   m_Layer: 0
   m_Name: Down
-  m_TagString: Red
+  m_TagString: Purple
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 114277217467514466}
   m_Layer: 0
   m_Name: Left
-  m_TagString: Red
+  m_TagString: Purple
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -54,7 +54,7 @@ GameObject:
   - component: {fileID: 114693244874572006}
   m_Layer: 0
   m_Name: Up
-  m_TagString: Red
+  m_TagString: Purple
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -70,7 +70,7 @@ GameObject:
   - component: {fileID: 114764317046304806}
   m_Layer: 0
   m_Name: Back
-  m_TagString: Red
+  m_TagString: Purple
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -85,7 +85,7 @@ GameObject:
   - component: {fileID: 4755055478366158}
   - component: {fileID: 54217246597548018}
   m_Layer: 0
-  m_Name: PlaneCubeRed
+  m_Name: PlaneCubePurple
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -174,7 +174,7 @@ GameObject:
   - component: {fileID: 114018427673070448}
   m_Layer: 0
   m_Name: Right
-  m_TagString: Red
+  m_TagString: Purple
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -208,7 +208,7 @@ GameObject:
   - component: {fileID: 114775087780249406}
   m_Layer: 0
   m_Name: Front
-  m_TagString: Red
+  m_TagString: Purple
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -427,7 +427,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 593393a83657fc047a8aed85d18a4066, type: 2}
+  - {fileID: 2100000, guid: 573732cc318571c4ca29eaa5830a7bb7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -462,7 +462,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 593393a83657fc047a8aed85d18a4066, type: 2}
+  - {fileID: 2100000, guid: 573732cc318571c4ca29eaa5830a7bb7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -497,7 +497,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 593393a83657fc047a8aed85d18a4066, type: 2}
+  - {fileID: 2100000, guid: 573732cc318571c4ca29eaa5830a7bb7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -532,7 +532,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 593393a83657fc047a8aed85d18a4066, type: 2}
+  - {fileID: 2100000, guid: 573732cc318571c4ca29eaa5830a7bb7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -567,7 +567,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 593393a83657fc047a8aed85d18a4066, type: 2}
+  - {fileID: 2100000, guid: 573732cc318571c4ca29eaa5830a7bb7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -602,7 +602,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 593393a83657fc047a8aed85d18a4066, type: 2}
+  - {fileID: 2100000, guid: 573732cc318571c4ca29eaa5830a7bb7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -777,9 +777,9 @@ MonoBehaviour:
   _red: {fileID: 2100000, guid: 593393a83657fc047a8aed85d18a4066, type: 2}
   _blue: {fileID: 2100000, guid: ccfac7d51eb58704a97a1dcd7a2cf810, type: 2}
   _green: {fileID: 2100000, guid: 6ea95f2d6d028674fb9ab199d473f5c0, type: 2}
-  _purple: {fileID: 0}
-  _yellow: {fileID: 0}
-  _white: {fileID: 0}
+  _purple: {fileID: 2100000, guid: 573732cc318571c4ca29eaa5830a7bb7, type: 2}
+  _yellow: {fileID: 2100000, guid: 7dfaa3746ede06e449def01dc3ee52f6, type: 2}
+  _white: {fileID: 2100000, guid: 0ac90962a8a081e4dbc3271f42bdcbbf, type: 2}
 --- !u!114 &114018427673070448
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -794,9 +794,9 @@ MonoBehaviour:
   _red: {fileID: 2100000, guid: 593393a83657fc047a8aed85d18a4066, type: 2}
   _blue: {fileID: 2100000, guid: ccfac7d51eb58704a97a1dcd7a2cf810, type: 2}
   _green: {fileID: 2100000, guid: 6ea95f2d6d028674fb9ab199d473f5c0, type: 2}
-  _purple: {fileID: 0}
-  _yellow: {fileID: 0}
-  _white: {fileID: 0}
+  _purple: {fileID: 2100000, guid: 573732cc318571c4ca29eaa5830a7bb7, type: 2}
+  _yellow: {fileID: 2100000, guid: 7dfaa3746ede06e449def01dc3ee52f6, type: 2}
+  _white: {fileID: 2100000, guid: 0ac90962a8a081e4dbc3271f42bdcbbf, type: 2}
 --- !u!114 &114277217467514466
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -811,9 +811,9 @@ MonoBehaviour:
   _red: {fileID: 2100000, guid: 593393a83657fc047a8aed85d18a4066, type: 2}
   _blue: {fileID: 2100000, guid: ccfac7d51eb58704a97a1dcd7a2cf810, type: 2}
   _green: {fileID: 2100000, guid: 6ea95f2d6d028674fb9ab199d473f5c0, type: 2}
-  _purple: {fileID: 0}
-  _yellow: {fileID: 0}
-  _white: {fileID: 0}
+  _purple: {fileID: 2100000, guid: 573732cc318571c4ca29eaa5830a7bb7, type: 2}
+  _yellow: {fileID: 2100000, guid: 7dfaa3746ede06e449def01dc3ee52f6, type: 2}
+  _white: {fileID: 2100000, guid: 0ac90962a8a081e4dbc3271f42bdcbbf, type: 2}
 --- !u!114 &114693244874572006
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -828,9 +828,9 @@ MonoBehaviour:
   _red: {fileID: 2100000, guid: 593393a83657fc047a8aed85d18a4066, type: 2}
   _blue: {fileID: 2100000, guid: ccfac7d51eb58704a97a1dcd7a2cf810, type: 2}
   _green: {fileID: 2100000, guid: 6ea95f2d6d028674fb9ab199d473f5c0, type: 2}
-  _purple: {fileID: 0}
-  _yellow: {fileID: 0}
-  _white: {fileID: 0}
+  _purple: {fileID: 2100000, guid: 573732cc318571c4ca29eaa5830a7bb7, type: 2}
+  _yellow: {fileID: 2100000, guid: 7dfaa3746ede06e449def01dc3ee52f6, type: 2}
+  _white: {fileID: 2100000, guid: 0ac90962a8a081e4dbc3271f42bdcbbf, type: 2}
 --- !u!114 &114764317046304806
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -845,9 +845,9 @@ MonoBehaviour:
   _red: {fileID: 2100000, guid: 593393a83657fc047a8aed85d18a4066, type: 2}
   _blue: {fileID: 2100000, guid: ccfac7d51eb58704a97a1dcd7a2cf810, type: 2}
   _green: {fileID: 2100000, guid: 6ea95f2d6d028674fb9ab199d473f5c0, type: 2}
-  _purple: {fileID: 0}
-  _yellow: {fileID: 0}
-  _white: {fileID: 0}
+  _purple: {fileID: 2100000, guid: 573732cc318571c4ca29eaa5830a7bb7, type: 2}
+  _yellow: {fileID: 2100000, guid: 7dfaa3746ede06e449def01dc3ee52f6, type: 2}
+  _white: {fileID: 2100000, guid: 0ac90962a8a081e4dbc3271f42bdcbbf, type: 2}
 --- !u!114 &114775087780249406
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -862,6 +862,6 @@ MonoBehaviour:
   _red: {fileID: 2100000, guid: 593393a83657fc047a8aed85d18a4066, type: 2}
   _blue: {fileID: 2100000, guid: ccfac7d51eb58704a97a1dcd7a2cf810, type: 2}
   _green: {fileID: 2100000, guid: 6ea95f2d6d028674fb9ab199d473f5c0, type: 2}
-  _purple: {fileID: 0}
-  _yellow: {fileID: 0}
-  _white: {fileID: 0}
+  _purple: {fileID: 2100000, guid: 573732cc318571c4ca29eaa5830a7bb7, type: 2}
+  _yellow: {fileID: 2100000, guid: 7dfaa3746ede06e449def01dc3ee52f6, type: 2}
+  _white: {fileID: 2100000, guid: 0ac90962a8a081e4dbc3271f42bdcbbf, type: 2}
