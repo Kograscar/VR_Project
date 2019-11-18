@@ -10,6 +10,7 @@ TagManager:
   - White
   - Purple
   - Yellow
+  - Trigger_Player
   layers:
   - Default
   - TransparentFX
