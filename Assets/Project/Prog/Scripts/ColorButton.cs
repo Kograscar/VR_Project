@@ -16,6 +16,4 @@ public class ColorButton : MonoBehaviour {
             CubeInstanciater.Instance.ChangeSelectedCube(tag);
         };
 	}
-
-    
 }

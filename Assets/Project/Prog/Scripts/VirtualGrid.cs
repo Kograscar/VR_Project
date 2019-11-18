@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Grid : MonoBehaviour {
+public class VirtualGrid : Singleton<VirtualGrid> {
 
 	public float size = .25f;
     public float lenght = 40f;
@@ -32,7 +32,7 @@ public class Grid : MonoBehaviour {
         {
             for (float z = 0; z < lenght; z += size)
             {
-                var point = GetNearestPointOnGrid(new Vector3(x, 0f, z));
+                var point = GetNearestPointOnGrid(new Vector3(x, 0f, z) + transform.position);
                 Gizmos.DrawCube(point, new Vector3(size / 2, 0, size / 2));
             }
         }
