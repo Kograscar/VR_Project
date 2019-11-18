@@ -1,22 +1,30 @@
 fileFormatVersion: 2
-guid: 73048bfaf477b584a96055f2f40faaa8
+guid: 794bd7ab18efdae44af11806d4f7a12b
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: //RootNode
-    100002: pSuperShape4
-    400000: //RootNode
-    400002: pSuperShape4
-    2100000: pSuperShape4Mat
-    2300000: pSuperShape4
-    3300000: pSuperShape4
-    4300000: pSuperShape4
+    100000: pCube22
+    100002: pCube23
+    100004: pCube24
+    100006: //RootNode
+    100008: transform1
+    100010: transform2
+    400000: pCube22
+    400002: pCube23
+    400004: pCube24
+    400006: //RootNode
+    400008: transform1
+    400010: transform2
+    2100000: lambert1
+    2300000: pCube24
+    3300000: pCube24
+    4300000: pCube24
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: pSuperShape4Mat
-    second: {fileID: 2100000, guid: ed0b72fd15a6c1745b37137fb16f2318, type: 2}
+      name: lambert1
+    second: {fileID: 2100000, guid: 7696512bfaa703c4ab5d174fb9d67be4, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

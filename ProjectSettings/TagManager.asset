@@ -4,12 +4,15 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Red
   - Blue
   - Green
+<<<<<<< Updated upstream
   - Purple
   - Yellow
   - White
+=======
+  - Red
+>>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX
