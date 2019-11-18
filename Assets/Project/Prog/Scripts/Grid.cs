@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Grid : MonoBehaviour {
 
-	public float size = 1f;
+	public float size = .25f;
+    public float lenght = 40f;
 
     public Vector3 GetNearestPointOnGrid(Vector3 position)
     {
@@ -24,16 +25,16 @@ public class Grid : MonoBehaviour {
         return result;
     }
 
-    /*private void OnDrawGizmos()
+    private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
-        for (float x = 0; x < 40; x += gap)
+        for (float x = 0; x < lenght; x += size)
         {
-            for (float z = 0; z < 40; z += gap)
+            for (float z = 0; z < lenght; z += size)
             {
                 var point = GetNearestPointOnGrid(new Vector3(x, 0f, z));
-                Gizmos.DrawSphere(point, 0.1f);
+                Gizmos.DrawCube(point, new Vector3(size / 2, 0, size / 2));
             }
         }
-    }*/
+    }
 }
