@@ -279,7 +279,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1535766949293776}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.1270945, y: 1.375, z: 3.625}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_Children:
   - {fileID: 4171423403534048}
@@ -777,6 +777,9 @@ MonoBehaviour:
   _red: {fileID: 2100000, guid: 593393a83657fc047a8aed85d18a4066, type: 2}
   _blue: {fileID: 2100000, guid: ccfac7d51eb58704a97a1dcd7a2cf810, type: 2}
   _green: {fileID: 2100000, guid: 6ea95f2d6d028674fb9ab199d473f5c0, type: 2}
+  _purple: {fileID: 2100000, guid: 573732cc318571c4ca29eaa5830a7bb7, type: 2}
+  _yellow: {fileID: 2100000, guid: 7dfaa3746ede06e449def01dc3ee52f6, type: 2}
+  _white: {fileID: 2100000, guid: 0ac90962a8a081e4dbc3271f42bdcbbf, type: 2}
 --- !u!114 &114140311659462586
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -791,6 +794,9 @@ MonoBehaviour:
   _red: {fileID: 2100000, guid: 593393a83657fc047a8aed85d18a4066, type: 2}
   _blue: {fileID: 2100000, guid: ccfac7d51eb58704a97a1dcd7a2cf810, type: 2}
   _green: {fileID: 2100000, guid: 6ea95f2d6d028674fb9ab199d473f5c0, type: 2}
+  _purple: {fileID: 2100000, guid: 573732cc318571c4ca29eaa5830a7bb7, type: 2}
+  _yellow: {fileID: 2100000, guid: 7dfaa3746ede06e449def01dc3ee52f6, type: 2}
+  _white: {fileID: 2100000, guid: 0ac90962a8a081e4dbc3271f42bdcbbf, type: 2}
 --- !u!114 &114249849372676916
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -805,6 +811,9 @@ MonoBehaviour:
   _red: {fileID: 2100000, guid: 593393a83657fc047a8aed85d18a4066, type: 2}
   _blue: {fileID: 2100000, guid: ccfac7d51eb58704a97a1dcd7a2cf810, type: 2}
   _green: {fileID: 2100000, guid: 6ea95f2d6d028674fb9ab199d473f5c0, type: 2}
+  _purple: {fileID: 2100000, guid: 573732cc318571c4ca29eaa5830a7bb7, type: 2}
+  _yellow: {fileID: 2100000, guid: 7dfaa3746ede06e449def01dc3ee52f6, type: 2}
+  _white: {fileID: 2100000, guid: 0ac90962a8a081e4dbc3271f42bdcbbf, type: 2}
 --- !u!114 &114263726815640042
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -819,6 +828,9 @@ MonoBehaviour:
   _red: {fileID: 2100000, guid: 593393a83657fc047a8aed85d18a4066, type: 2}
   _blue: {fileID: 2100000, guid: ccfac7d51eb58704a97a1dcd7a2cf810, type: 2}
   _green: {fileID: 2100000, guid: 6ea95f2d6d028674fb9ab199d473f5c0, type: 2}
+  _purple: {fileID: 2100000, guid: 573732cc318571c4ca29eaa5830a7bb7, type: 2}
+  _yellow: {fileID: 2100000, guid: 7dfaa3746ede06e449def01dc3ee52f6, type: 2}
+  _white: {fileID: 2100000, guid: 0ac90962a8a081e4dbc3271f42bdcbbf, type: 2}
 --- !u!114 &114324399023132756
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -833,6 +845,9 @@ MonoBehaviour:
   _red: {fileID: 2100000, guid: 593393a83657fc047a8aed85d18a4066, type: 2}
   _blue: {fileID: 2100000, guid: ccfac7d51eb58704a97a1dcd7a2cf810, type: 2}
   _green: {fileID: 2100000, guid: 6ea95f2d6d028674fb9ab199d473f5c0, type: 2}
+  _purple: {fileID: 2100000, guid: 573732cc318571c4ca29eaa5830a7bb7, type: 2}
+  _yellow: {fileID: 2100000, guid: 7dfaa3746ede06e449def01dc3ee52f6, type: 2}
+  _white: {fileID: 2100000, guid: 0ac90962a8a081e4dbc3271f42bdcbbf, type: 2}
 --- !u!114 &114609638855781522
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -847,3 +862,6 @@ MonoBehaviour:
   _red: {fileID: 2100000, guid: 593393a83657fc047a8aed85d18a4066, type: 2}
   _blue: {fileID: 2100000, guid: ccfac7d51eb58704a97a1dcd7a2cf810, type: 2}
   _green: {fileID: 2100000, guid: 6ea95f2d6d028674fb9ab199d473f5c0, type: 2}
+  _purple: {fileID: 2100000, guid: 573732cc318571c4ca29eaa5830a7bb7, type: 2}
+  _yellow: {fileID: 2100000, guid: 7dfaa3746ede06e449def01dc3ee52f6, type: 2}
+  _white: {fileID: 2100000, guid: 0ac90962a8a081e4dbc3271f42bdcbbf, type: 2}
