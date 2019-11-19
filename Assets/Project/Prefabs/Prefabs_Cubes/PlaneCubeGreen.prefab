@@ -175,7 +175,7 @@ GameObject:
   - component: {fileID: 4228237516715078}
   - component: {fileID: 54434200225188156}
   - component: {fileID: 65571159509061290}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PlaneCubeGreen
   m_TagString: Green
   m_Icon: {fileID: 0}
