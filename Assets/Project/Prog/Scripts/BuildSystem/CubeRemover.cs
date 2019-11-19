@@ -5,7 +5,7 @@ using VRTK;
 
 public class CubeRemover : Singleton<CubeRemover> {
 
-    public GameObject _detectedObject;
+    [HideInInspector] public GameObject _detectedObject;
 
 
     [SerializeField] float _destructionDelay;
