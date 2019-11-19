@@ -7,11 +7,12 @@ using VRTK;
 public class CubeInstanciater : Singleton<CubeInstanciater> {
 
     #region fields
-    public GameObject _detectedObject;
+    [HideInInspector] public GameObject _detectedObject;
 
 
     [SerializeField] LineRenderer _lineRenderer;
 
+    [SerializeField] GameObject _colorSelectObject;
     [SerializeField] GameObject _previewCube;
     [SerializeField] GameObject _redCubePrefab;
     [SerializeField] GameObject _greenCubePrefab;
@@ -58,6 +59,10 @@ public class CubeInstanciater : Singleton<CubeInstanciater> {
         if (_controller == null)
         {
             _controller = VRTK_DeviceFinder.DeviceTransform(VRTK_DeviceFinder.Devices.RightController).GetComponent<VRTK_ControllerEvents>();
+            if(_controller != null)
+            {
+                _colorSelectObject.GetComponent<VRTK_TransformFollow>().gameObjectToFollow = _controller.gameObject;
+            }
         }
         else
         {
