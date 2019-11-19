@@ -1,0 +1,154 @@
+fileFormatVersion: 2
+guid: 794124ab1faf36344a91406b7a6c0f72
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: group4
+    100002: polySurface55
+    100004: polySurface56
+    100006: polySurface57
+    100008: polySurface59
+    100010: polySurface61
+    100012: polySurface63
+    100014: polySurface66
+    100016: polySurface67
+    100018: polySurface68
+    100020: polySurface69
+    100022: polySurface70
+    100024: polySurface71
+    100026: polySurface72
+    100028: SM_Palissade_1x1
+    100030: //RootNode
+    100032: transform10
+    100034: transform11
+    100036: transform12
+    100038: transform13
+    100040: transform14
+    100042: transform15
+    100044: transform16
+    100046: transform17
+    100048: transform18
+    100050: transform19
+    100052: transform20
+    100054: transform21
+    100056: transform9
+    400000: group4
+    400002: polySurface55
+    400004: polySurface56
+    400006: polySurface57
+    400008: polySurface59
+    400010: polySurface61
+    400012: polySurface63
+    400014: polySurface66
+    400016: polySurface67
+    400018: polySurface68
+    400020: polySurface69
+    400022: polySurface70
+    400024: polySurface71
+    400026: polySurface72
+    400028: SM_Palissade_1x1
+    400030: //RootNode
+    400032: transform10
+    400034: transform11
+    400036: transform12
+    400038: transform13
+    400040: transform14
+    400042: transform15
+    400044: transform16
+    400046: transform17
+    400048: transform18
+    400050: transform19
+    400052: transform20
+    400054: transform21
+    400056: transform9
+    2100000: Bois_Palissade
+    2300000: SM_Palissade_1x1
+    3300000: SM_Palissade_1x1
+    4300000: SM_Palissade_1x1
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bois_Palissade
+    second: {fileID: 2100000, guid: 6c671bf219e1a03469c2a1dfe5e37499, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
