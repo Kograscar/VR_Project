@@ -6,8 +6,8 @@ Material:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: m_cube 2
-  m_Shader: {fileID: 4800000, guid: 1712a9a08a146054e82cad3ded950ca2, type: 3}
+  m_Name: m_cube green
+  m_Shader: {fileID: 4800000, guid: b47b97d095a5b5e4fb903ef3223a060b, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
@@ -55,6 +55,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Texture0:
+        m_Texture: {fileID: 2800000, guid: 9c8d85f7cbc2da547877bc9c91c63490, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TextureSample0:
         m_Texture: {fileID: 2800000, guid: 9c8d85f7cbc2da547877bc9c91c63490, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -125,10 +129,12 @@ Material:
     - _ZWrite: 1
     - __dirty: 0
     - _face6: -0.4
-    - _powemiss: 1.5
-    - _powerblanc: 10
+    - _powemiss: 1.2
+    - _powerblanc: 0.02
     - _powerfresn: 1.5
     - _time: 1
+    - _x: 0.12
+    - _y: 0.369
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}

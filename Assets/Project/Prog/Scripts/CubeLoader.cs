@@ -6,7 +6,9 @@ using VRTK.Controllables.ArtificialBased;
 
 public class CubeLoader : MonoBehaviour {
 
-    VRTK_ArtificialPusher vrtk_ArtificialPusher;
+    public int _maxCube;
+    public int _actualCube;
+
 
     [SerializeField] int _green;
     [SerializeField] int _red;
@@ -14,6 +16,10 @@ public class CubeLoader : MonoBehaviour {
     [SerializeField] int _blue;
     [SerializeField] int _purple;
     [SerializeField] int _white;
+
+
+    VRTK_ArtificialPusher vrtk_ArtificialPusher;
+
 
     void Start()
     {

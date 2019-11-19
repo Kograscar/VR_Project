@@ -7,7 +7,10 @@ using VRTK;
 public class CubeInstanciater : Singleton<CubeInstanciater> {
 
     #region fields
-    [SerializeField] LineRenderer _rightLR;
+    public GameObject _detectedObject;
+
+
+    [SerializeField] LineRenderer _lineRenderer;
 
     [SerializeField] GameObject _previewCube;
     [SerializeField] GameObject _redCubePrefab;
@@ -17,14 +20,14 @@ public class CubeInstanciater : Singleton<CubeInstanciater> {
     [SerializeField] GameObject _purpleCubePrefab;
     [SerializeField] GameObject _whiteCubePrefab;
 
+    [SerializeField] Material _previewMaterial;
+
     [SerializeField] float _placementDelay;
 
 
-    VRTK_ControllerEvents _rightCE;
+    VRTK_ControllerEvents _controller;
 
     GameObject _selectedCube;
-
-    Grid _grid;
 
     float _placementTimer;
 
@@ -36,51 +39,49 @@ public class CubeInstanciater : Singleton<CubeInstanciater> {
     public bool _canBuild = true;
     #endregion fields
 
-    private void OnEnable()
+    void Start()
     {
         _canBuild = true;
-        StartCoroutine(GetActualController());
         ChangeSelectedCube("Green");
         _selectedColor = 0;
+    }
+
+    private void OnEnable()
+    {
+        _previewCube.GetComponent<MeshRenderer>().material = _previewMaterial;
     }
 
     private void Update()
     {
         _placementTimer += Time.deltaTime;
 
-        if (/*_leftCE == null ||*/ _rightCE == null)
+        if (_controller == null)
         {
-            StartCoroutine(GetActualController());
+            _controller = VRTK_DeviceFinder.DeviceTransform(VRTK_DeviceFinder.Devices.RightController).GetComponent<VRTK_ControllerEvents>();
         }
-
-        if (_canBuild)
+        else
         {
-            /*if (_leftCE.gripPressed)
+            if (_canBuild)
             {
-                LaserPointer(_leftCE);
-            }
-            else
-            {
-                _leftLR.enabled = false;
-            }*/
 
-            if (_rightCE.gripPressed)
-            {
-                LaserPointer(_rightCE);
+                if (_controller.gripPressed)
+                {
+                    LaserPointer(_controller);
+                }
+                else
+                {
+                    ChangeActive(false);
+                }
             }
             else
             {
                 ChangeActive(false);
             }
         }
-        else
-        {
-            ChangeActive(false);
-        }
 
         if (_previewCube.activeInHierarchy)
         {
-            if (_rightCE.triggerPressed)
+            if (_controller.triggerPressed)
             {
                 if(_placementTimer >= _placementDelay)
                 {
@@ -98,25 +99,11 @@ public class CubeInstanciater : Singleton<CubeInstanciater> {
 
         if(Physics.Raycast(vRTK_CE.transform.position, vRTK_CE.transform.forward, out hit, Mathf.Infinity))
         {
-            /*if (vRTK_CE == _leftCE)
-            {
-                _leftLR.enabled = true;
-                _leftLR.SetPosition(0, vRTK_CE.transform.position);
-                _leftLR.SetPosition(1, hit.point);
-            }
-            else
-            {*/
-                _rightLR.enabled = true;
-                _rightLR.enabled = true;
-                _rightLR.SetPosition(1, hit.point);
-            //}
-            
-            if (_grid == null)
-            {
-                _grid = FindObjectOfType<Grid>();
-            }
+            _lineRenderer.enabled = true;
+            _lineRenderer.enabled = true;
+            _lineRenderer.SetPosition(1, hit.point);
 
-            Vector3 nearPoint = _grid.GetNearestPointOnGrid(hit.point);
+            Vector3 nearPoint = VirtualGrid.Instance.GetNearestPointOnGrid(hit.point);
 
             if(nearPoint.y == 0)
             {
@@ -124,33 +111,35 @@ public class CubeInstanciater : Singleton<CubeInstanciater> {
             }
             else
             {
-                _previewCube.transform.position = _grid.GetNearestPointOnGrid(hit.point + hit.collider.transform.up * (_grid.size / 2) - new Vector3(0, _previewCube.transform.lossyScale.y / 2, 0));
+                _previewCube.transform.position = VirtualGrid.Instance.GetNearestPointOnGrid(hit.point + hit.collider.transform.up * (_previewCube.transform.lossyScale.x / 2) - new Vector3(0, _previewCube.transform.lossyScale.y / 2, 0));
             }
         }
         else
         {
             _previewCube.SetActive(false);
-            _rightLR.SetPosition(1, vRTK_CE.transform.position + vRTK_CE.transform.forward * 1000);
+            _lineRenderer.SetPosition(1, vRTK_CE.transform.position + vRTK_CE.transform.forward * 1000);
         }
 
-        _rightLR.SetPosition(0, _rightCE.transform.position);
+        _lineRenderer.SetPosition(0, _controller.transform.position);
 
     }
     
     void PlaceCube()
     {
-        if(_colorCount[_selectedColor] > 0)
+        if (_detectedObject == null)
         {
-            Instantiate(_selectedCube, _previewCube.transform.position, _previewCube.transform.rotation);
-            _placementTimer = 0;
-            _colorCount[_selectedColor]--;
+            if (_colorCount[_selectedColor] > 0)
+            {
+                Instantiate(_selectedCube, _previewCube.transform.position, _previewCube.transform.rotation);
+                _placementTimer = 0;
+                _colorCount[_selectedColor]--;
+            }
         }
     }
 
     void ChangeActive(bool state)
     {
-        //_leftLR.enabled = state;
-        _rightLR.enabled = state;
+        _lineRenderer.enabled = state;
         _previewCube.SetActive(state);
     }
 
@@ -205,36 +194,52 @@ public class CubeInstanciater : Singleton<CubeInstanciater> {
         }
     }
 
-    IEnumerator GetActualController() {
-        yield return new WaitForEndOfFrame();
+    public enum Colore
+    {
+        Green,
+        Blue
+    }
 
-        _rightCE = VRTK_DeviceFinder.DeviceTransform(VRTK_DeviceFinder.Devices.RightController).GetComponent<VRTK_ControllerEvents>();
-        //_leftCE = VRTK_DeviceFinder.DeviceTransform(VRTK_DeviceFinder.Devices.LeftController).GetComponent<VRTK_ControllerEvents>();
+    public void ReceiveCube(string tag)
+    {
+        /*Colore colore = (Colore)Enum.Parse(typeof(Colore), tag); // string to enum 'Colore'
 
-        /*if(_rightCE != null && _leftCE != null)
+        int index = (int)colore; // enum 'Colore' to int index
+
+        _colorCount[index]++;*/
+
+        switch (tag)
         {
-            _rightCE.GripClicked += (object sender, ControllerInteractionEventArgs e) =>
-            {
-                LaserPointer(_rightCE);
-            };
-        }*/
 
-        /*if(_rightCE != null)
-        {
-            Debug.Log("Right : " + _rightCE.gameObject.name);
+            case "Green":
+                _colorCount[0]++;
+
+                break;
+
+            case "Red":
+                _colorCount[1]++;
+
+                break;
+
+            case "Yellow":
+                _colorCount[2]++;
+
+                break;
+
+            case "Blue":
+                _colorCount[3]++;
+
+                break;
+
+            case "Purple":
+                _colorCount[4]++;
+
+                break;
+
+            case "White":
+                _colorCount[5]++;
+
+                break;
         }
-        else
-        {
-            Debug.Log("Right : null");
-        }
-
-        if (_leftCE != null)
-        {
-            Debug.Log("Left : " + _leftCE.gameObject.name);
-        }
-        else
-        {
-            Debug.Log("Left : null");
-        }*/
     }
 }
