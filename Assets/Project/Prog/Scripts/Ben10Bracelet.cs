@@ -9,6 +9,12 @@ public class Ben10Bracelet : MonoBehaviour {
     VRTK_ArtificialPusher _pusher;
     VRTK_ArtificialRotator _rotator;
 
+    Animator _animator;
+
+    float _timer;
+
+    bool _opening;
+
     [SerializeField] string[] _tags = new string[4];
 
     void Start()
@@ -16,9 +22,11 @@ public class Ben10Bracelet : MonoBehaviour {
         _pusher = GetComponentInChildren<VRTK_ArtificialPusher>();
         _rotator = GetComponentInChildren<VRTK_ArtificialRotator>();
 
+        //_animator = GetComponent<Animator>();
+
         _pusher.MinLimitExited += (object sender, ControllableEventArgs e) =>
         {
-            Debug.Log("TURANSEFORMEEEEEE");
+            //_animator.SetTrigger("Open");
         };
 
         _rotator.ValueChanged += (object sender, ControllableEventArgs e) =>
@@ -47,6 +55,4 @@ public class Ben10Bracelet : MonoBehaviour {
             }
         };
     }
-
-
 }
