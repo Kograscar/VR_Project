@@ -259,7 +259,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 106680470}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 6.75, y: 1, z: 0.25}
+  m_LocalPosition: {x: 6.75, y: 1.125, z: 0.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1243509995}
@@ -3271,7 +3271,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1108358381}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.125, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1243509995}
@@ -3282,7 +3282,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh-3269394
+  m_Name: pb_Mesh26504
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -3951,6 +3951,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _detectedObject: {fileID: 0}
   _lineRenderer: {fileID: 2146952096}
+  _colorSelectObject: {fileID: 0}
   _previewCube: {fileID: 1680401885}
   _redCubePrefab: {fileID: 1336511034747760, guid: 349ef27c8a440f047a30421f6b381ec2,
     type: 2}
@@ -9830,7 +9831,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh-3279566
+  m_Name: pb_Mesh26304
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
