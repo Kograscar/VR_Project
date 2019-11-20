@@ -8,6 +8,7 @@ public class Key_Manager : MonoBehaviour {
     [SerializeField] private Transform _offset = null;
     [SerializeField] private GameObject keyOfRoom = null;
     [SerializeField] private bool _coroutineOn = false;
+    [SerializeField] private bool _coroutine2On = false;
 
     private void Start()
     {
@@ -21,6 +22,11 @@ public class Key_Manager : MonoBehaviour {
         {
             StartCoroutine(WaitforInstantiateKey());
         }
+
+        if (keyOfRoom.transform.position != _offset.position && _coroutine2On == false)
+        {
+            StartCoroutine(WaitforDesable());
+        }
 		
 	}
     private IEnumerator WaitforInstantiateKey()
@@ -32,4 +38,13 @@ public class Key_Manager : MonoBehaviour {
         keyOfRoom.SetActive(true);
         _coroutineOn = false;
     }
+
+    private IEnumerator WaitforDesable()
+    {
+        _coroutine2On = true;
+        yield return new WaitForSeconds(5f);
+        keyOfRoom.SetActive(false);
+        _coroutine2On = false;
+    }
+
 }
