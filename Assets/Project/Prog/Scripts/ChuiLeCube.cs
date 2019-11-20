@@ -104,35 +104,11 @@ public class ChuiLeCube : MonoBehaviour {
 
                                 if (goodtouch == 4)
                                 {
-                                    //Debug.Log("SameTag time to move by " + touchedItem[0].GetComponentInParent<Transform>().gameObject.GetComponentInParent<Transform>().gameObject.name);
-
                                     _rig.velocity = new Vector3(0, 0, 0) - item.transform.forward * _force;
-                                    //_rig.AddForce(-item.transform.forward * _force);
 
-                                    transform.position = touchedItem[0].transform.position + touchedItem[0].transform.forward;
+                                    transform.position = touchedItem[0].transform.position + touchedItem[0].transform.forward.normalized / 4;
 
                                     StartCoroutine(DetectionDelay());
-
-                                    /*(item.tag)
-                                    {
-                                        case "Red":
-
-                                            _rig.AddForce(-item.transform.forward * 10);
-
-                                            break;
-
-                                        case "Blue":
-
-                                            _rig.AddForce(-item.transform.forward * 10);
-
-                                            break;
-
-                                        case "White":
-
-                                            _rig.AddForce(-item.transform.forward * 10);
-
-                                            break;
-                                    }*/
                                 }
                             }
                         }
@@ -140,8 +116,6 @@ public class ChuiLeCube : MonoBehaviour {
                 }
             }
         }
-
-        //Debug.Log(_rig.velocity);
     }
 
     IEnumerator DetectionDelay()
