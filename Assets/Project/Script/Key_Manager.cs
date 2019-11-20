@@ -10,9 +10,12 @@ public class Key_Manager : MonoBehaviour {
     [SerializeField] private bool _coroutineOn = false;
     [SerializeField] private bool _coroutine2On = false;
 
+    Rigidbody rigidbody;
+
     private void Start()
     {
         keyOfRoom = Instantiate(_keyToInstantiate, _offset.position, _offset.rotation,_offset);
+        rigidbody = keyOfRoom.GetComponentInChildren<Rigidbody>();
     }
 
     void Update ()
@@ -44,6 +47,7 @@ public class Key_Manager : MonoBehaviour {
         _coroutine2On = true;
         yield return new WaitForSeconds(5f);
         keyOfRoom.SetActive(false);
+        rigidbody.velocity = new Vector3();
         _coroutine2On = false;
     }
 
