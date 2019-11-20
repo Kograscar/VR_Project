@@ -199,11 +199,11 @@ public class CubeInstanciater : Singleton<CubeInstanciater> {
         }
     }
 
-    public enum Colore
+    /*public enum Colore
     {
         Green,
         Blue
-    }
+    }*/
 
     public void ReceiveCube(string tag)
     {

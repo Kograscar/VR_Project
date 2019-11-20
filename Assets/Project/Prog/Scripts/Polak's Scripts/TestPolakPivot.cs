@@ -30,10 +30,10 @@ public class TestPolakPivot : MonoBehaviour
 
     IEnumerator DelayPivot(Transform collider)
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(0.3f);
 
         AnimPivot.SetTrigger("Pivot");
-        yield return StartCoroutine(StopParent(collider.transform));
+        /*yield return*/ StartCoroutine(StopParent(collider.transform));
 
     }
 

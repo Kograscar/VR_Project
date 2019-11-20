@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using VRTK.Controllables;
 using VRTK.Controllables.ArtificialBased;
+using TMPro;
 
 public class CubeLoader : MonoBehaviour {
 
@@ -10,12 +11,10 @@ public class CubeLoader : MonoBehaviour {
     public int _actualCube;
 
 
-    [SerializeField] int _green;
-    [SerializeField] int _red;
-    [SerializeField] int _yellow;
-    [SerializeField] int _blue;
-    [SerializeField] int _purple;
-    [SerializeField] int _white;
+    public int[] _colors = new int[6];
+
+
+    [SerializeField] TextMeshProUGUI _maxCubeText;
 
 
     VRTK_ArtificialPusher vrtk_ArtificialPusher;
@@ -26,12 +25,12 @@ public class CubeLoader : MonoBehaviour {
         vrtk_ArtificialPusher = GetComponent<VRTK_ArtificialPusher>();
         vrtk_ArtificialPusher.MinLimitExited += (object sender, ControllableEventArgs e) => 
         {
-            CubeInstanciater.Instance.LoadCube(_green, _red, _yellow, _blue, _purple, _white);
+            CubeInstanciater.Instance.LoadCube(_colors[0], _colors[1], _colors[2], _colors[3], _colors[4], _colors[5]);
         };
     }
 
-    void LoadCube()
+    private void Update()
     {
-        CubeInstanciater.Instance.LoadCube(_green, _red, _yellow, _blue, _purple, _white);
+        _maxCubeText.text = _actualCube.ToString() + " / " + _maxCube.ToString();
     }
 }
