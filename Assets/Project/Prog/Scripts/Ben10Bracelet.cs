@@ -27,6 +27,7 @@ public class Ben10Bracelet : MonoBehaviour {
         _pusher.MinLimitExited += (object sender, ControllableEventArgs e) =>
         {
             //_animator.SetTrigger("Open");
+            _opening = !_opening;
         };
 
         _rotator.ValueChanged += (object sender, ControllableEventArgs e) =>
@@ -36,11 +37,7 @@ public class Ben10Bracelet : MonoBehaviour {
             a /= 2f * Mathf.PI;
             a = Mathf.RoundToInt(a * 100f);
 
-            //Debug.Log(a);
-
             int quotient = Mathf.RoundToInt(a / 25);
-
-            //Debug.Log(quotient);
 
             if(quotient == 4)
             {
@@ -56,16 +53,36 @@ public class Ben10Bracelet : MonoBehaviour {
         };
     }
 
-    /*private void OnDrawGizmos()
+    private void Update()
     {
-        Gizmos.color = Color.yellow;
-        for (float x = 0; x < 4; x += 1)
+        if (!_opening)
         {
-            for (float z = 0; z < lenght; z += size)
+            CubeInstanciater.Instance.enabled = false;
+            CubeRemover.Instance.enabled = false;
+        }
+        else
+        {
+            if (CubeRemover.Instance.enabled == false && CubeInstanciater.Instance.enabled == false)
             {
-                var point = ;
-                Gizmos.DrawSphere(point, new Vector3(.2f, .2f, .2f));
+                float a = Mathf.Atan2(_rotator.transform.up.y, _rotator.transform.up.z);
+                a += Mathf.PI;
+                a /= 2f * Mathf.PI;
+                a = Mathf.RoundToInt(a * 100f);
+
+                int quotient = Mathf.RoundToInt(a / 25);
+
+                if (quotient == 4)
+                {
+                    CubeInstanciater.Instance.enabled = false;
+                    CubeRemover.Instance.enabled = true;
+                }
+                else
+                {
+                    CubeInstanciater.Instance.enabled = true;
+                    CubeRemover.Instance.enabled = false;
+                    CubeInstanciater.Instance.ChangeSelectedCube(_tags[quotient]);
+                }
             }
         }
-    }*/
+    }
 }
