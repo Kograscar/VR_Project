@@ -55,4 +55,17 @@ public class Ben10Bracelet : MonoBehaviour {
             }
         };
     }
+
+    /*private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        for (float x = 0; x < 4; x += 1)
+        {
+            for (float z = 0; z < lenght; z += size)
+            {
+                var point = ;
+                Gizmos.DrawSphere(point, new Vector3(.2f, .2f, .2f));
+            }
+        }
+    }*/
 }
