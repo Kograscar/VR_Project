@@ -69,7 +69,7 @@ public class CubeInstanciater : Singleton<CubeInstanciater> {
             if (_canBuild)
             {
 
-                if (_controller.gripPressed)
+                if (_controller.buttonOnePressed)
                 {
                     LaserPointer(_controller);
                 }
