@@ -30,11 +30,14 @@ public class CubeInstanciater : Singleton<CubeInstanciater> {
 
     GameObject _selectedCube;
 
+    Transform _nearCube;
+
     float _placementTimer;
 
     [SerializeField] int[] _colorCount = new int[6];
     
     int _selectedColor;
+
 
 
     public bool _canBuild = true;
@@ -118,6 +121,8 @@ public class CubeInstanciater : Singleton<CubeInstanciater> {
             {
                 _previewCube.transform.position = VirtualGrid.Instance.GetNearestPointOnGrid(hit.point + hit.collider.transform.up * (_previewCube.transform.lossyScale.x / 2) - new Vector3(0, _previewCube.transform.lossyScale.y / 2, 0));
             }
+
+            _nearCube = hit.collider.transform;
         }
         else
         {
@@ -135,7 +140,7 @@ public class CubeInstanciater : Singleton<CubeInstanciater> {
         {
             if (_colorCount[_selectedColor] > 0)
             {
-                Instantiate(_selectedCube, _previewCube.transform.position, _previewCube.transform.rotation);
+                Instantiate(_selectedCube, _previewCube.transform.position, _previewCube.transform.rotation, _nearCube);
                 _placementTimer = 0;
                 _colorCount[_selectedColor]--;
             }
