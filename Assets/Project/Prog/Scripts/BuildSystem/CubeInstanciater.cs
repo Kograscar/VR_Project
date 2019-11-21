@@ -69,7 +69,7 @@ public class CubeInstanciater : Singleton<CubeInstanciater> {
             if (_canBuild)
             {
 
-                if (_controller.gripPressed)
+                if (_controller.buttonOnePressed)
                 {
                     LaserPointer(_controller);
                 }
@@ -102,7 +102,7 @@ public class CubeInstanciater : Singleton<CubeInstanciater> {
 
         RaycastHit hit;
 
-        if(Physics.Raycast(vRTK_CE.transform.position, vRTK_CE.transform.forward, out hit, Mathf.Infinity))
+        if(Physics.Raycast(vRTK_CE.transform.position, vRTK_CE.transform.forward, out hit, Mathf.Infinity, 8))
         {
             _lineRenderer.enabled = true;
             _lineRenderer.enabled = true;

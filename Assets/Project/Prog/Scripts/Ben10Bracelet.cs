@@ -15,6 +15,8 @@ public class Ben10Bracelet : MonoBehaviour {
 
     bool _opening;
 
+    public string _caca = "caca";
+
     [SerializeField] string[] _tags = new string[4];
 
     void Start()
@@ -28,6 +30,7 @@ public class Ben10Bracelet : MonoBehaviour {
         {
             //_animator.SetTrigger("Open");
             _opening = !_opening;
+            Debug.Log("Button : " + _opening);
         };
 
         _rotator.ValueChanged += (object sender, ControllableEventArgs e) =>
@@ -51,38 +54,17 @@ public class Ben10Bracelet : MonoBehaviour {
                 CubeInstanciater.Instance.ChangeSelectedCube(_tags[quotient]);
             }
         };
+
+        _opening = false;
     }
 
     private void Update()
     {
+        Debug.Log(_opening);
         if (!_opening)
         {
             CubeInstanciater.Instance.enabled = false;
             CubeRemover.Instance.enabled = false;
-        }
-        else
-        {
-            if (CubeRemover.Instance.enabled == false && CubeInstanciater.Instance.enabled == false)
-            {
-                float a = Mathf.Atan2(_rotator.transform.up.y, _rotator.transform.up.z);
-                a += Mathf.PI;
-                a /= 2f * Mathf.PI;
-                a = Mathf.RoundToInt(a * 100f);
-
-                int quotient = Mathf.RoundToInt(a / 25);
-
-                if (quotient == 4)
-                {
-                    CubeInstanciater.Instance.enabled = false;
-                    CubeRemover.Instance.enabled = true;
-                }
-                else
-                {
-                    CubeInstanciater.Instance.enabled = true;
-                    CubeRemover.Instance.enabled = false;
-                    CubeInstanciater.Instance.ChangeSelectedCube(_tags[quotient]);
-                }
-            }
         }
     }
 }
