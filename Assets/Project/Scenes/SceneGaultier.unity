@@ -7076,7 +7076,7 @@ Transform:
   - {fileID: 495629805}
   - {fileID: 1289331085}
   m_Father: {fileID: 2096104965}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1258579850
 GameObject:
@@ -7547,6 +7547,7 @@ MonoBehaviour:
     type: 2}
   _previewMaterial: {fileID: 2100000, guid: 8b456ffdc2c42b748b23d9274372f7f4, type: 2}
   _placementDelay: 0.5
+  _colorCount: 000000000000000000000000000000000000000000000000
   _canBuild: 1
 --- !u!114 &1478880597
 MonoBehaviour:
@@ -8748,7 +8749,7 @@ Transform:
   - {fileID: 1005074489}
   - {fileID: 1269496826}
   m_Father: {fileID: 2096104965}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2096104964
 GameObject:
@@ -8775,8 +8776,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 2058355539}
   - {fileID: 1186820078}
+  - {fileID: 2058355539}
   - {fileID: 837755750}
   m_Father: {fileID: 0}
   m_RootOrder: 6
