@@ -32,7 +32,7 @@ public class CubeInstanciater : Singleton<CubeInstanciater> {
 
     float _placementTimer;
 
-    int[] _colorCount = new int[6];
+    [SerializeField] int[] _colorCount = new int[6];
     
     int _selectedColor;
 
