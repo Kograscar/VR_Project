@@ -20,13 +20,14 @@ GameObject:
   m_Component:
   - component: {fileID: 4744568141668206}
   - component: {fileID: 114869479675347144}
-  m_Layer: 0
+  - component: {fileID: 114634296296188052}
+  m_Layer: 8
   m_Name: Gantelet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1065876980906026
 GameObject:
   m_ObjectHideFlags: 1
@@ -36,7 +37,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4964596059330562}
   - component: {fileID: 120958579390163352}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RightSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +56,7 @@ GameObject:
   - component: {fileID: 23468529276365050}
   - component: {fileID: 136852447539494978}
   - component: {fileID: 114822259815984094}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bouton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -76,7 +77,7 @@ GameObject:
   - component: {fileID: 114871673104654648}
   - component: {fileID: 114425489333899244}
   - component: {fileID: 114774697403176218}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RedSelectButton
   m_TagString: Red
   m_Icon: {fileID: 0}
@@ -95,7 +96,7 @@ GameObject:
   - component: {fileID: 23687359296080134}
   - component: {fileID: 65261729842511720}
   - component: {fileID: 114446289474112274}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (2)
   m_TagString: Purple
   m_Icon: {fileID: 0}
@@ -116,7 +117,7 @@ GameObject:
   - component: {fileID: 114163388307627378}
   - component: {fileID: 114941636096140086}
   - component: {fileID: 114165772701963442}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GreenSelectButton
   m_TagString: Green
   m_Icon: {fileID: 0}
@@ -132,7 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4721865755872924}
   - component: {fileID: 114850701385455510}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: VirtualGrid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -151,7 +152,7 @@ GameObject:
   - component: {fileID: 23897471020856312}
   - component: {fileID: 65640386549526116}
   - component: {fileID: 114728759141754746}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Green
   m_Icon: {fileID: 0}
@@ -170,7 +171,7 @@ GameObject:
   - component: {fileID: 23526862545491650}
   - component: {fileID: 65347590639692956}
   - component: {fileID: 114242847058855818}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (3)
   m_TagString: Red
   m_Icon: {fileID: 0}
@@ -188,7 +189,7 @@ GameObject:
   - component: {fileID: 33566069132118804}
   - component: {fileID: 23628925801779468}
   - component: {fileID: 136443666397663098}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -209,7 +210,7 @@ GameObject:
   - component: {fileID: 114095171065812478}
   - component: {fileID: 114846254168538466}
   - component: {fileID: 114836885291191676}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: WhiteSelectButton
   m_TagString: White
   m_Icon: {fileID: 0}
@@ -225,7 +226,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4875534769097908}
   - component: {fileID: 114703039654832610}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Roue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -242,7 +243,7 @@ GameObject:
   - component: {fileID: 4711881103474364}
   - component: {fileID: 114583077665145728}
   - component: {fileID: 114297500876134634}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CubePlacer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -258,7 +259,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4010177722012992}
   - component: {fileID: 114116642123684580}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ColorPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -278,7 +279,7 @@ GameObject:
   - component: {fileID: 65398662912748890}
   - component: {fileID: 114210351190568274}
   - component: {fileID: 114418465259110690}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ChangeMode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -296,7 +297,7 @@ GameObject:
   - component: {fileID: 33280678523702552}
   - component: {fileID: 23791185080733342}
   - component: {fileID: 65721845006909624}
-  m_Layer: 2
+  m_Layer: 8
   m_Name: PreviewCube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -312,7 +313,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4543513162991132}
   - component: {fileID: 120871959536529730}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LeftSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -331,7 +332,7 @@ GameObject:
   - component: {fileID: 23987710045103622}
   - component: {fileID: 65853125355170702}
   - component: {fileID: 114846925735127394}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Blue
   m_Icon: {fileID: 0}
@@ -350,7 +351,7 @@ GameObject:
   - component: {fileID: 23835941479490216}
   - component: {fileID: 65799722599993264}
   - component: {fileID: 114364482689116590}
-  m_Layer: 2
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -368,7 +369,7 @@ GameObject:
   - component: {fileID: 33348167640747840}
   - component: {fileID: 23271422917247924}
   - component: {fileID: 65825301756543720}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Support
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -389,7 +390,7 @@ GameObject:
   - component: {fileID: 114101134189077228}
   - component: {fileID: 114813826314162100}
   - component: {fileID: 114809759272604852}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BlueSelectButton
   m_TagString: Blue
   m_Icon: {fileID: 0}
@@ -404,7 +405,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4534890477079252}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CubePlacementPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -423,7 +424,7 @@ GameObject:
   - component: {fileID: 23757458077265490}
   - component: {fileID: 65742312460646246}
   - component: {fileID: 114384790903560284}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (1)
   m_TagString: Yellow
   m_Icon: {fileID: 0}
@@ -1472,7 +1473,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1671175211335136}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -1782,7 +1783,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _detectedObject: {fileID: 0}
   _lineRenderer: {fileID: 120958579390163352}
-  _colorSelectObject: {fileID: 1612258218654200}
+  _colorSelectObject: {fileID: 1003629417021480}
   _previewCube: {fileID: 1671175211335136}
   _redCubePrefab: {fileID: 1336511034747760, guid: 349ef27c8a440f047a30421f6b381ec2,
     type: 2}
@@ -1798,7 +1799,31 @@ MonoBehaviour:
     type: 2}
   _previewMaterial: {fileID: 2100000, guid: 8b456ffdc2c42b748b23d9274372f7f4, type: 2}
   _placementDelay: 0.1
+  _colorCount: 000000000000000000000000000000000000000000000000
   _canBuild: 1
+--- !u!114 &114634296296188052
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1003629417021480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe5040c2eaa9ff147b80ded004191c67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameObjectToFollow: {fileID: 0}
+  gameObjectToChange: {fileID: 1003629417021480}
+  followsPosition: 1
+  smoothsPosition: 0
+  maxAllowedPerFrameDistanceDifference: 0.003
+  followsRotation: 1
+  smoothsRotation: 0
+  maxAllowedPerFrameAngleDifference: 1.5
+  followsScale: 0
+  smoothsScale: 0
+  maxAllowedPerFrameSizeDifference: 0.003
+  _moment: 3
 --- !u!114 &114703039654832610
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1824,11 +1849,11 @@ MonoBehaviour:
   angleTarget: 0
   isLocked: 0
   stepValueRange:
-    minimum: 0
-    maximum: 1
-  stepSize: 0.1
+    minimum: 5
+    maximum: 30
+  stepSize: 15
   useStepAsValue: 1
-  snapToStep: 0
+  snapToStep: 1
   snapForce: 10
   precisionGrab: 1
   detachDistance: 1
@@ -1990,6 +2015,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9298ad78bc8f3754bb9034963f35af28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _caca: caca
   _tags:
   - White
   - Blue
