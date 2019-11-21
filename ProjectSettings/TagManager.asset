@@ -10,6 +10,7 @@ TagManager:
   - White
   - Purple
   - Yellow
+  - Trigger_Player
   - MainCube
   layers:
   - Default
@@ -20,7 +21,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - BuildableArea
   - 
   - 
   - 

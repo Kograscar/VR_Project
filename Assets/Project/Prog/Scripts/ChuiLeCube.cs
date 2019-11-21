@@ -32,7 +32,8 @@ public class ChuiLeCube : MonoBehaviour {
                 RaycastHit hit = new RaycastHit();
                 List<GameObject> touchedItem = new List<GameObject>();
 
-                if (Physics.Raycast(item.transform.position + item.transform.InverseTransformDirection(new Vector3(item.transform.lossyScale.x / 2 - _shift, item.transform.lossyScale.x / 2 - _shift, 0)),
+                if (Physics.Raycast(item.transform.position + item.transform.InverseTransformDirection(
+                    new Vector3(item.transform.lossyScale.x / 2 - _shift, item.transform.lossyScale.x / 2 - _shift, 0)),
                     item.transform.forward, out hit, _rayLenght))
                 {
                     if(hit.collider.GetComponentInParent<AssignFaceColorByTag>() != null)
@@ -40,10 +41,12 @@ public class ChuiLeCube : MonoBehaviour {
                         touchedItem.Add(hit.collider.GetComponentInParent<AssignFaceColorByTag>().gameObject);
                     }
                 }
-                Debug.DrawRay(item.transform.position + item.transform.InverseTransformDirection(new Vector3(item.transform.lossyScale.x / 2 - _shift, item.transform.lossyScale.x / 2 - _shift, 0)),
+                Debug.DrawRay(item.transform.position + item.transform.InverseTransformDirection(
+                    new Vector3(item.transform.lossyScale.x / 2 - _shift, item.transform.lossyScale.x / 2 - _shift, 0)),
                     item.transform.forward * _rayLenght, Color.red, _rayDuration);
 
-                if (Physics.Raycast(item.transform.position + item.transform.InverseTransformDirection(new Vector3(-item.transform.lossyScale.x / 2 + _shift, item.transform.lossyScale.x / 2 - _shift, 0)),
+                if (Physics.Raycast(item.transform.position + item.transform.InverseTransformDirection(
+                    new Vector3(-item.transform.lossyScale.x / 2 + _shift, item.transform.lossyScale.x / 2 - _shift, 0)),
                     item.transform.forward, out hit, _rayLenght))
                 {
                     if (hit.collider.GetComponentInParent<AssignFaceColorByTag>() != null)
@@ -51,10 +54,12 @@ public class ChuiLeCube : MonoBehaviour {
                         touchedItem.Add(hit.collider.GetComponentInParent<AssignFaceColorByTag>().gameObject);
                     }
                 }
-                Debug.DrawRay(item.transform.position + item.transform.InverseTransformDirection(new Vector3(-item.transform.lossyScale.x / 2 + _shift, item.transform.lossyScale.x / 2 - _shift, 0)),
+                Debug.DrawRay(item.transform.position + item.transform.InverseTransformDirection(
+                    new Vector3(-item.transform.lossyScale.x / 2 + _shift, item.transform.lossyScale.x / 2 - _shift, 0)),
                     item.transform.forward * _rayLenght, Color.red, _rayDuration);
 
-                if (Physics.Raycast(item.transform.position + item.transform.InverseTransformDirection(new Vector3(item.transform.lossyScale.x / 2 - _shift, -item.transform.lossyScale.x / 2 + _shift, 0)),
+                if (Physics.Raycast(item.transform.position + item.transform.InverseTransformDirection(
+                    new Vector3(item.transform.lossyScale.x / 2 - _shift, -item.transform.lossyScale.x / 2 + _shift, 0)),
                     item.transform.forward, out hit, _rayLenght))
                 {
                     if (hit.collider.GetComponentInParent<AssignFaceColorByTag>() != null)
@@ -62,10 +67,12 @@ public class ChuiLeCube : MonoBehaviour {
                         touchedItem.Add(hit.collider.GetComponentInParent<AssignFaceColorByTag>().gameObject);
                     }
                 }
-                Debug.DrawRay(item.transform.position + item.transform.InverseTransformDirection(new Vector3(item.transform.lossyScale.x / 2 - _shift, -item.transform.lossyScale.x / 2 + _shift, 0)),
+                Debug.DrawRay(item.transform.position + item.transform.InverseTransformDirection(
+                    new Vector3(item.transform.lossyScale.x / 2 - _shift, -item.transform.lossyScale.x / 2 + _shift, 0)),
                     item.transform.forward * _rayLenght, Color.red, _rayDuration);
 
-                if (Physics.Raycast(item.transform.position + item.transform.InverseTransformDirection(new Vector3(-item.transform.lossyScale.x / 2 + _shift, -item.transform.lossyScale.x / 2 + _shift, 0)),
+                if (Physics.Raycast(item.transform.position + item.transform.InverseTransformDirection(
+                    new Vector3(-item.transform.lossyScale.x / 2 + _shift, -item.transform.lossyScale.x / 2 + _shift, 0)),
                     item.transform.forward, out hit, _rayLenght))
                 {
                     if (hit.collider.GetComponentInParent<AssignFaceColorByTag>() != null)
@@ -73,7 +80,8 @@ public class ChuiLeCube : MonoBehaviour {
                         touchedItem.Add(hit.collider.GetComponentInParent<AssignFaceColorByTag>().gameObject);
                     }
                 }
-                Debug.DrawRay(item.transform.position + item.transform.InverseTransformDirection(new Vector3(-item.transform.lossyScale.x / 2 + _shift, -item.transform.lossyScale.x / 2 + _shift, 0)),
+                Debug.DrawRay(item.transform.position + item.transform.InverseTransformDirection(
+                    new Vector3(-item.transform.lossyScale.x / 2 + _shift, -item.transform.lossyScale.x / 2 + _shift, 0)),
                     item.transform.forward * _rayLenght, Color.red, _rayDuration);
 
                 int goodtouch = new int();
@@ -96,33 +104,11 @@ public class ChuiLeCube : MonoBehaviour {
 
                                 if (goodtouch == 4)
                                 {
-                                    //Debug.Log("SameTag time to move by " + touchedItem[0].GetComponentInParent<Transform>().gameObject.GetComponentInParent<Transform>().gameObject.name);
-
                                     _rig.velocity = new Vector3(0, 0, 0) - item.transform.forward * _force;
-                                    //_rig.AddForce(-item.transform.forward * _force);
+
+                                    transform.position = touchedItem[0].transform.position + touchedItem[0].transform.forward.normalized / 4;
 
                                     StartCoroutine(DetectionDelay());
-
-                                    /*(item.tag)
-                                    {
-                                        case "Red":
-
-                                            _rig.AddForce(-item.transform.forward * 10);
-
-                                            break;
-
-                                        case "Blue":
-
-                                            _rig.AddForce(-item.transform.forward * 10);
-
-                                            break;
-
-                                        case "White":
-
-                                            _rig.AddForce(-item.transform.forward * 10);
-
-                                            break;
-                                    }*/
                                 }
                             }
                         }

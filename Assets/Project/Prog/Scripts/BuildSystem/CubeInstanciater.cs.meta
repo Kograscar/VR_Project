@@ -1,0 +1,25 @@
+fileFormatVersion: 2
+guid: caf705784b9999a458c9d9916afa6694
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - _rightLR: {instanceID: 0}
+  - _previewCube: {instanceID: 0}
+  - _redCubePrefab: {fileID: 1336511034747760, guid: 349ef27c8a440f047a30421f6b381ec2,
+      type: 2}
+  - _greenCubePrefab: {fileID: 1535766949293776, guid: 590ba5e3abe9bdd4eb012b065fbe9b5f,
+      type: 2}
+  - _blueCubePrefab: {fileID: 1048532907704846, guid: ae3d436e7c25c894ba099c1e5040e909,
+      type: 2}
+  - _yellowCubePrefab: {fileID: 1336511034747760, guid: 63f3181574f821e42a6553c4cdfa734d,
+      type: 2}
+  - _purpleCubePrefab: {fileID: 1336511034747760, guid: b84f9de8fe1946d408b3ebfcd8facb1d,
+      type: 2}
+  - _whiteCubePrefab: {fileID: 1336511034747760, guid: 9dc77c8ab0465aa4eb302e8f81281fe9,
+      type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
