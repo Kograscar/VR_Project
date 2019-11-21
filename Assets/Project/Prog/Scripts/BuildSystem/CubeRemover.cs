@@ -81,7 +81,7 @@ public class CubeRemover : Singleton<CubeRemover> {
 
         RaycastHit hit;
 
-        if (Physics.Raycast(_controller.transform.position, _controller.transform.forward, out hit, Mathf.Infinity))
+        if (Physics.Raycast(_controller.transform.position, _controller.transform.forward, out hit, Mathf.Infinity, 8))
         {
             lineRenderer.enabled = true;
             lineRenderer.enabled = true;
