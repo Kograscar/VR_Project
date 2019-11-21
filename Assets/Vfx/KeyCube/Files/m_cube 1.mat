@@ -100,10 +100,10 @@ Material:
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _Face1: 0
-    - _Face2: 0.4
-    - _Face3: 0
-    - _Face4: 0.6
+    - _Face1: 1
+    - _Face2: 2.1
+    - _Face3: 0.8
+    - _Face4: -0.1
     - _Face5: 0
     - _Float0: 0.5
     - _Float1: 0
