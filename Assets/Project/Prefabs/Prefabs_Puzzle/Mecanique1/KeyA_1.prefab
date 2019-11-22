@@ -1388,8 +1388,7 @@ MonoBehaviour:
   - {fileID: 1354708074670566}
   - {fileID: 1591327203918816}
   _rayDuration: 0.01
-  _rayLenght: 0.2
-  _detectionDelay: 0.01
+  _rayLenght: 0.05
   _force: 4
   _shift: 1
 --- !u!114 &114245652044736802
