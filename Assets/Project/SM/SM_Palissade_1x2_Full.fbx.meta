@@ -5,7 +5,7 @@ ModelImporter:
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: Bois_Palissade
+    2100000: Bois_Palissade1
     2300000: //RootNode
     3300000: //RootNode
     4300000: SM_Palissade_1x2_Full
@@ -13,7 +13,7 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Bois_Palissade
+      name: Bois_Palissade1
     second: {fileID: 2100000, guid: 6c671bf219e1a03469c2a1dfe5e37499, type: 2}
   materials:
     importMaterials: 1
