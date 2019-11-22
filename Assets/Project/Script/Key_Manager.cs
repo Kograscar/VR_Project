@@ -9,6 +9,8 @@ public class Key_Manager : MonoBehaviour {
     [SerializeField] private GameObject keyOfRoom = null;
     [SerializeField] private bool _coroutineOn = false;
     [SerializeField] private bool _coroutine2On = false;
+    [SerializeField] private GameObject _ZoneScale = null;
+
 
    // Rigidbody _rigidbody;
 
@@ -20,8 +22,9 @@ public class Key_Manager : MonoBehaviour {
 
     void Update ()
     {
-
-        if (keyOfRoom == null  && _coroutineOn == false)
+        
+        if (keyOfRoom == null  && _coroutineOn == false && 
+           (_ZoneScale.transform.localScale == new Vector3(2,1,2) || _ZoneScale.transform.localScale == new Vector3(1.5f, 1, 1.5f)))
         {
             StartCoroutine(WaitforInstantiateKey());
         }
