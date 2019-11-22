@@ -64,7 +64,7 @@ public class CubeInstanciater : Singleton<CubeInstanciater> {
             _controller = VRTK_DeviceFinder.DeviceTransform(VRTK_DeviceFinder.Devices.RightController).GetComponent<VRTK_ControllerEvents>();
             if(_controller != null)
             {
-                _colorSelectObject.GetComponent<VRTK_TransformFollow>().gameObjectToFollow = _controller.gameObject;
+                //_colorSelectObject.GetComponent<VRTK_TransformFollow>().gameObjectToFollow = _controller.gameObject;
             }
         }
         else
@@ -72,7 +72,7 @@ public class CubeInstanciater : Singleton<CubeInstanciater> {
             if (_canBuild)
             {
 
-                if (_controller.buttonOnePressed)
+                if (_controller.gripPressed)
                 {
                     LaserPointer(_controller);
                 }

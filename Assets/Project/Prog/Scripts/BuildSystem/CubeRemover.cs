@@ -46,7 +46,7 @@ public class CubeRemover : Singleton<CubeRemover> {
             if (_canBuild)
             {
 
-                if (_controller.buttonOnePressed)
+                if (_controller.gripPressed)
                 {
                     LaserPointer();
                 }
