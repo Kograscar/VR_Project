@@ -5388,7 +5388,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1951837494123332}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.0136175, y: 0, z: 27.420073}
+  m_LocalPosition: {x: 2.6284761, y: 0, z: 32.25363}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4093936054962754}
@@ -18203,6 +18203,7 @@ MonoBehaviour:
   keyOfRoom: {fileID: 0}
   _coroutineOn: 0
   _coroutine2On: 0
+  _ZoneScale: {fileID: 1911488188980518}
 --- !u!114 &114418397838119522
 MonoBehaviour:
   m_ObjectHideFlags: 1
