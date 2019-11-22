@@ -142,7 +142,7 @@ public class CubeInstanciater : Singleton<CubeInstanciater> {
             if (_colorCount[_selectedColor] > 0)
             {
                 GameObject go = Instantiate(_selectedCube, _previewCube.transform.position, _previewCube.transform.rotation, _nearCube);
-                go.transform.localScale = new Vector3().normalized;
+                go.transform.localScale = new Vector3(1, 1, 1);
                 _placementTimer = 0;
                 _colorCount[_selectedColor]--;
             }
