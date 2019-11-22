@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 114611763716973302}
   m_Layer: 0
   m_Name: Down
-  m_TagString: Green
+  m_TagString: Blue
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -503,7 +503,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1206221084637980}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.375, y: 0.75, z: 1.625}
+  m_LocalPosition: {x: 8.25, y: 1.5, z: 13.5}
   m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_Children:
   - {fileID: 4409850458112760}
@@ -751,7 +751,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 4e1b24620dab74947bbedeb32b4b879b, type: 2}
+  - {fileID: 2100000, guid: 4de6d0f4a7a77fb4a819ad878cc58002, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

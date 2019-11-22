@@ -1,0 +1,11 @@
+fileFormatVersion: 2
+guid: eb8b5eb8b9f88c747ace06cb989a0202
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures:
+  - _t_step: {fileID: 2800000, guid: 89357b223121a5e4d85763bd289ff264, type: 3}
+  - _mglace: {fileID: 2800000, guid: 6e6cba53deb4f4e41a81667b73a1ca42, type: 3}
+  nonModifiableTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
