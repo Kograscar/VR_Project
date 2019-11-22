@@ -3,29 +3,17 @@ guid: 9a2d79bc0f537da4492b684af8e4953d
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: group2
-    100002: polySurface1
-    100004: polySurface25
-    100006: Room_Puzzle__1_
-    100008: //RootNode
-    100010: Statics
-    100012: Wall__1__2
-    400000: group2
-    400002: polySurface1
-    400004: polySurface25
-    400006: Room_Puzzle__1_
-    400008: //RootNode
-    400010: Statics
-    400012: Wall__1__2
-    2100000: lambert1
-    2300000: polySurface25
-    3300000: polySurface25
-    4300000: polySurface25
+    100000: //RootNode
+    400000: //RootNode
+    2100000: lambert3
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: SM_Panneau_Bois_2
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: lambert1
+      name: lambert3
     second: {fileID: 2100000, guid: 20f05cb56515519449048da73658a020, type: 2}
   materials:
     importMaterials: 1
