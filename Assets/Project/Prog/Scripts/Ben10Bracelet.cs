@@ -4,7 +4,7 @@ using UnityEngine;
 using VRTK.Controllables;
 using VRTK.Controllables.ArtificialBased;
 
-public class Ben10Bracelet : MonoBehaviour {
+public class Ben10Bracelet : MonoBehaviour { 
 
     VRTK_ArtificialPusher _pusher;
     VRTK_ArtificialRotator _rotator;
@@ -14,8 +14,6 @@ public class Ben10Bracelet : MonoBehaviour {
     float _timer;
 
     bool _opening;
-
-    public string _caca = "caca";
 
     [SerializeField] string[] _tags = new string[4];
 
@@ -30,7 +28,6 @@ public class Ben10Bracelet : MonoBehaviour {
         {
             //_animator.SetTrigger("Open");
             _opening = !_opening;
-            Debug.Log("Button : " + _opening);
         };
 
         _rotator.ValueChanged += (object sender, ControllableEventArgs e) =>
@@ -54,8 +51,6 @@ public class Ben10Bracelet : MonoBehaviour {
                 CubeInstanciater.Instance.ChangeSelectedCube(_tags[quotient]);
             }
         };
-
-        _opening = false;
     }
 
     private void Update()
