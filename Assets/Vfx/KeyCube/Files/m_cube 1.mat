@@ -125,7 +125,7 @@ Material:
     - _ZWrite: 1
     - __dirty: 0
     - _disolve: 0
-    - _face6: 0
+    - _face6: 0.6
     - _powemiss: 1.2
     - _powerblanc: 10
     - _powerfresn: 1.5
