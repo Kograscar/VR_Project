@@ -105,7 +105,7 @@ public class ChuiLeCube : MonoBehaviour {
                                 {
                                     _rig.velocity = new Vector3(0, 0, 0) - item.transform.forward * _force;
 
-                                    transform.position = touchedItem[0].transform.position + touchedItem[0].transform.forward.normalized;
+                                    transform.position = touchedItem[0].transform.position + touchedItem[0].transform.forward.normalized / 4;
                                 }
                             }
                         }
