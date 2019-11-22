@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33351090807683278}
   - component: {fileID: 23140037734688930}
   - component: {fileID: 64717209175954320}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4974628101239722}
   - component: {fileID: 114611763716973302}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Down
   m_TagString: Green
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 33228114583183962}
   - component: {fileID: 23260916833603020}
   - component: {fileID: 64920982838083780}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,7 +105,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4621514554158034}
   - component: {fileID: 114348996538090012}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Back
   m_TagString: Green
   m_Icon: {fileID: 0}
@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 33273063727615454}
   - component: {fileID: 23038437266967176}
   - component: {fileID: 64042708833058066}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -141,7 +141,7 @@ GameObject:
   - component: {fileID: 114375365444037928}
   - component: {fileID: 54130146564278224}
   - component: {fileID: 65686123029560436}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: KeyA_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -175,7 +175,7 @@ GameObject:
   - component: {fileID: 33845320594686918}
   - component: {fileID: 23986247852432522}
   - component: {fileID: 64592407786308842}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -191,7 +191,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4566316919668822}
   - component: {fileID: 114562701417000654}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Left
   m_TagString: Blue
   m_Icon: {fileID: 0}
@@ -207,7 +207,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4713224669657368}
   - component: {fileID: 114245153305205108}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Right
   m_TagString: Green
   m_Icon: {fileID: 0}
@@ -225,7 +225,7 @@ GameObject:
   - component: {fileID: 33763090382771760}
   - component: {fileID: 23330068869547832}
   - component: {fileID: 64791848094554202}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -260,7 +260,7 @@ GameObject:
   - component: {fileID: 33788586673999698}
   - component: {fileID: 23990185284025122}
   - component: {fileID: 64600341328245660}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -276,7 +276,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4409850458112760}
   - component: {fileID: 114577009870593818}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Front
   m_TagString: Red
   m_Icon: {fileID: 0}
@@ -308,7 +308,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4312282681095858}
   - component: {fileID: 114768700698315112}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Up
   m_TagString: Red
   m_Icon: {fileID: 0}
@@ -503,7 +503,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1206221084637980}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.375, y: 0.75, z: 1.625}
+  m_LocalPosition: {x: -22.128658, y: -12.162501, z: 0.13468218}
   m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_Children:
   - {fileID: 4409850458112760}
@@ -901,7 +901,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
@@ -912,10 +912,10 @@ MeshCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1189840094782790}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 3
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
@@ -926,10 +926,10 @@ MeshCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1437874523521968}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 3
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
@@ -940,10 +940,10 @@ MeshCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1740143346072376}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 3
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
@@ -954,10 +954,10 @@ MeshCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1022328093197054}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 3
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
@@ -968,10 +968,10 @@ MeshCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1719792347322580}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 3
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
@@ -982,10 +982,10 @@ MeshCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1122140612649490}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 3
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
@@ -997,7 +997,7 @@ BoxCollider:
   m_GameObject: {fileID: 1206221084637980}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -1422,10 +1422,9 @@ MonoBehaviour:
   - {fileID: 1717795977484250}
   - {fileID: 1485205305654446}
   _rayDuration: 0.01
-  _rayLenght: 0.2
-  _detectionDelay: 0.01
-  _force: 4
-  _shift: 1
+  _rayLenght: 0.1
+  _force: 3
+  _shift: 10
 --- !u!114 &114562701417000654
 MonoBehaviour:
   m_ObjectHideFlags: 1
