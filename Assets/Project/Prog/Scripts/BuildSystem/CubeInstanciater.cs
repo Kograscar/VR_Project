@@ -38,6 +38,7 @@ public class CubeInstanciater : Singleton<CubeInstanciater> {
     
     int _selectedColor;
 
+    int _layerMask = 1 << 8;
 
 
     public bool _canBuild = true;
@@ -105,7 +106,7 @@ public class CubeInstanciater : Singleton<CubeInstanciater> {
 
         RaycastHit hit;
 
-        if(Physics.Raycast(vRTK_CE.transform.position, vRTK_CE.transform.forward, out hit, Mathf.Infinity, 8))
+        if(Physics.Raycast(vRTK_CE.transform.position, vRTK_CE.transform.forward, out hit, Mathf.Infinity, _layerMask))
         {
             _lineRenderer.enabled = true;
             _lineRenderer.enabled = true;
