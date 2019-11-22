@@ -24,6 +24,7 @@ public class CubeRemover : Singleton<CubeRemover> {
 
     float _destructionTimer;
 
+    int _layerMask = 1 << 8;
 
     private void Start()
     {
@@ -46,7 +47,7 @@ public class CubeRemover : Singleton<CubeRemover> {
             if (_canBuild)
             {
 
-                if (_controller.buttonOnePressed)
+                if (_controller.gripPressed)
                 {
                     LaserPointer();
                 }
@@ -81,7 +82,7 @@ public class CubeRemover : Singleton<CubeRemover> {
 
         RaycastHit hit;
 
-        if (Physics.Raycast(_controller.transform.position, _controller.transform.forward, out hit, Mathf.Infinity, 8))
+        if (Physics.Raycast(_controller.transform.position, _controller.transform.forward, out hit, Mathf.Infinity, _layerMask))
         {
             lineRenderer.enabled = true;
             lineRenderer.enabled = true;

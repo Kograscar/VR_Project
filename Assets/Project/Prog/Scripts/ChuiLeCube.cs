@@ -10,7 +10,6 @@ public class ChuiLeCube : MonoBehaviour {
 
     [SerializeField] float _rayDuration;
     [SerializeField] float _rayLenght;
-    [SerializeField] float _detectionDelay;
     [SerializeField] float _force;
     [SerializeField] float _shift;
 
@@ -106,9 +105,7 @@ public class ChuiLeCube : MonoBehaviour {
                                 {
                                     _rig.velocity = new Vector3(0, 0, 0) - item.transform.forward * _force;
 
-                                    transform.position = touchedItem[0].transform.position + touchedItem[0].transform.forward.normalized / 4;
-
-                                    StartCoroutine(DetectionDelay());
+                                    transform.position = touchedItem[0].transform.position + touchedItem[0].transform.forward.normalized;
                                 }
                             }
                         }
@@ -116,16 +113,5 @@ public class ChuiLeCube : MonoBehaviour {
                 }
             }
         }
-
-        //Debug.Log(_rig.velocity);
-    }
-
-    IEnumerator DetectionDelay()
-    {
-        _canDetect = false;
-
-        yield return new WaitForSeconds(_detectionDelay);
-
-        _canDetect = true;
     }
 }

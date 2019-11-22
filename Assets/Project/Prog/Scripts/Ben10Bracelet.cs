@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using VRTK;
 using VRTK.Controllables;
 using VRTK.Controllables.ArtificialBased;
 
@@ -16,6 +17,8 @@ public class Ben10Bracelet : MonoBehaviour {
     bool _opening;
 
     [SerializeField] string[] _tags = new string[4];
+    
+    VRTK_ControllerEvents _controller;
 
     void Start()
     {
@@ -55,11 +58,25 @@ public class Ben10Bracelet : MonoBehaviour {
 
     private void Update()
     {
+        if (_controller == null)
+        {
+            _controller = VRTK_DeviceFinder.DeviceTransform(VRTK_DeviceFinder.Devices.LeftController).GetComponent<VRTK_ControllerEvents>();
+            if (_controller != null)
+            {
+                GetComponent<VRTK_TransformFollow>().gameObjectToFollow = _controller.gameObject;
+            }
+        }
+
         Debug.Log(_opening);
         if (!_opening)
         {
             CubeInstanciater.Instance.enabled = false;
             CubeRemover.Instance.enabled = false;
         }
+    }
+
+    private void LateUpdate()
+    {
+        transform.Rotate(0, 90, 0);
     }
 }
