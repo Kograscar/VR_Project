@@ -60,7 +60,7 @@ public class Key_Manager : MonoBehaviour {
     private IEnumerator WaitforDesable()
     {
         _coroutine2On = true;
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(10f);
         Destroy(keyOfRoom);
         //keyOfRoom.SetActive(false);
         //_rigidbody.velocity = new Vector3();
