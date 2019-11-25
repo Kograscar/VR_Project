@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using VRTK;
 
 public class Change_Scale : MonoBehaviour {
 
@@ -14,6 +15,10 @@ public class Change_Scale : MonoBehaviour {
     [SerializeField] private bool _Upto8 = false;
     [SerializeField] private Collider _TriggerEnd;
     [SerializeField] private Transform _OffsetOfZoneEnd;
+    [SerializeField] private GameObject _VFX_Pick;
+    VRTK_InteractableObject _IsGrabbable;
+    [SerializeField] private bool _EndPuzzle = false;
+    [SerializeField] private GameObject _ZoneToRotate = null;
 
     private void Start()
     {
@@ -21,13 +26,13 @@ public class Change_Scale : MonoBehaviour {
         _VFX_Inter_6.SetActive(false);
         _VFX_Inter_8.SetActive(false);
         _VFX_Exter.SetActive(true);
+        _IsGrabbable = _Zonetoscale.GetComponent<VRTK_InteractableObject>();
     }
 
     void Update ()
     {
         if(_Puzzletoscale != null)
         {
-
             _Zonetoscale.transform.localScale = new Vector3(_ScaleValue, 1, _ScaleValue);
             _Puzzletoscale.transform.localScale = new Vector3(_ScaleValue, _ScaleValue, _ScaleValue);
      
@@ -56,13 +61,27 @@ public class Change_Scale : MonoBehaviour {
 
         if (_TriggerEnd == null)
         {
+            if(_EndPuzzle == false)
+            {
+            _Zonetoscale.transform.localScale = new Vector3(0.08f, 0.08f, 0.08f);
             Destroy(_Puzzletoscale);
-            _Zonetoscale.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
             _Zonetoscale.transform.position = _OffsetOfZoneEnd.position;
-            _Zonetoscale.transform.Rotate(0, 1, 0);
             _VFX_Inter_6.SetActive(false);
             _VFX_Inter_8.SetActive(false);
             _VFX_Exter.SetActive(false);
+            _IsGrabbable.isGrabbable = true;
+            _EndPuzzle = true;
+            }
+            if (_IsGrabbable.enabled == false)
+            {
+            _VFX_Pick.SetActive(true);
+            _ZoneToRotate.transform.Rotate(0, 1, 0);
+            }
+            else
+            {
+            _VFX_Pick.SetActive(false);
+            }
+
         }
 
     }

@@ -963,8 +963,9 @@ MonoBehaviour:
   _Delay: 0.01
   _Vitesse: 0.01
   _Offset: {fileID: 4508479708622394}
-  _CanOpen: 1
+  _CanOpen: 0
   _IsOpen: 0
+  _ZoneEnd: {fileID: 0}
 --- !u!114 &114814541251992270
 MonoBehaviour:
   m_ObjectHideFlags: 1
