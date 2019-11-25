@@ -26,6 +26,18 @@ public class TestPolakPivot : MonoBehaviour
         }
     }
 
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "MainCube")
+        {
+            other.transform.parent = null;
+            other.GetComponent<Rigidbody>().isKinematic = false;
+            Debug.Log("fini");
+            StopAllCoroutines();
+            StartCoroutine(BackAnim());
+        }
+    }
+
 
     IEnumerator DelayPivot(Transform collider)
     {
@@ -36,7 +48,7 @@ public class TestPolakPivot : MonoBehaviour
 
     }
 
-    IEnumerator StopParent(Transform collider)
+   IEnumerator StopParent(Transform collider)
     {
         yield return new WaitForSeconds(1);
 
