@@ -10,7 +10,7 @@ public class TestPolakPivot : MonoBehaviour
 
     private bool _hasBeenUsed = false;
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collision collision)
     {
         
         if (_hasBeenUsed == false && collision.gameObject.tag == "MainCube")
@@ -22,7 +22,6 @@ public class TestPolakPivot : MonoBehaviour
 
             collision.transform.parent = transform;
             collision.transform.localPosition = _position;
-
             StartCoroutine(DelayPivot(collision.transform));
         }
     }
@@ -44,8 +43,16 @@ public class TestPolakPivot : MonoBehaviour
         collider.parent = null;
         collider.GetComponent<Rigidbody>().isKinematic = false;
         Debug.Log("fini");
+        StartCoroutine(BackAnim());
     }
 
+    IEnumerator BackAnim()
+    {
+        yield return new WaitForSeconds(1);
+        AnimPivot.SetTrigger("backAnim");
+        _hasBeenUsed = false;
+         
+    }
     void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
