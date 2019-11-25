@@ -10,6 +10,7 @@ public class Key_Manager : MonoBehaviour {
     [SerializeField] private bool _coroutineOn = false;
     [SerializeField] private bool _coroutine2On = false;
     [SerializeField] private GameObject _ZoneScale = null;
+    [SerializeField] private Collider _TriggerEnd;
 
     //private void Start()
     //{
