@@ -9,7 +9,7 @@ public class Cube_In_Presentoir : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.name == "Zone_to_scale" && _cubeInSlot == false)
+        if (other.name == "Zone_End(Clone)" && _cubeInSlot == false)
         {
             _cubeInSlot = true;
             Destroy(other.gameObject);

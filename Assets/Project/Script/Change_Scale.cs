@@ -14,19 +14,17 @@ public class Change_Scale : MonoBehaviour {
     [SerializeField] private bool _Upto6 = false;
     [SerializeField] private bool _Upto8 = false;
     [SerializeField] private Collider _TriggerEnd;
-    [SerializeField] private Transform _OffsetOfZoneEnd;
-    [SerializeField] private GameObject _VFX_Pick;
-    VRTK_InteractableObject _IsGrabbable;
     [SerializeField] private bool _EndPuzzle = false;
-    [SerializeField] private GameObject _ZoneToRotate = null;
 
+    [SerializeField] private GameObject _ZoneEnd;
+    [SerializeField] private Transform _OffsetOfZoneEnd;
+    
     private void Start()
     {
         _ScaleValue = 1;
         _VFX_Inter_6.SetActive(false);
         _VFX_Inter_8.SetActive(false);
         _VFX_Exter.SetActive(true);
-        _IsGrabbable = _Zonetoscale.GetComponent<VRTK_InteractableObject>();
     }
 
     void Update ()
@@ -63,25 +61,14 @@ public class Change_Scale : MonoBehaviour {
         {
             if(_EndPuzzle == false)
             {
-            _Zonetoscale.transform.localScale = new Vector3(0.08f, 0.08f, 0.08f);
-            Destroy(_Puzzletoscale);
-            _Zonetoscale.transform.position = _OffsetOfZoneEnd.position;
-            _VFX_Inter_6.SetActive(false);
-            _VFX_Inter_8.SetActive(false);
-            _VFX_Exter.SetActive(false);
-            _IsGrabbable.isGrabbable = true;
-            _EndPuzzle = true;
+                Instantiate(_ZoneEnd, _OffsetOfZoneEnd.position, _OffsetOfZoneEnd.rotation);
+                Destroy(_Zonetoscale);
+                Destroy(_Puzzletoscale);
+                _VFX_Inter_6.SetActive(false);
+                _VFX_Inter_8.SetActive(false);
+                _VFX_Exter.SetActive(false);
+                _EndPuzzle = true;
             }
-            if (_IsGrabbable.enabled == false)
-            {
-            _VFX_Pick.SetActive(true);
-            _ZoneToRotate.transform.Rotate(0, 1, 0);
-            }
-            else
-            {
-            _VFX_Pick.SetActive(false);
-            }
-
         }
 
     }
