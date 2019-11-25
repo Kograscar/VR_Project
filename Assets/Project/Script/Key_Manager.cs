@@ -11,14 +11,10 @@ public class Key_Manager : MonoBehaviour {
     [SerializeField] private bool _coroutine2On = false;
     [SerializeField] private GameObject _ZoneScale = null;
 
-
-   // Rigidbody _rigidbody;
-
-    private void Start()
-    {
-        keyOfRoom = Instantiate(_keyToInstantiate, _offset.position, _offset.rotation,_offset);
-      
-    }
+    //private void Start()
+    //{
+    //    keyOfRoom = Instantiate(_keyToInstantiate, _offset.position, _offset.rotation,_offset);
+    //}
 
     void Update ()
     {
@@ -46,7 +42,10 @@ public class Key_Manager : MonoBehaviour {
                 StopCoroutine(WaitforDesable());
             }
         }
-		
+		if(_ZoneScale.transform.localScale == new Vector3(1, 1, 1) && keyOfRoom != null)
+        {
+            Destroy(keyOfRoom);
+        }
 	}
     private IEnumerator WaitforInstantiateKey()
     {
