@@ -10,7 +10,7 @@ public class TestPolakPivot : MonoBehaviour
 
     private bool _hasBeenUsed = false;
 
-    private void OnTriggerEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
         
         if (_hasBeenUsed == false && collision.gameObject.tag == "MainCube")
@@ -18,7 +18,7 @@ public class TestPolakPivot : MonoBehaviour
             _hasBeenUsed = true;
             Debug.Log("slt lé pote");
 
-            collision.transform.GetComponent<Rigidbody>().isKinematic = true;
+            collision.transform.GetComponent<Rigidbody>().velocity = new Vector3();
 
             collision.transform.parent = transform;
             collision.transform.localPosition = _position;
