@@ -10,6 +10,7 @@ public class Key_Manager : MonoBehaviour {
     [SerializeField] private bool _coroutineOn = false;
     [SerializeField] private bool _coroutine2On = false;
     [SerializeField] private GameObject _ZoneScale = null;
+    [SerializeField] private Collider _TriggerEnd;
 
     //private void Start()
     //{
@@ -60,7 +61,7 @@ public class Key_Manager : MonoBehaviour {
     private IEnumerator WaitforDesable()
     {
         _coroutine2On = true;
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(10f);
         Destroy(keyOfRoom);
         //keyOfRoom.SetActive(false);
         //_rigidbody.velocity = new Vector3();
