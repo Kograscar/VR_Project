@@ -7,6 +7,8 @@ public class VirtualGrid : Singleton<VirtualGrid> {
 	public float size = .25f;
     public float lenght = 40f;
 
+    [SerializeField] bool _showGrid = true;
+
     public Vector3 GetNearestPointOnGrid(Vector3 position)
     {
         position -= transform.position;
@@ -27,13 +29,16 @@ public class VirtualGrid : Singleton<VirtualGrid> {
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.yellow;
-        for (float x = 0; x < lenght; x += size)
+        if (_showGrid)
         {
-            for (float z = 0; z < lenght; z += size)
+            Gizmos.color = Color.yellow;
+            for (float x = 0; x < lenght; x += size)
             {
-                var point = GetNearestPointOnGrid(new Vector3(x, 0f, z) + transform.position);
-                Gizmos.DrawCube(point, new Vector3(size / 2, 0, size / 2));
+                for (float z = 0; z < lenght; z += size)
+                {
+                    var point = GetNearestPointOnGrid(new Vector3(x, 0f, z) + transform.position);
+                    Gizmos.DrawCube(point, new Vector3(size / 2, 0, size / 2));
+                }
             }
         }
     }

@@ -107,8 +107,6 @@ public class ChuiLeCube : MonoBehaviour {
                         {
                             if (touchedItem[0] == touchedItem[3])
                             {
-
-                                Debug.Log("Item");
                                 for (int i = 0; i < 4; i++)
                                 {
                                     if (touchedItem[i].CompareTag(item.tag))
@@ -119,11 +117,11 @@ public class ChuiLeCube : MonoBehaviour {
 
                                 if (goodtouch == 4)
                                 {
+                                    transform.position = touchedItem[0].transform.position + touchedItem[0].transform.forward.normalized / 4; 
                                     _rig.velocity = new Vector3(0, 0, 0) - item.transform.forward * _force;
 
-                                    transform.position = touchedItem[0].transform.position + touchedItem[0].transform.forward.normalized / 4;
 
-                                    _speed = transform.TransformDirection(-item.transform.forward);
+                                    //_speed = transform.TransformDirection(-item.transform.forward);
                                 }
                             }
                         }
@@ -134,3 +132,4 @@ public class ChuiLeCube : MonoBehaviour {
         //transform.position += _speed * Time.deltaTime * _force;
     }
 }
+ 
