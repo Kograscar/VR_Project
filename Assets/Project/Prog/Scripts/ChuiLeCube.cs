@@ -117,9 +117,10 @@ public class ChuiLeCube : MonoBehaviour {
 
                                 if (goodtouch == 4)
                                 {
-                                    transform.position = touchedItem[0].transform.position + touchedItem[0].transform.forward.normalized / 4; 
-                                    _rig.velocity = new Vector3(0, 0, 0) - item.transform.forward * _force;
+                                    transform.position = touchedItem[0].transform.position + touchedItem[0].transform.forward.normalized / 4;
+                                    transform.LookAt(touchedItem[0].transform.position + touchedItem[0].transform.forward.normalized * 2);
 
+                                    _rig.velocity = new Vector3(0, 0, 0) - item.transform.forward * _force;
 
                                     //_speed = transform.TransformDirection(-item.transform.forward);
                                 }
