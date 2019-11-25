@@ -10,6 +10,26 @@ public class TestPolakPivot : MonoBehaviour
 
     private bool _hasBeenUsed = false;
 
+    Rigidbody _rig;
+
+    ChuiLeCube _chui;
+
+    GameObject _go;
+
+    private void LateUpdate()
+    {
+        if (_hasBeenUsed)
+        {
+            if (_chui._detect)
+            {
+                _go.transform.parent = null;
+                Debug.Log("fini");
+                StopAllCoroutines();
+                StartCoroutine(BackAnim());
+            }
+        }
+    }
+
     private void OnTriggerEnter(Collider collision)
     {
         
@@ -18,7 +38,12 @@ public class TestPolakPivot : MonoBehaviour
             _hasBeenUsed = true;
             Debug.Log("slt lé pote");
 
-            collision.transform.GetComponent<Rigidbody>().velocity = new Vector3();
+            _rig = collision.transform.GetComponent<Rigidbody>();
+            _rig.velocity = new Vector3();
+
+            _chui = collision.GetComponent<ChuiLeCube>();
+
+            _go = collision.gameObject;
 
             collision.transform.parent = transform;
             collision.transform.localPosition = _position;
@@ -31,7 +56,6 @@ public class TestPolakPivot : MonoBehaviour
         if (other.gameObject.tag == "MainCube")
         {
             other.transform.parent = null;
-            other.GetComponent<Rigidbody>().isKinematic = false;
             Debug.Log("fini");
             StopAllCoroutines();
             StartCoroutine(BackAnim());
@@ -53,7 +77,6 @@ public class TestPolakPivot : MonoBehaviour
         yield return new WaitForSeconds(1);
 
         collider.parent = null;
-        collider.GetComponent<Rigidbody>().isKinematic = false;
         Debug.Log("fini");
         StartCoroutine(BackAnim());
     }
