@@ -120,10 +120,17 @@ public class ChuiLeCube : MonoBehaviour {
                                     transform.position = touchedItem[0].transform.position + touchedItem[0].transform.forward.normalized / 4;
 
                                     Vector3 v3 = transform.rotation.eulerAngles;
-                                    Quaternion quaternion = Quaternion.Euler(Mathf.RoundToInt(v3.x), Mathf.RoundToInt(v3.y), Mathf.RoundToInt(v3.z));
-                                    transform.rotation = quaternion;
 
-                                    //transform.LookAt(touchedItem[0].transform.position + touchedItem[0].transform.forward * 2);
+                                    if(v3.y < 90 && v3.y > -90)
+                                    {
+                                        v3.y = 0;
+                                    }
+                                    else
+                                    {
+                                        v3.y = 180;
+                                    }
+
+                                    transform.rotation = Quaternion.Euler(v3.x, v3.y, v3.z);
 
                                     _rig.velocity = new Vector3(0, 0, 0) - item.transform.forward * _force;
                                 }
