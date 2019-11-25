@@ -10,17 +10,15 @@ public class Key_Manager : MonoBehaviour {
     [SerializeField] private bool _coroutineOn = false;
     [SerializeField] private bool _coroutine2On = false;
     [SerializeField] private GameObject _ZoneScale = null;
+    [SerializeField] private Collider _TriggerEnd;
+    [SerializeField] private GameObject _ZoneToDestroyAtEnd = null;
 
-    //private void Start()
-    //{
-    //    keyOfRoom = Instantiate(_keyToInstantiate, _offset.position, _offset.rotation,_offset);
-    //}
 
     void Update ()
     {
         
         if (keyOfRoom == null  && _coroutineOn == false && 
-           (_ZoneScale.transform.localScale == new Vector3(2,1,2) || _ZoneScale.transform.localScale == new Vector3(1.5f, 1, 1.5f)))
+           (_ZoneScale.transform.localScale == new Vector3(2,1,2) || _ZoneScale.transform.localScale == new Vector3(1.5f, 1, 1.5f)) && _TriggerEnd !=null)
         {
             StartCoroutine(WaitforInstantiateKey());
         }
@@ -28,6 +26,20 @@ public class Key_Manager : MonoBehaviour {
         {
             StopCoroutine(WaitforInstantiateKey());
         }
+
+
+		if(_ZoneScale.transform.localScale == new Vector3(1, 1, 1) && keyOfRoom != null)
+        {
+            Destroy(keyOfRoom);
+        }
+
+        if(_TriggerEnd == null)
+        {
+            Destroy(_ZoneToDestroyAtEnd);
+
+        }
+
+        //A virer
         if(keyOfRoom != null)
         {
             if (keyOfRoom.transform.position != _offset.position)
@@ -42,18 +54,16 @@ public class Key_Manager : MonoBehaviour {
                 StopCoroutine(WaitforDesable());
             }
         }
-		if(_ZoneScale.transform.localScale == new Vector3(1, 1, 1) && keyOfRoom != null)
-        {
-            Destroy(keyOfRoom);
-        }
+
+
+
 	}
     private IEnumerator WaitforInstantiateKey()
     {
         _coroutineOn = true;
         yield return new WaitForSeconds(1f);
         keyOfRoom = Instantiate(_keyToInstantiate, _offset.position, _offset.rotation, _offset);
-        //keyOfRoom.transform.position = _offset.position;
-        //keyOfRoom.SetActive(true);
+    
         _coroutineOn = false;
     }
 
@@ -62,8 +72,6 @@ public class Key_Manager : MonoBehaviour {
         _coroutine2On = true;
         yield return new WaitForSeconds(10f);
         Destroy(keyOfRoom);
-        //keyOfRoom.SetActive(false);
-        //_rigidbody.velocity = new Vector3();
         _coroutine2On = false;
     }
 
