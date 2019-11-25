@@ -10,7 +10,27 @@ public class TestPolakPivot : MonoBehaviour
 
     private bool _hasBeenUsed = false;
 
-    private void OnCollisionEnter(Collision collision)
+    Rigidbody _rig;
+
+    ChuiLeCube _chui;
+
+    GameObject _go;
+
+    private void LateUpdate()
+    {
+        if (_hasBeenUsed)
+        {
+            if (_chui._detect)
+            {
+                _go.transform.parent = null;
+                Debug.Log("fini");
+                StopAllCoroutines();
+                StartCoroutine(BackAnim());
+            }
+        }
+    }
+
+    private void OnTriggerEnter(Collider collision)
     {
         
         if (_hasBeenUsed == false && collision.gameObject.tag == "MainCube")
@@ -18,12 +38,27 @@ public class TestPolakPivot : MonoBehaviour
             _hasBeenUsed = true;
             Debug.Log("slt lé pote");
 
-            collision.transform.GetComponent<Rigidbody>().isKinematic = true;
+            _rig = collision.transform.GetComponent<Rigidbody>();
+            _rig.velocity = new Vector3();
+
+            _chui = collision.GetComponent<ChuiLeCube>();
+
+            _go = collision.gameObject;
 
             collision.transform.parent = transform;
             collision.transform.localPosition = _position;
-
             StartCoroutine(DelayPivot(collision.transform));
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "MainCube")
+        {
+            other.transform.parent = null;
+            Debug.Log("fini");
+            StopAllCoroutines();
+            StartCoroutine(BackAnim());
         }
     }
 
@@ -37,15 +72,22 @@ public class TestPolakPivot : MonoBehaviour
 
     }
 
-    IEnumerator StopParent(Transform collider)
+   IEnumerator StopParent(Transform collider)
     {
         yield return new WaitForSeconds(1);
 
         collider.parent = null;
-        collider.GetComponent<Rigidbody>().isKinematic = false;
         Debug.Log("fini");
+        StartCoroutine(BackAnim());
     }
 
+    IEnumerator BackAnim()
+    {
+        yield return new WaitForSeconds(1);
+        AnimPivot.SetTrigger("backAnim");
+        _hasBeenUsed = false;
+         
+    }
     void OnDrawGizmos()
     {
         Gizmos.color = Color.red;

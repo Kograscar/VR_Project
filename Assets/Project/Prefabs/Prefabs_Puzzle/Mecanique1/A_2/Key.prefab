@@ -209,7 +209,7 @@ GameObject:
   - component: {fileID: 114245153305205108}
   m_Layer: 2
   m_Name: Right
-  m_TagString: Green
+  m_TagString: Blue
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
