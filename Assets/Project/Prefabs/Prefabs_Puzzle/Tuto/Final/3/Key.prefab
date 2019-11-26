@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 54152127892320028}
   - component: {fileID: 65036836128990082}
   m_Layer: 0
-  m_Name: Key3
+  m_Name: Key
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1423,9 +1423,10 @@ MonoBehaviour:
   - {fileID: 1640602085123810}
   _rayDuration: 0.01
   _rayLenght: 0.2
-  _detectionDelay: 0.01
   _force: 4
   _shift: 1
+  _backDash: 0
+  _detect: 0
 --- !u!114 &114665218276586744
 MonoBehaviour:
   m_ObjectHideFlags: 1
