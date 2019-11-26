@@ -4,6 +4,7 @@ using UnityEngine;
 using VRTK;
 using VRTK.Controllables;
 using VRTK.Controllables.ArtificialBased;
+using UnityEngine.SceneManagement;
 
 public class Ben10Bracelet : MonoBehaviour { 
 
@@ -13,8 +14,6 @@ public class Ben10Bracelet : MonoBehaviour {
     Animator _animator;
 
     float _timer;
-
-    bool _opening;
 
     [SerializeField] string[] _tags = new string[4];
     
@@ -27,31 +26,34 @@ public class Ben10Bracelet : MonoBehaviour {
 
         //_animator = GetComponent<Animator>();
 
-        _pusher.MinLimitExited += (object sender, ControllableEventArgs e) =>
+        /*_pusher.MinLimitExited += (object sender, ControllableEventArgs e) =>
         {
-            //_animator.SetTrigger("Open");
-            _opening = !_opening;
-        };
+
+        };*/
 
         _rotator.ValueChanged += (object sender, ControllableEventArgs e) =>
         {
-            float a = Mathf.Atan2(_rotator.transform.up.y, _rotator.transform.up.z);
+            float a = Mathf.Atan2(_rotator.transform.up.x, _rotator.transform.up.y);
             a += Mathf.PI;
             a /= 2f * Mathf.PI;
             a = Mathf.RoundToInt(a * 100f);
 
             int quotient = Mathf.RoundToInt(a / 25);
 
-            if(quotient == 4)
+            Debug.Log(quotient);
+
+            if(quotient == 0)
             {
                 CubeInstanciater.Instance.enabled = false;
                 CubeRemover.Instance.enabled = true;
+                Debug.Log("Delete");
             }
             else
             {
                 CubeInstanciater.Instance.enabled = true;
                 CubeRemover.Instance.enabled = false;
                 CubeInstanciater.Instance.ChangeSelectedCube(_tags[quotient]);
+                Debug.Log(_tags[quotient]);
             }
         };
     }
@@ -65,13 +67,6 @@ public class Ben10Bracelet : MonoBehaviour {
             {
                 GetComponent<VRTK_TransformFollow>().gameObjectToFollow = _controller.gameObject;
             }
-        }
-
-        Debug.Log(_opening);
-        if (!_opening)
-        {
-            CubeInstanciater.Instance.enabled = false;
-            CubeRemover.Instance.enabled = false;
         }
     }
 

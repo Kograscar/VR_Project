@@ -7,7 +7,7 @@ using VRTK;
 public class CubeInstanciater : Singleton<CubeInstanciater> {
 
     #region fields
-    [HideInInspector] public GameObject _detectedObject;
+    public GameObject _detectedObject;
 
 
     [SerializeField] LineRenderer _lineRenderer;
@@ -123,7 +123,7 @@ public class CubeInstanciater : Singleton<CubeInstanciater> {
                 _previewCube.transform.position = VirtualGrid.Instance.GetNearestPointOnGrid(hit.point + hit.collider.transform.up * (_previewCube.transform.lossyScale.x / 2) - new Vector3(0, _previewCube.transform.lossyScale.y / 2, 0));
             }
 
-            _nearCube = hit.collider.transform;
+            _nearCube = hit.collider.GetComponentInParent<AssignFaceColorByTag>().transform;
         }
         else
         {
