@@ -10,9 +10,11 @@ public class Door : MonoBehaviour
     VRTK_ArtificialPusher _pusher;
     [SerializeField] private GameObject _DoorRightToMove = null;
     [SerializeField] private GameObject _DoorLeftToMove = null;
-    [SerializeField] private float _Delay = 0.1f;
+    [SerializeField] private float _DelayForMoveDoor = 0.1f;
+    [SerializeField] private float _DelayForWaitToCloseDoor = 10f;
     [SerializeField] private float _Vitesse = 0.1f;
-    [SerializeField] private Transform _Offset = null;
+    [SerializeField] private Transform _OffsetForOpen = null;
+    [SerializeField] private Transform _OffsetForClose = null;
     [SerializeField] private bool _CanOpen = false;
     [SerializeField] private bool _IsOpen = false;
 
@@ -25,8 +27,9 @@ public class Door : MonoBehaviour
         {
             if(_CanOpen == true && _IsOpen == false)
             {
+                StopCoroutine(MoveDoorForClose());
                 Debug.Log("Open");
-                StartCoroutine(MoveDoor());
+                StartCoroutine(MoveDoorForOpen());
             }else
             {
                 Debug.Log("Lock");
@@ -37,7 +40,8 @@ public class Door : MonoBehaviour
     {
         if(_IsOpen == true)
         {
-            StopAllCoroutines();
+            StopCoroutine(MoveDoorForOpen());
+
         }
 
         if (_Lock == null)
@@ -45,9 +49,10 @@ public class Door : MonoBehaviour
             _CanOpen = true;
         }
     }
-    private IEnumerator MoveDoor()
+    private IEnumerator MoveDoorForOpen()
     {
-        if(_DoorRightToMove.transform.position != _Offset.transform.position)
+        Debug.Log("toopenone");
+        if(_DoorRightToMove.transform.position != _OffsetForOpen.transform.position)
         {
         _DoorRightToMove.transform.Translate(-_Vitesse, 0, 0);
         _DoorLeftToMove.transform.Translate(-_Vitesse, 0, 0);
@@ -55,10 +60,48 @@ public class Door : MonoBehaviour
         else
         {
             _IsOpen = true;
+            StartCoroutine(WaitForClose());
+        }
+        yield return new WaitForSeconds(_DelayForMoveDoor);
+        if(_IsOpen != true)
+        {
+        StartCoroutine(MoveDoorForOpen());
+        }
+        else
+        {
             yield return null;
         }
-        yield return new WaitForSeconds(_Delay);
-        StartCoroutine(MoveDoor());
+    }
+
+    private IEnumerator WaitForClose()
+    {
+        yield return new WaitForSeconds(_DelayForWaitToCloseDoor);
+        StartCoroutine(MoveDoorForClose());
+    }
+
+    private IEnumerator MoveDoorForClose()
+    {
+        Debug.Log("tocloseone");
+        if (_DoorRightToMove.transform.position != _OffsetForClose.transform.position)
+        {
+            _DoorRightToMove.transform.Translate(_Vitesse, 0, 0);
+            _DoorLeftToMove.transform.Translate(_Vitesse, 0, 0);
+        }
+        else
+        {
+            _IsOpen = false;
+            StopCoroutine(WaitForClose());
+        }
+
+        yield return new WaitForSeconds(_DelayForMoveDoor);
+        if(_IsOpen != false)
+        {
+        StartCoroutine(MoveDoorForClose());
+        }
+        else
+        {
+            yield return null;
+        }
     }
 
 }
