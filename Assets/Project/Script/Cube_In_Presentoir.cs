@@ -9,17 +9,20 @@ public class Cube_In_Presentoir : MonoBehaviour
     [SerializeField] private bool _cubeInSlot = false;
     [SerializeField] private GameObject _FauxCube;
     [SerializeField] private GameObject _Lock;
-    [SerializeField] private int _NumSceneToLoad;
-    [SerializeField] private int _NumSceneToUnload;
-    [SerializeField] private int _NumSceneStart;
+
+    [SerializeField] private GameObject _NumSceneToLoad;
+    [SerializeField] private GameObject _NumSceneToUnload;
+    [SerializeField] private GameObject _NumSceneStart;
+
     [SerializeField] private string _ZoneForUnlock;
     [SerializeField] private Collider _Levier;
 
     private void Awake()
     {
-        if (_NumSceneStart != 0)
+        if (_NumSceneStart != null)
         {
-            SceneManager.LoadSceneAsync(_NumSceneStart, LoadSceneMode.Additive);
+            _NumSceneStart.SetActive(true);
+            //SceneManager.LoadSceneAsync(_NumSceneStart, LoadSceneMode.Additive);
         }
     }
 
@@ -32,9 +35,9 @@ public class Cube_In_Presentoir : MonoBehaviour
             Destroy(other.gameObject);
             _FauxCube.SetActive(true);
             Destroy(_Lock);
-
-            StartCoroutine(WaitForUnload());
-
+            _NumSceneToLoad.SetActive(true);
+            _NumSceneToUnload.SetActive(false);
+            //StartCoroutine(WaitForUnload());
             if (_Levier != null)
             {
                 _Levier.enabled = false;
@@ -42,10 +45,10 @@ public class Cube_In_Presentoir : MonoBehaviour
         }
     }
 
-    private IEnumerator WaitForUnload()
-    {
-        SceneManager.LoadSceneAsync(_NumSceneToLoad, LoadSceneMode.Additive);
-        yield return new WaitForSeconds(1f);
-        SceneManager.UnloadSceneAsync(_NumSceneToUnload);
-    }
+    //private IEnumerator WaitForUnload()
+    //{
+    //    SceneManager.LoadSceneAsync(_NumSceneToLoad, LoadSceneMode.Additive);
+    //    yield return new WaitForSeconds(1f);
+    //    SceneManager.UnloadSceneAsync(_NumSceneToUnload);
+    //}
 }
