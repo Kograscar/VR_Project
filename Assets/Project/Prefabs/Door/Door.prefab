@@ -243,7 +243,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1418993236816218}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.25, y: 1, z: 0.399}
+  m_LocalPosition: {x: -1.25, y: 1, z: 0.5}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_Children:
   - {fileID: 4480758913052880}
@@ -677,7 +677,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _DoorRightToMove: {fileID: 1935907859411354}
   _DoorLeftToMove: {fileID: 1066371006785086}
-  _DelayForMoveDoor: 0.1
+  _DelayForMoveDoor: 0.01
   _DelayForWaitToCloseDoor: 10
   _Vitesse: 0.01
   _OffsetForOpen: {fileID: 4508479708622394}
@@ -1302,11 +1302,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _DoorRightToMove: {fileID: 1935907859411354}
   _DoorLeftToMove: {fileID: 1066371006785086}
-  _DelayForMoveDoor: 0.1
+  _DelayForMoveDoor: 0.01
   _DelayForWaitToCloseDoor: 10
   _Vitesse: 0.01
-  _OffsetForOpen: {fileID: 0}
-  _OffsetForClose: {fileID: 0}
+  _OffsetForOpen: {fileID: 4508479708622394}
+  _OffsetForClose: {fileID: 4987093484475634}
   _CanOpen: 0
   _IsOpen: 0
   _Lock: {fileID: 0}

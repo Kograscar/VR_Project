@@ -8,8 +8,8 @@ public class Door : MonoBehaviour
 {
 
     VRTK_ArtificialPusher _pusher;
-    [SerializeField] private GameObject _DoorRightToMove = null;
-    [SerializeField] private GameObject _DoorLeftToMove = null;
+    [SerializeField] private GameObject _Door = null;
+    
     [SerializeField] private float _DelayForMoveDoor = 0.1f;
     [SerializeField] private float _DelayForWaitToCloseDoor = 10f;
     [SerializeField] private float _Vitesse = 0.1f;
@@ -17,11 +17,18 @@ public class Door : MonoBehaviour
     [SerializeField] private Transform _OffsetForClose = null;
     [SerializeField] private bool _CanOpen = false;
     [SerializeField] private bool _IsOpen = false;
-
     [SerializeField] private GameObject _Lock = null;
+
+    [SerializeField] private Material _CanBeOpen;
+    [SerializeField] private Material _CantBeOpen;
+    [SerializeField] private Material _IsInteract;
+    [SerializeField] private MeshRenderer _PusherMeshRenderer;
+    [SerializeField] private Collider _Levier;
+    [SerializeField] private bool _CanchangeMaterial = true;
 
     void Start()
     {
+        _PusherMeshRenderer = GetComponent<MeshRenderer>();
         _pusher = GetComponent<VRTK_ArtificialPusher>();
         _pusher.MinLimitExited += (object sender, ControllableEventArgs e) =>
         {
@@ -41,26 +48,42 @@ public class Door : MonoBehaviour
         if(_IsOpen == true)
         {
             StopCoroutine(MoveDoorForOpen());
-
         }
 
-        if (_Lock == null)
+        if (_Lock == null && _Levier.enabled == true)
         {
             _CanOpen = true;
+
+            if(_CanchangeMaterial == true)
+            {
+                _PusherMeshRenderer.material = _CanBeOpen;
+
+            }
+        }
+
+        if (_Lock != null || _Levier.enabled == false)
+        {
+            _CanOpen = false;
+            if (_CanchangeMaterial == true)
+            {
+                _PusherMeshRenderer.material = _CantBeOpen;
+            }
         }
     }
     private IEnumerator MoveDoorForOpen()
     {
         Debug.Log("toopenone");
-        if(_DoorRightToMove.transform.position != _OffsetForOpen.transform.position)
+        if(_Door.transform.position.y < _OffsetForOpen.transform.position.y)
         {
-        _DoorRightToMove.transform.Translate(-_Vitesse, 0, 0);
-        _DoorLeftToMove.transform.Translate(-_Vitesse, 0, 0);
+            _PusherMeshRenderer.material = _IsInteract;
+            _CanchangeMaterial = false;
+            _Door.transform.Translate(0, _Vitesse, 0);
         }
         else
         {
             _IsOpen = true;
             StartCoroutine(WaitForClose());
+            _CanchangeMaterial = true;
         }
         yield return new WaitForSeconds(_DelayForMoveDoor);
         if(_IsOpen != true)
@@ -82,15 +105,18 @@ public class Door : MonoBehaviour
     private IEnumerator MoveDoorForClose()
     {
         Debug.Log("tocloseone");
-        if (_DoorRightToMove.transform.position != _OffsetForClose.transform.position)
+        if (_Door.transform.position.y > _OffsetForClose.transform.position.y)
         {
-            _DoorRightToMove.transform.Translate(_Vitesse, 0, 0);
-            _DoorLeftToMove.transform.Translate(_Vitesse, 0, 0);
+            _PusherMeshRenderer.material = _IsInteract;
+            _CanchangeMaterial = false;
+            _Door.transform.Translate(0, -_Vitesse, 0);
+          
         }
         else
         {
             _IsOpen = false;
             StopCoroutine(WaitForClose());
+            _CanchangeMaterial = true;
         }
 
         yield return new WaitForSeconds(_DelayForMoveDoor);
