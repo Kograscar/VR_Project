@@ -7,7 +7,7 @@ using VRTK;
 public class CubeInstanciater : Singleton<CubeInstanciater> {
 
     #region fields
-    [HideInInspector] public GameObject _detectedObject;
+    public GameObject _detectedObject;
 
 
     [SerializeField] LineRenderer _lineRenderer;
