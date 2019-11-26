@@ -209,7 +209,7 @@ GameObject:
   - component: {fileID: 114245153305205108}
   m_Layer: 2
   m_Name: Right
-  m_TagString: Blue
+  m_TagString: Green
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -503,7 +503,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1206221084637980}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.125, y: 0.625, z: 6.75}
+  m_LocalPosition: {x: 6.777459, y: 0.573, z: 30.026085}
   m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_Children:
   - {fileID: 4409850458112760}
@@ -1426,6 +1426,7 @@ MonoBehaviour:
   _force: 3
   _shift: 10
   _backDash: 0.02
+  _detect: 0
 --- !u!114 &114562701417000654
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using VRTK;
 
 public class Change_Scale : MonoBehaviour {
 
@@ -13,8 +14,11 @@ public class Change_Scale : MonoBehaviour {
     [SerializeField] private bool _Upto6 = false;
     [SerializeField] private bool _Upto8 = false;
     [SerializeField] private Collider _TriggerEnd;
-    [SerializeField] private Transform _OffsetOfZoneEnd;
+    [SerializeField] private bool _EndPuzzle = false;
 
+    [SerializeField] private GameObject _ZoneEnd;
+    [SerializeField] private Transform _OffsetOfZoneEnd;
+    
     private void Start()
     {
         _ScaleValue = 1;
@@ -27,7 +31,6 @@ public class Change_Scale : MonoBehaviour {
     {
         if(_Puzzletoscale != null)
         {
-
             _Zonetoscale.transform.localScale = new Vector3(_ScaleValue, 1, _ScaleValue);
             _Puzzletoscale.transform.localScale = new Vector3(_ScaleValue, _ScaleValue, _ScaleValue);
      
@@ -56,13 +59,16 @@ public class Change_Scale : MonoBehaviour {
 
         if (_TriggerEnd == null)
         {
-            Destroy(_Puzzletoscale);
-            _Zonetoscale.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
-            _Zonetoscale.transform.position = _OffsetOfZoneEnd.position;
-            _Zonetoscale.transform.Rotate(0, 1, 0);
-            _VFX_Inter_6.SetActive(false);
-            _VFX_Inter_8.SetActive(false);
-            _VFX_Exter.SetActive(false);
+            if(_EndPuzzle == false)
+            {
+                Instantiate(_ZoneEnd, _OffsetOfZoneEnd.position, _OffsetOfZoneEnd.rotation);
+                Destroy(_Zonetoscale);
+                Destroy(_Puzzletoscale);
+                _VFX_Inter_6.SetActive(false);
+                _VFX_Inter_8.SetActive(false);
+                _VFX_Exter.SetActive(false);
+                _EndPuzzle = true;
+            }
         }
 
     }

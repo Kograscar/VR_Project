@@ -16,6 +16,8 @@ public class Door : MonoBehaviour
     [SerializeField] private bool _CanOpen = false;
     [SerializeField] private bool _IsOpen = false;
 
+    [SerializeField] private GameObject _Lock = null;
+
     void Start()
     {
         _pusher = GetComponent<VRTK_ArtificialPusher>();
@@ -36,6 +38,11 @@ public class Door : MonoBehaviour
         if(_IsOpen == true)
         {
             StopAllCoroutines();
+        }
+
+        if (_Lock == null)
+        {
+            _CanOpen = true;
         }
     }
     private IEnumerator MoveDoor()

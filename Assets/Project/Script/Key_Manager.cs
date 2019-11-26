@@ -11,33 +11,35 @@ public class Key_Manager : MonoBehaviour {
     [SerializeField] private bool _coroutine2On = false;
     [SerializeField] private GameObject _ZoneScale = null;
     [SerializeField] private Collider _TriggerEnd;
-    [SerializeField] private GameObject _ZoneToDestroyAtEnd = null;
+    //[SerializeField] private GameObject _ZoneToDestroyAtEnd = null;
 
 
     void Update ()
     {
         
-        if (keyOfRoom == null  && _coroutineOn == false && 
-           (_ZoneScale.transform.localScale == new Vector3(2,1,2) || _ZoneScale.transform.localScale == new Vector3(1.5f, 1, 1.5f)) && _TriggerEnd !=null)
+        if (keyOfRoom == null  && _coroutineOn == false && _TriggerEnd != null && _ZoneScale != null)
         {
-            StartCoroutine(WaitforInstantiateKey());
-        }
-        else
-        {
-            StopCoroutine(WaitforInstantiateKey());
-        }
-
-
-		if(_ZoneScale.transform.localScale == new Vector3(1, 1, 1) && keyOfRoom != null)
-        {
-            Destroy(keyOfRoom);
+            if(_ZoneScale.transform.localScale == new Vector3(2,1,2) || _ZoneScale.transform.localScale == new Vector3(1.5f, 1, 1.5f))
+            {
+                StartCoroutine(WaitforInstantiateKey());
+            }
+            else
+            {
+                StopCoroutine(WaitforInstantiateKey());
+            }
         }
 
-        if(_TriggerEnd == null)
+
+        if(_ZoneScale != null)
         {
-            Destroy(_ZoneToDestroyAtEnd);
+		    if(_ZoneScale.transform.localScale == new Vector3(1, 1, 1) && keyOfRoom != null)
+            {
+                Destroy(keyOfRoom);
+            }
 
         }
+
+      
 
         //A virer
         if(keyOfRoom != null)
