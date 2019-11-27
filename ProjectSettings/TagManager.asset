@@ -12,6 +12,8 @@ TagManager:
   - Yellow
   - Trigger_Player
   - MainCube
+  - A
+  - B
   - Controller
   layers:
   - Default
