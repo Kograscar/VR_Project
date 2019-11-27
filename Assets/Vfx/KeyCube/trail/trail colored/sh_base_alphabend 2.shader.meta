@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: 2dc215b8811d05e4e965299e40882902
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures:
+  - _t_trail_cube: {fileID: 2800000, guid: 684addf76637ec741b263d2f477d6a7d, type: 3}
+  nonModifiableTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
