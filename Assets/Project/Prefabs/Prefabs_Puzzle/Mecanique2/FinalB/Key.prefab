@@ -1425,7 +1425,7 @@ MonoBehaviour:
   _rayLenght: 0.1
   _force: 3
   _shift: 10
-  _backDash: 0.01
+  _backDash: 0.02
   _detect: 0
 --- !u!114 &114544733749629398
 MonoBehaviour:
