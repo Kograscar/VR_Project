@@ -13,6 +13,11 @@ public class AddOrRemoveLoadedCube : MonoBehaviour {
 
     [SerializeField] TextMeshProUGUI _text;
 
+    bool _min;
+    bool _max;
+
+    float _delay;
+
     int _color;
 
     private void Start()
@@ -53,25 +58,35 @@ public class AddOrRemoveLoadedCube : MonoBehaviour {
 
                 break;
         }
-        
-        _slider.ValueChanged += (object sender, ControllableEventArgs e) =>
-        {
-            if (_slider.AtMaxLimit())
-            {
-                _cubeLoader._colors[_color]++;
-                _cubeLoader._actualCube++;
-            }
-            else if (_slider.AtMinLimit())
-            {
-                _cubeLoader._colors[_color]--;
-                _cubeLoader._actualCube--;
-            }
-        };
     }
 
     private void Update()
     {
         _text.text = _cubeLoader._colors[_color].ToString();
+
+        _delay += Time.deltaTime;
+
+        if (_delay > 0.5f)
+        {
+            if (_min)
+            {
+                if (0 < _cubeLoader._actualCube && _cubeLoader._colors[_color] > 0)
+                {
+                    _cubeLoader._colors[_color]--;
+                    _cubeLoader._actualCube--;
+                }
+                _delay = 0;
+            }
+            else if (_max)
+            {
+                if (_cubeLoader._maxCube > _cubeLoader._actualCube)
+                {
+                    _cubeLoader._colors[_color]++;
+                    _cubeLoader._actualCube++;
+                }
+                _delay = 0;
+            }
+        }
     }
 
     IEnumerator LateStart()
@@ -79,5 +94,40 @@ public class AddOrRemoveLoadedCube : MonoBehaviour {
         yield return new WaitForEndOfFrame();
 
         _slider.SetValue(20);
+
+        _slider.ValueChanged += (object sender, ControllableEventArgs e) =>
+        {
+            if (_slider.GetValue() > 35)
+            {
+                if (!_max)
+                {
+                    if(_cubeLoader._maxCube > _cubeLoader._actualCube)
+                    {
+                        _cubeLoader._colors[_color]++;
+                        _cubeLoader._actualCube++;
+                    }
+                    _max = true;
+                    _delay = 0;
+                }
+            }
+            else if (_slider.GetValue() < 5)
+            {
+                if (!_min)
+                {
+                    if (0 < _cubeLoader._actualCube && _cubeLoader._colors[_color] > 0)
+                    {
+                        _cubeLoader._colors[_color]--;
+                        _cubeLoader._actualCube--;
+                    }
+                    _min = true;
+                    _delay = 0;
+                }
+            }
+            else
+            {
+                _min = false;
+                _max = false;
+            }
+        };
     }
 }

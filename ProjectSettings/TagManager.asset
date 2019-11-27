@@ -12,6 +12,7 @@ TagManager:
   - Yellow
   - Trigger_Player
   - MainCube
+  - Controller
   layers:
   - Default
   - TransparentFX
