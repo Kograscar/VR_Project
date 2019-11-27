@@ -42,7 +42,7 @@ public class Ben10Bracelet : MonoBehaviour {
 
             Debug.Log(quotient);
 
-            if(quotient == 0)
+            if(quotient == 4)
             {
                 CubeInstanciater.Instance.enabled = false;
                 CubeRemover.Instance.enabled = true;
