@@ -9,7 +9,7 @@ public class CubeInstanciater : Singleton<CubeInstanciater> {
     #region fields
     public GameObject _detectedObject;
 
-    public int _totalCube:
+    public int _totalCube;
 
 
     [SerializeField] LineRenderer _lineRenderer;

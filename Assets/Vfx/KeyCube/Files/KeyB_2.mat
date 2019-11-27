@@ -101,7 +101,7 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _Face1: 0.1
-    - _Face2: 0.9
+    - _Face2: 1.8
     - _Face3: 0.8
     - _Face4: 0.7
     - _Face5: 0.2
