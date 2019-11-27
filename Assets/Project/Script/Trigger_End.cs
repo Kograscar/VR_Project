@@ -6,10 +6,11 @@ public class Trigger_End : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.name == "Trigger_End")
+        if(other.name == "Key(Clone)")
         {
+           
             Destroy(other.gameObject);
-
+            Destroy(gameObject);
         }
     }
 }
