@@ -61,13 +61,17 @@ public class Change_Scale : MonoBehaviour {
         {
             if(_EndPuzzle == false)
             {
-                Instantiate(_ZoneEnd, _OffsetOfZoneEnd.position, _OffsetOfZoneEnd.rotation);
                 Destroy(_Zonetoscale);
                 Destroy(_Puzzletoscale);
                 _VFX_Inter_6.SetActive(false);
                 _VFX_Inter_8.SetActive(false);
                 _VFX_Exter.SetActive(false);
                 _EndPuzzle = true;
+                if (_ZoneEnd != null)
+                {
+                    Instantiate(_ZoneEnd, _OffsetOfZoneEnd.position, _OffsetOfZoneEnd.rotation);
+
+                }
             }
         }
 
@@ -94,6 +98,12 @@ public class Change_Scale : MonoBehaviour {
         {
             _ScaleValue = 1;
             CubeInstanciater.Instance._canBuild = false;
+        }
+
+        if(other.name == "Key(Clone)")
+        {
+            
+            Destroy(other.gameObject);
         }
     }
 

@@ -8,7 +8,7 @@ public class Trigger_End : MonoBehaviour {
     {
         if(other.name == "Key(Clone)")
         {
-            Debug.Log("NTM");
+           
             Destroy(other.gameObject);
             Destroy(gameObject);
         }
