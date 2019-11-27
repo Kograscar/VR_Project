@@ -9000,7 +9000,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d334f44e5db0ecf4b9c76698fc86a013, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _keyToInstantiate: {fileID: 1780949956659628, guid: 2bc00b8e3d96bef4f82580bb47bdb12d,
+  _keyToInstantiate: {fileID: 1328943575672028, guid: e2e90602a2e19654ba0755b9ddc02f73,
     type: 2}
   _offset: {fileID: 4212219033041702}
   keyOfRoom: {fileID: 0}
