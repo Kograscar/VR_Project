@@ -10,13 +10,17 @@ public class Change_Scale : MonoBehaviour {
     [SerializeField] private GameObject _VFX_Inter_6 = null;
     [SerializeField] private GameObject _VFX_Inter_8 = null;
     [SerializeField] private GameObject _VFX_Exter = null;
+    [SerializeField] private GameObject _ZoneEnd;
+    [SerializeField] private GameObject _cubeParent;
+
     [SerializeField] private float _ScaleValue = 0f;
+
     [SerializeField] private bool _Upto6 = false;
     [SerializeField] private bool _Upto8 = false;
-    [SerializeField] private Collider _TriggerEnd;
     [SerializeField] private bool _EndPuzzle = false;
 
-    [SerializeField] private GameObject _ZoneEnd;
+    [SerializeField] private Collider _TriggerEnd;
+
     [SerializeField] private Transform _OffsetOfZoneEnd;
     
     private void Start()
@@ -83,14 +87,17 @@ public class Change_Scale : MonoBehaviour {
         {
         //Debug.Log("Triggertest le player");
             _ScaleValue = 2;
-            CubeInstanciater.Instance._canBuild = true;
         }
         if (other.name == "[VRTK][AUTOGEN][BodyColliderContainer]" && _Upto6 == true)
         {
             //Debug.Log("Triggertest le player");
             _ScaleValue = 1.5f;
-            CubeInstanciater.Instance._canBuild = true;
         }
+
+        CubeInstanciater.Instance._canBuild = true;
+
+        CubeInstanciater.Instance._zone = _cubeParent.transform;
+
     }
     private void OnTriggerExit(Collider other)
     {
