@@ -42,20 +42,20 @@ public class Key_Manager : MonoBehaviour {
       
 
         //A virer
-        if(keyOfRoom != null)
-        {
-            if (keyOfRoom.transform.position != _offset.position)
-            {
-                if (_coroutine2On == false)
-                {
-                    StartCoroutine(WaitforDesable());
-                }
-            }
-            else
-            {
-                StopCoroutine(WaitforDesable());
-            }
-        }
+        //if(keyOfRoom != null)
+        //{
+            //if (keyOfRoom.transform.position != _offset.position)
+            //{
+            //    if (_coroutine2On == false)
+            //    {
+            //        StartCoroutine(WaitforDesable());
+            //    }
+            //}
+            //else
+            //{
+            //    StopCoroutine(WaitforDesable());
+            //}
+        //}
 
 
 
@@ -69,12 +69,12 @@ public class Key_Manager : MonoBehaviour {
         _coroutineOn = false;
     }
 
-    private IEnumerator WaitforDesable()
-    {
-        _coroutine2On = true;
-        yield return new WaitForSeconds(10f);
-        Destroy(keyOfRoom);
-        _coroutine2On = false;
-    }
+    //private IEnumerator WaitforDesable()
+    //{
+    //    _coroutine2On = true;
+    //    yield return new WaitForSeconds(10f);
+    //    Destroy(keyOfRoom);
+    //    _coroutine2On = false;
+    //}
 
 }

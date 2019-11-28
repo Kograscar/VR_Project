@@ -5,6 +5,9 @@ using VRTK;
 
 public class Change_Scale : MonoBehaviour {
 
+    [SerializeField] private AudioSource RoomSound;
+    [SerializeField] private AudioSource ZoneSound;
+
     [SerializeField] private GameObject _Zonetoscale = null;
     [SerializeField] private GameObject _Puzzletoscale = null;
     [SerializeField] private GameObject _VFX_Inter_6 = null;
@@ -22,13 +25,18 @@ public class Change_Scale : MonoBehaviour {
     [SerializeField] private Collider _TriggerEnd;
 
     [SerializeField] private Transform _OffsetOfZoneEnd;
-    
+
+   
+
+
     private void Start()
     {
         _ScaleValue = 1;
         _VFX_Inter_6.SetActive(false);
         _VFX_Inter_8.SetActive(false);
         _VFX_Exter.SetActive(true);
+      
+
     }
 
     void Update ()
@@ -87,11 +95,13 @@ public class Change_Scale : MonoBehaviour {
         {
         //Debug.Log("Triggertest le player");
             _ScaleValue = 2;
+            SoundInZone();
         }
         if (other.name == "[VRTK][AUTOGEN][BodyColliderContainer]" && _Upto6 == true)
         {
             //Debug.Log("Triggertest le player");
             _ScaleValue = 1.5f;
+            SoundInZone();
         }
 
         CubeInstanciater.Instance._canBuild = true;
@@ -105,6 +115,8 @@ public class Change_Scale : MonoBehaviour {
         {
             _ScaleValue = 1;
             CubeInstanciater.Instance._canBuild = false;
+            SoundInRoom();
+          
         }
 
         if(other.name == "Key(Clone)")
@@ -113,5 +125,20 @@ public class Change_Scale : MonoBehaviour {
             Destroy(other.gameObject);
         }
     }
+
+    private void SoundInRoom()
+    {
+        RoomSound.Play();
+        ZoneSound.Stop();
+    }
+
+    private void SoundInZone()
+    {
+        RoomSound.Stop();
+
+        ZoneSound.Play();
+    }
+
+    
 
 }

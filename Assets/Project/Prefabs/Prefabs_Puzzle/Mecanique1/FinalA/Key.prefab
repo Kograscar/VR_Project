@@ -1460,6 +1460,7 @@ MonoBehaviour:
   _force: 3
   _shift: 10
   _backDash: 0.02
+  _rebondFX: {fileID: 1046884961728412, guid: 5e5cf896204b2894388d37b865bb7f72, type: 2}
   _detect: 0
 --- !u!114 &114604433596399404
 MonoBehaviour:
