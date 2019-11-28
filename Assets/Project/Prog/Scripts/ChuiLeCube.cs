@@ -137,7 +137,7 @@ public class ChuiLeCube : MonoBehaviour {
 
                                 _rig.velocity = new Vector3(0, 0, 0) - item.transform.forward * _force;
 
-                                Destroy(Instantiate(_rebondFX, item.transform.position, item.transform.rotation));
+                                Destroy(Instantiate(_rebondFX, item.transform.position, item.transform.rotation), 3f);
                             }
                         }
                     }

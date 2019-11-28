@@ -3,7 +3,9 @@ guid: 13ace44735f498345bbf3fb432b41bda
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - _rebondFX: {fileID: 1046884961728412, guid: 5e5cf896204b2894388d37b865bb7f72,
+      type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
