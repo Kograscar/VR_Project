@@ -31,7 +31,7 @@ public class Ben10Bracelet : MonoBehaviour {
 
         };*/
 
-        _rotator.ValueChanged += (object sender, ControllableEventArgs e) =>
+        /*_rotator.ValueChanged += (object sender, ControllableEventArgs e) =>
         {
             float a = Mathf.Atan2(_rotator.transform.up.x, _rotator.transform.up.y);
             a += Mathf.PI;
@@ -55,7 +55,7 @@ public class Ben10Bracelet : MonoBehaviour {
                 CubeInstanciater.Instance.ChangeSelectedCube(_tags[quotient]);
                 Debug.Log(_tags[quotient]);
             }
-        };
+        };*/
     }
 
     private void Update()

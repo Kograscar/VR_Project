@@ -16,8 +16,8 @@ public class ConstructionModeChanger : MonoBehaviour {
         vRTK_ArtificialPusher = GetComponent<VRTK_ArtificialPusher>();
         vRTK_ArtificialPusher.MinLimitExited += (object sender, ControllableEventArgs e) =>
         {
-            CubeInstanciater.Instance.enabled = !_construction;
-            CubeRemover.Instance.enabled = _construction;
+            CubeInstanciater.Instance.enabled = _construction;
+            CubeRemover.Instance.enabled = !_construction;
             _construction = !_construction;
         };
     }
