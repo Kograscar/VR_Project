@@ -40,10 +40,4 @@ public class CubeSensor : MonoBehaviour {
             }
         }
     }
-
-    private void LateUpdate()
-    {
-        CubeInstanciater.Instance._detectedObject = null;
-        CubeRemover.Instance._detectedObject = null;
-    }
 }

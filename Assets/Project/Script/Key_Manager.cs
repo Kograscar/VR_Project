@@ -9,39 +9,26 @@ public class Key_Manager : MonoBehaviour {
     [SerializeField] private GameObject keyOfRoom = null;
     [SerializeField] private bool _coroutineOn = false;
     [SerializeField] private bool _coroutine2On = false;
-    [SerializeField] private GameObject _ZoneScale = null;
-    [SerializeField] private Collider _TriggerEnd;
-    //[SerializeField] private GameObject _ZoneToDestroyAtEnd = null;
 
+   // Rigidbody _rigidbody;
+
+    private void Start()
+    {
+        keyOfRoom = Instantiate(_keyToInstantiate, _offset.position, _offset.rotation,_offset);
+      
+    }
 
     void Update ()
     {
-        
-        if (keyOfRoom == null  && _coroutineOn == false && _TriggerEnd != null && _ZoneScale != null)
+
+        if (keyOfRoom == null  && _coroutineOn == false)
         {
-            if(_ZoneScale.transform.localScale == new Vector3(2,1,2) || _ZoneScale.transform.localScale == new Vector3(1.5f, 1, 1.5f))
-            {
-                StartCoroutine(WaitforInstantiateKey());
-            }
-            else
-            {
-                StopCoroutine(WaitforInstantiateKey());
-            }
+            StartCoroutine(WaitforInstantiateKey());
         }
-
-
-        if(_ZoneScale != null)
+        else
         {
-		    if(_ZoneScale.transform.localScale == new Vector3(1, 1, 1) && keyOfRoom != null)
-            {
-                Destroy(keyOfRoom);
-            }
-
+            StopCoroutine(WaitforInstantiateKey());
         }
-
-      
-
-        //A virer
         if(keyOfRoom != null)
         {
             if (keyOfRoom.transform.position != _offset.position)
@@ -56,24 +43,25 @@ public class Key_Manager : MonoBehaviour {
                 StopCoroutine(WaitforDesable());
             }
         }
-
-
-
+		
 	}
     private IEnumerator WaitforInstantiateKey()
     {
         _coroutineOn = true;
         yield return new WaitForSeconds(1f);
         keyOfRoom = Instantiate(_keyToInstantiate, _offset.position, _offset.rotation, _offset);
-    
+        //keyOfRoom.transform.position = _offset.position;
+        //keyOfRoom.SetActive(true);
         _coroutineOn = false;
     }
 
     private IEnumerator WaitforDesable()
     {
         _coroutine2On = true;
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(5f);
         Destroy(keyOfRoom);
+        //keyOfRoom.SetActive(false);
+        //_rigidbody.velocity = new Vector3();
         _coroutine2On = false;
     }
 
