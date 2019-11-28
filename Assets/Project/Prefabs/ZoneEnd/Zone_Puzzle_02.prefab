@@ -396,7 +396,7 @@ GameObject:
   - component: {fileID: 65743241864458532}
   m_Layer: 8
   m_Name: PlaneCubeWhite (4)
-  m_TagString: White
+  m_TagString: Purple
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -413,7 +413,7 @@ GameObject:
   - component: {fileID: 65949864245129894}
   m_Layer: 8
   m_Name: PlaneCubeWhite (1)
-  m_TagString: White
+  m_TagString: Purple
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -565,7 +565,7 @@ GameObject:
   - component: {fileID: 65341820489986770}
   m_Layer: 8
   m_Name: PlaneCubeWhite (2)
-  m_TagString: White
+  m_TagString: Purple
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -634,7 +634,7 @@ GameObject:
   - component: {fileID: 65107699457230684}
   m_Layer: 8
   m_Name: PlaneCubeWhite (3)
-  m_TagString: White
+  m_TagString: Purple
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1988,7 +1988,7 @@ GameObject:
   - component: {fileID: 65479372604795134}
   m_Layer: 8
   m_Name: PlaneCubeWhite (5)
-  m_TagString: White
+  m_TagString: Purple
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2239,7 +2239,7 @@ GameObject:
   - component: {fileID: 65359215415173490}
   m_Layer: 8
   m_Name: PlaneCubeWhite
-  m_TagString: White
+  m_TagString: Purple
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3429,7 +3429,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1467925245560440}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.7990475, y: 0, z: 30.493673}
+  m_LocalPosition: {x: 1.3419933, y: 0, z: 29.518623}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4497462239144190}
@@ -7691,6 +7691,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12de806c9af484b4aa91528a0997b569, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RoomSound: {fileID: 82781857116611050, guid: f75839be6166c1c4f9453350a4cf855f, type: 2}
+  ZoneSound: {fileID: 82914771899648934, guid: 9840527260f46c0458681cfc7983930c, type: 2}
   _Zonetoscale: {fileID: 1226700397608700}
   _Puzzletoscale: {fileID: 1901195542744702}
   _VFX_Inter_6: {fileID: 1464849058002328}
