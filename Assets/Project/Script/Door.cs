@@ -28,7 +28,7 @@ public class Door : MonoBehaviour
 
     void Start()
     {
-        _PusherMeshRenderer = GetComponent<MeshRenderer>();
+        //_PusherMeshRenderer = GetComponent<MeshRenderer>();
         _pusher = GetComponent<VRTK_ArtificialPusher>();
         _pusher.MinLimitExited += (object sender, ControllableEventArgs e) =>
         {
@@ -72,7 +72,7 @@ public class Door : MonoBehaviour
     }
     private IEnumerator MoveDoorForOpen()
     {
-        Debug.Log("toopenone");
+        //Debug.Log("toopenone");
         if(_Door.transform.position.y < _OffsetForOpen.transform.position.y)
         {
             _PusherMeshRenderer.material = _IsInteract;
@@ -104,7 +104,7 @@ public class Door : MonoBehaviour
 
     private IEnumerator MoveDoorForClose()
     {
-        Debug.Log("tocloseone");
+        //Debug.Log("tocloseone");
         if (_Door.transform.position.y > _OffsetForClose.transform.position.y)
         {
             _PusherMeshRenderer.material = _IsInteract;
