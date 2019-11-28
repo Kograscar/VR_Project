@@ -7,11 +7,7 @@ using VRTK;
 public class CubeInstanciater : Singleton<CubeInstanciater> {
 
     #region fields
-    public Transform _zone;
-
-    public GameObject _detectedObject;
-
-    public int _totalCube;
+    [HideInInspector] public GameObject _detectedObject;
 
 
     [SerializeField] LineRenderer _lineRenderer;
@@ -34,15 +30,11 @@ public class CubeInstanciater : Singleton<CubeInstanciater> {
 
     GameObject _selectedCube;
 
-    Transform _nearCube;
-
     float _placementTimer;
 
     [SerializeField] int[] _colorCount = new int[6];
     
     int _selectedColor;
-
-    int _layerMask = 1 << 8;
 
 
     public bool _canBuild = true;
@@ -69,7 +61,7 @@ public class CubeInstanciater : Singleton<CubeInstanciater> {
             _controller = VRTK_DeviceFinder.DeviceTransform(VRTK_DeviceFinder.Devices.RightController).GetComponent<VRTK_ControllerEvents>();
             if(_controller != null)
             {
-                //_colorSelectObject.GetComponent<VRTK_TransformFollow>().gameObjectToFollow = _controller.gameObject;
+                _colorSelectObject.GetComponent<VRTK_TransformFollow>().gameObjectToFollow = _controller.gameObject;
             }
         }
         else
@@ -110,7 +102,7 @@ public class CubeInstanciater : Singleton<CubeInstanciater> {
 
         RaycastHit hit;
 
-        if(Physics.Raycast(vRTK_CE.transform.position, vRTK_CE.transform.forward, out hit, Mathf.Infinity, _layerMask))
+        if(Physics.Raycast(vRTK_CE.transform.position, vRTK_CE.transform.forward, out hit, Mathf.Infinity))
         {
             _lineRenderer.enabled = true;
             _lineRenderer.enabled = true;
@@ -126,8 +118,6 @@ public class CubeInstanciater : Singleton<CubeInstanciater> {
             {
                 _previewCube.transform.position = VirtualGrid.Instance.GetNearestPointOnGrid(hit.point + hit.collider.transform.up * (_previewCube.transform.lossyScale.x / 2) - new Vector3(0, _previewCube.transform.lossyScale.y / 2, 0));
             }
-
-            _nearCube = hit.collider.GetComponentInParent<AssignFaceColorByTag>().transform;
         }
         else
         {
@@ -145,14 +135,9 @@ public class CubeInstanciater : Singleton<CubeInstanciater> {
         {
             if (_colorCount[_selectedColor] > 0)
             {
-                if(_totalCube > 0)
-                {
-                    GameObject go = Instantiate(_selectedCube, _previewCube.transform.position, _previewCube.transform.rotation, _zone);
-                    go.transform.localScale = new Vector3(1, 1, 1);
-                    _placementTimer = 0;
-                    _colorCount[_selectedColor]--;
-                    _totalCube--;
-                }
+                Instantiate(_selectedCube, _previewCube.transform.position, _previewCube.transform.rotation);
+                _placementTimer = 0;
+                _colorCount[_selectedColor]--;
             }
         }
     }
@@ -261,7 +246,5 @@ public class CubeInstanciater : Singleton<CubeInstanciater> {
 
                 break;
         }
-
-        _totalCube++;
     }
 }

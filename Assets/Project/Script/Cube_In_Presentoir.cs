@@ -17,8 +17,6 @@ public class Cube_In_Presentoir : MonoBehaviour
     [SerializeField] private string _ZoneForUnlock;
     [SerializeField] private Collider _Levier;
 
-    [SerializeField] private int _totalCube;
-
     private void Awake()
     {
         if (_NumSceneStart != null)
@@ -33,7 +31,6 @@ public class Cube_In_Presentoir : MonoBehaviour
     {
         if (other.name == _ZoneForUnlock && _cubeInSlot == false)
         {
-            CubeInstanciater.Instance._totalCube = _totalCube;
             _cubeInSlot = true;
             Destroy(other.gameObject);
             _FauxCube.SetActive(true);
