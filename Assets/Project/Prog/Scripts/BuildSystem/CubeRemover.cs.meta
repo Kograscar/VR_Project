@@ -3,7 +3,13 @@ guid: b1cd7bf72261ccf40b9a74fb97b1cbf2
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - _detectedObject: {instanceID: 0}
+  - lineRenderer: {instanceID: 0}
+  - _previewCube: {instanceID: 0}
+  - _deleteFX: {fileID: 1595624446773620, guid: 1a3f4aadb06b1ff46a791dc9f0cfea96,
+      type: 2}
+  - _previewMaterial: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
