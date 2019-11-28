@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using VRTK;
+using TMPro;
 
 public class CubeInstanciater : Singleton<CubeInstanciater> {
 
@@ -28,6 +29,11 @@ public class CubeInstanciater : Singleton<CubeInstanciater> {
     [SerializeField] Material _previewMaterial;
 
     [SerializeField] float _placementDelay;
+
+    [SerializeField] TextMeshProUGUI _redText;
+    [SerializeField] TextMeshProUGUI _blueText;
+    [SerializeField] TextMeshProUGUI _greenText;
+    [SerializeField] TextMeshProUGUI _whiteText;
 
 
     VRTK_ControllerEvents _controller;
@@ -102,6 +108,11 @@ public class CubeInstanciater : Singleton<CubeInstanciater> {
                 }
             }
         }
+
+        _greenText.text = _colorCount[0].ToString();
+        _redText.text = _colorCount[1].ToString();
+        _blueText.text = _colorCount[3].ToString();
+        _whiteText.text = _colorCount[5].ToString();
     }
 
     private void LaserPointer(VRTK_ControllerEvents vRTK_CE)
