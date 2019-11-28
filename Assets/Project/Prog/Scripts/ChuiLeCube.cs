@@ -14,6 +14,8 @@ public class ChuiLeCube : MonoBehaviour {
     [SerializeField] float _shift;
     [Range(-1.0f, 1.0f)] [SerializeField] float _backDash;
 
+    [SerializeField] GameObject _rebondFX;
+
     Vector3 _speed;
 
     public bool _detect;
@@ -134,6 +136,8 @@ public class ChuiLeCube : MonoBehaviour {
                                 _detect = true;
 
                                 _rig.velocity = new Vector3(0, 0, 0) - item.transform.forward * _force;
+
+                                Destroy(Instantiate(_rebondFX, item.transform.position, item.transform.rotation), 3f);
                             }
                         }
                     }

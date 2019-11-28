@@ -13,6 +13,7 @@ public class CubeRemover : Singleton<CubeRemover> {
     [SerializeField] LineRenderer lineRenderer;
 
     [SerializeField] GameObject _previewCube;
+    [SerializeField] GameObject _deleteFX;
 
     [SerializeField] Material _previewMaterial;
 
@@ -112,6 +113,7 @@ public class CubeRemover : Singleton<CubeRemover> {
     {
         if(_detectedObject != null)
         {
+            Destroy(Instantiate(_deleteFX, _detectedObject.transform.position, _detectedObject.transform.rotation), 3f);
             CubeInstanciater.Instance.ReceiveCube(_detectedObject.tag);
             Destroy(_detectedObject);
             _destructionTimer = 0;
