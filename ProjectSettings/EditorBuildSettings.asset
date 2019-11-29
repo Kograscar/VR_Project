@@ -8,7 +8,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Project/Scenes/SceneJeffPourTanguy.unity
     guid: 510d5da1befa8d145a439ce908a527ce
-  - enabled: 1
+  - enabled: 0
     path: Assets/Project/Scenes/SceneJeff.unity
     guid: 7f69f45acb4251543a5857e24f0cbb66
+  - enabled: 1
+    path: Assets/Project/Scenes/SceneJeff Baked.unity
+    guid: 5a218fd8fe00d2442b97a44f0403e3e5
   m_configObjects: {}
