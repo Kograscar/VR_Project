@@ -15,6 +15,7 @@ public class Change_Scale : MonoBehaviour {
     [SerializeField] private GameObject _VFX_Exter = null;
     [SerializeField] private GameObject _ZoneEnd;
     [SerializeField] private GameObject _cubeParent;
+    [SerializeField] private GameObject _fx;
 
     [SerializeField] private float _ScaleValue = 0f;
 
@@ -25,6 +26,7 @@ public class Change_Scale : MonoBehaviour {
     [SerializeField] private Collider _TriggerEnd;
 
     [SerializeField] private Transform _OffsetOfZoneEnd;
+    [SerializeField] private Transform _OffsetVFX;
 
    
 
@@ -81,6 +83,7 @@ public class Change_Scale : MonoBehaviour {
                 _EndPuzzle = true;
                 if (_ZoneEnd != null)
                 {
+                    Destroy(Instantiate(_fx, _OffsetVFX.transform.position, _OffsetVFX.transform.rotation), 3f);
                     Instantiate(_ZoneEnd, _OffsetOfZoneEnd.position, _OffsetOfZoneEnd.rotation);
 
                 }
@@ -121,7 +124,7 @@ public class Change_Scale : MonoBehaviour {
 
         if(other.name == "Key(Clone)")
         {
-            
+
             Destroy(other.gameObject);
         }
     }

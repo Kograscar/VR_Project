@@ -12,7 +12,7 @@ public class ChangeActiveColorButton : MonoBehaviour {
         _pusher = GetComponentInChildren<VRTK_ArtificialPusher>();
         _pusher.MinLimitExited += (object sender, ControllableEventArgs e) => 
         {
-            CubeInstanciater.Instance.ChangeSelectedCube(_pusher.tag);
+          //  CubeInstanciater.Instance.ChangeSelectedCube(_pusher.tag);
             Debug.Log(_pusher.tag);
         };
 	}

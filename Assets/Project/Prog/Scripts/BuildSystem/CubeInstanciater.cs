@@ -14,6 +14,7 @@ public class CubeInstanciater : Singleton<CubeInstanciater> {
 
     public int _totalCube;
 
+     public testSelection _testSelection; 
 
     [SerializeField] LineRenderer _lineRenderer;
 
@@ -57,8 +58,10 @@ public class CubeInstanciater : Singleton<CubeInstanciater> {
     void Start()
     {
         _canBuild = true;
-        ChangeSelectedCube("Green");
+      //  ChangeSelectedCube("Green");
         _selectedColor = 0;
+
+        _testSelection.GetComponent<testSelection>();
     }
 
     private void OnEnable()
@@ -113,6 +116,43 @@ public class CubeInstanciater : Singleton<CubeInstanciater> {
         _redText.text = _colorCount[1].ToString();
         _blueText.text = _colorCount[3].ToString();
         _whiteText.text = _colorCount[5].ToString();
+
+        if(_testSelection.index != 0)
+
+        {
+            if (_testSelection.index == 1)
+        {
+            _selectedCube = _blueCubePrefab;
+            _selectedColor = 3;
+        }
+
+        if (_testSelection.index == 2)
+        {
+            _selectedCube = _redCubePrefab;
+            _selectedColor = 1;
+        }
+
+        if (_testSelection.index == 3)
+        {
+            _selectedCube = _greenCubePrefab;
+            _selectedColor = 0;
+        }
+
+        if (_testSelection.index == 4)
+        {
+            _selectedCube = _whiteCubePrefab;
+            _selectedColor = 5;
+
+        }
+
+       /* if (_testSelection.index == 5)
+        {
+            _selectedCube = _yellowCubePrefab;
+            _selectedColor = 2;
+        }*/
+
+
+        }
     }
 
     private void LaserPointer(VRTK_ControllerEvents vRTK_CE)
@@ -137,7 +177,7 @@ public class CubeInstanciater : Singleton<CubeInstanciater> {
             {
                 _previewCube.transform.position = VirtualGrid.Instance.GetNearestPointOnGrid(hit.point + hit.collider.transform.up * (_previewCube.transform.lossyScale.x / 2) - new Vector3(0, _previewCube.transform.lossyScale.y / 2, 0));
             }
-
+            Debug.Log(hit.collider.name);
             _nearCube = hit.collider.GetComponentInParent<AssignFaceColorByTag>().transform;
         }
         else
@@ -184,7 +224,7 @@ public class CubeInstanciater : Singleton<CubeInstanciater> {
         _colorCount[5] = white;
     }
 
-    public void ChangeSelectedCube(string color)
+  /*  public void ChangeSelectedCube(string color)
     {
         switch (color)
         {

@@ -1503,6 +1503,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1673443450667354
+GameObject:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4015377852592418}
+  m_Layer: 0
+  m_Name: OffsetVFX
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1674950393675418
 GameObject:
   m_ObjectHideFlags: 1
@@ -2361,6 +2376,19 @@ Transform:
   m_Father: {fileID: 4100361354834468}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!4 &4015377852592418
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1673443450667354}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.126, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4187193315041416}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4026536785968374
 Transform:
   m_ObjectHideFlags: 1
@@ -2811,6 +2839,7 @@ Transform:
   m_Children:
   - {fileID: 4709400235097930}
   - {fileID: 4841542133053040}
+  - {fileID: 4015377852592418}
   m_Father: {fileID: 4155852259761538}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3429,7 +3458,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1467925245560440}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.3419933, y: 0, z: 29.518623}
+  m_LocalPosition: {x: 5.5006714, y: 0, z: 29.435196}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4497462239144190}
@@ -7700,12 +7729,14 @@ MonoBehaviour:
   _VFX_Exter: {fileID: 1889610882995114}
   _ZoneEnd: {fileID: 1019621869607618, guid: 77405fd6eaa014e4bb470a550719a7c9, type: 2}
   _cubeParent: {fileID: 1933181951398974}
+  _fx: {fileID: 1688603375672168, guid: 37ae16c268280e44485f56d5b9351cd8, type: 2}
   _ScaleValue: 1
   _Upto6: 1
   _Upto8: 0
   _EndPuzzle: 0
   _TriggerEnd: {fileID: 65968379843523962}
   _OffsetOfZoneEnd: {fileID: 4705470194197022}
+  _OffsetVFX: {fileID: 4015377852592418}
 --- !u!114 &114329277612051830
 MonoBehaviour:
   m_ObjectHideFlags: 1

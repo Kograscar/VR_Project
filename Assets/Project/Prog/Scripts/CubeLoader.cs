@@ -20,6 +20,9 @@ public class CubeLoader : MonoBehaviour {
 
     VRTK_ArtificialPusher vrtk_ArtificialPusher;
 
+    [SerializeField] GameObject _fx;
+    [SerializeField] Transform _offsetFX;
+
 
     void Start()
     {
@@ -40,6 +43,7 @@ public class CubeLoader : MonoBehaviour {
         if (other.GetComponentInParent<VRTK_ControllerEvents>().gameObject.CompareTag("Controller"))
         {
             CubeInstanciater.Instance.LoadCube(_colors[0], _colors[1], _colors[2], _colors[3], _colors[4], _colors[5]);
+            Destroy(Instantiate(_fx, _offsetFX.transform.position, _offsetFX.transform.rotation), 3f);
         }
     }
 }
