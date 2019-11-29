@@ -23,6 +23,7 @@ public class testSelection : MonoBehaviour {
             CubeRemover.Instance.enabled = false;
             index = 1;
             Debug.Log("blue");
+            Shader.SetGlobalFloat("Color_Select", 6);
         }
 
         if (other.gameObject.tag == "AddRed")
@@ -31,6 +32,7 @@ public class testSelection : MonoBehaviour {
             CubeRemover.Instance.enabled = false;
             index = 2;
             Debug.Log("red");
+            Shader.SetGlobalFloat("Color_Select", 2);
         }
 
         if (other.gameObject.tag == "AddGreen")
@@ -39,6 +41,7 @@ public class testSelection : MonoBehaviour {
             CubeRemover.Instance.enabled = false;
             index = 3;
             Debug.Log("green");
+            Shader.SetGlobalFloat("Color_Select", 1);
         }
 
         if (other.gameObject.tag == "AddWhite")
@@ -47,6 +50,7 @@ public class testSelection : MonoBehaviour {
             CubeRemover.Instance.enabled = false;
             index = 4;
             Debug.Log("white");
+            Shader.SetGlobalFloat("Color_Select", 9);
         }
 
         if (other.gameObject.tag == "AddRemove")
@@ -55,6 +59,7 @@ public class testSelection : MonoBehaviour {
             CubeRemover.Instance.enabled = true;
             index = 5;
             Debug.Log("remove");
+            Shader.SetGlobalFloat("Color_Select", 4);
         }
     }
 }

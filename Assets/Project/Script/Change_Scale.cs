@@ -84,6 +84,7 @@ public class Change_Scale : MonoBehaviour {
                 if (_ZoneEnd != null)
                 {
                     Destroy(Instantiate(_fx, _OffsetVFX.transform.position, _OffsetVFX.transform.rotation), 3f);
+                    Shader.SetGlobalFloat("Color_Trail", 9);
                     Instantiate(_ZoneEnd, _OffsetOfZoneEnd.position, _OffsetOfZoneEnd.rotation);
 
                 }

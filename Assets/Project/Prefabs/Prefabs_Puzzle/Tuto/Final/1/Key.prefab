@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 114106113978005858}
   m_Layer: 2
   m_Name: Back
-  m_TagString: Red
+  m_TagString: Blue
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

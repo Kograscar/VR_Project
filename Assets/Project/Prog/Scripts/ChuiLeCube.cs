@@ -134,10 +134,29 @@ public class ChuiLeCube : MonoBehaviour {
                                 transform.rotation = Quaternion.Euler(v3.x, v3.y, v3.z);
 
                                 _detect = true;
-
+                                Debug.Log("hit");
                                 _rig.velocity = new Vector3(0, 0, 0) - item.transform.forward * _force;
 
                                 Destroy(Instantiate(_rebondFX, item.transform.position, item.transform.rotation), 3f);
+                                switch (item.tag)
+                                {
+                                    case "Green":
+
+                                        Shader.SetGlobalFloat("Color_Trail", 1);
+                                        break;
+
+                                    case "Red":
+                                        Shader.SetGlobalFloat("Color_Trail", 2);
+                                        break;
+
+                                    case "White":
+                                        Shader.SetGlobalFloat("Color_Trail", 9);
+                                        break;
+
+                                    case "Blue":
+                                        Shader.SetGlobalFloat("Color_Trail", 6);
+                                        break;
+                                }
                             }
                         }
                     }

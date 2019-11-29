@@ -51,22 +51,22 @@ public class TestPolakPivot : MonoBehaviour
         }
     }
 
-   /* private void OnTriggerExit(Collider other)
+    private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag == "MainCube")
         {
-            other.transform.parent = null;
+          //  other.transform.parent = null;
             Debug.Log("fini");
-            StopAllCoroutines();
+            
             StartCoroutine(BackAnim());
         }
     }
-    */
+    
 
     IEnumerator DelayPivot(Transform collider)
     {
         yield return new WaitForSeconds(0.3f);
-
+        
         AnimPivot.SetTrigger("Pivot");
         /*yield return*/ StartCoroutine(StopParent(collider.transform));
 
@@ -75,11 +75,12 @@ public class TestPolakPivot : MonoBehaviour
    IEnumerator StopParent(Transform collider)
     {
         yield return new WaitForSeconds(1);
-
+        
         collider.parent = null;
         Debug.Log("fini");
         StartCoroutine(BackAnim());
-        collider.transform.parent = null;
+       
+       
     }
 
     IEnumerator BackAnim()
@@ -88,7 +89,8 @@ public class TestPolakPivot : MonoBehaviour
         AnimPivot.SetTrigger("backAnim");
         StopAllCoroutines();
         _hasBeenUsed = false;
-         
+        StopAllCoroutines();
+
     }
     void OnDrawGizmos()
     {

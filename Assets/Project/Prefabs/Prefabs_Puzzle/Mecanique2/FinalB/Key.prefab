@@ -1422,10 +1422,10 @@ MonoBehaviour:
   - {fileID: 1879179349109926}
   - {fileID: 1281368182420124}
   _rayDuration: 0.01
-  _rayLenght: 0.1
+  _rayLenght: 0.15
   _force: 3
   _shift: 10
-  _backDash: 0.02
+  _backDash: 0.003
   _rebondFX: {fileID: 1046884961728412, guid: 5e5cf896204b2894388d37b865bb7f72, type: 2}
   _detect: 0
 --- !u!114 &114544733749629398
