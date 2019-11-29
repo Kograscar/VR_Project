@@ -16,7 +16,14 @@ public class TestPolakPivot : MonoBehaviour
 
     GameObject _go;
 
+    private bool _animationpivotOn = false;
+
+    private void Start()
+    {
+        _animationpivotOn = true;
+    }
     private void LateUpdate()
+
     {
         if (_hasBeenUsed)
         {
@@ -47,7 +54,13 @@ public class TestPolakPivot : MonoBehaviour
 
             collision.transform.parent = transform;
             collision.transform.localPosition = _position;
+
+            if(_animationpivotOn == true)
+            {
             StartCoroutine(DelayPivot(collision.transform));
+
+            }
+
         }
     }
 
@@ -57,7 +70,7 @@ public class TestPolakPivot : MonoBehaviour
         {
           //  other.transform.parent = null;
             Debug.Log("fini");
-            
+            _hasBeenUsed = false;
             StartCoroutine(BackAnim());
         }
     }
@@ -65,32 +78,44 @@ public class TestPolakPivot : MonoBehaviour
 
     IEnumerator DelayPivot(Transform collider)
     {
+       
         yield return new WaitForSeconds(0.3f);
         
         AnimPivot.SetTrigger("Pivot");
+        _animationpivotOn = false;
         /*yield return*/ StartCoroutine(StopParent(collider.transform));
-
     }
 
    IEnumerator StopParent(Transform collider)
     {
         yield return new WaitForSeconds(1);
-        
+        if(_animationpivotOn == false)
+        {
+
         collider.parent = null;
         Debug.Log("fini");
         StartCoroutine(BackAnim());
-       
-       
+        _hasBeenUsed = false;
+        }
+        else
+        {
+            yield return null;
+        }
+
     }
 
     IEnumerator BackAnim()
     {
-        yield return new WaitForSeconds(1);
-        AnimPivot.SetTrigger("backAnim");
-        StopAllCoroutines();
-        _hasBeenUsed = false;
-        StopAllCoroutines();
 
+        yield return new WaitForSeconds(0.99F);
+        if (_animationpivotOn == false)
+        {
+
+            AnimPivot.SetTrigger("backAnim");
+            StopAllCoroutines();
+            _hasBeenUsed = false;
+            _animationpivotOn = true;
+        }
     }
     void OnDrawGizmos()
     {

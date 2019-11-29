@@ -75,6 +75,7 @@ public class Change_Scale : MonoBehaviour {
         {
             if(_EndPuzzle == false)
             {
+                SoundInRoom();
                 Destroy(_Zonetoscale);
                 Destroy(_Puzzletoscale);
                 _VFX_Inter_6.SetActive(false);
@@ -117,9 +118,9 @@ public class Change_Scale : MonoBehaviour {
     {
         if (other.name == "[VRTK][AUTOGEN][BodyColliderContainer]")
         {
+            SoundInRoom();
             _ScaleValue = 1;
             CubeInstanciater.Instance._canBuild = false;
-            SoundInRoom();
           
         }
 
